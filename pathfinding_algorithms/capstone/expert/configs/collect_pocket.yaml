@@ -1,0 +1,23 @@
+# Corridor-pocket top-up collection (2026-08-03; NEEDS-TRAINING note in
+# notes/progress.md). Worlds >= 1000 from barn/make_pocket_worlds.py:
+# 2-3 C-shaped pockets per world with 0.30 m-surface-gap mouths; episodes
+# cycle each world's verified enter/exit legs (pocket_worlds.yaml), so the
+# pool is concentrated mouth-threading + stand-off approach + pocket-exit
+# reps — the maneuvers the deployed seek stack lacked (world 768 session).
+
+dataset_id: pocket_v1
+seed: 11
+
+episodes_per_world: 12          # 4-6 legs/world -> 2-3 jittered reps each
+include_pocket_worlds: true
+pocket_only: true               # sweep ONLY the pocket worlds
+
+# Episode geometry / behavior (merged over collect_episode.DEFAULTS)
+inflate_radius: 0.21
+start_jitter_xy: 0.15           # legs jitter at 0.7x this (see collect_episode)
+start_jitter_yaw: 0.15
+goal_jitter_xy: 0.30            # unused by pocket legs (goal held exact)
+subgoal_dist: 1.2
+rate_hz: 4.0
+tracker_rate_hz: 20.0
+timeout_sim_s: 120.0            # legs are 2-5 m routes

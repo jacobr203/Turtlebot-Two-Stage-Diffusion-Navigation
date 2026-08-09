@@ -1,0 +1,18 @@
+# Closed-loop receipts for the V3 POLICIES (retrained 2026-07-22 on the
+# multipath pool, 160 deg arc + corruption + segment balance): same worlds
+# and axes as run_id full_v3 (the v2 policies' confirmatory matrix) so the
+# rows are directly comparable; dwa/v2 rows are NOT rerun — compare across
+# run_ids at aggregate time. Fresh run_id keeps v2/v3 rows unmixable.
+#
+# Checkpoints resolve via env overrides (trial.py CKPTS):
+#   TWO_STAGE_CKPT=diffusion/runs/two_stage_v3/best.pt
+#   SINGLE_STAGE_CKPT=diffusion/runs/single_stage_v3/best.pt
+# Launch pinned like full_v3 (worker k: taskset -c 5k..5k+4, core 15 free).
+run_id: full_v3_policies
+models: [single_stage, two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

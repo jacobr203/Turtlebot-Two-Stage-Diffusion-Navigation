@@ -1,0 +1,644 @@
+inflate_radius: 0.21
+worlds:
+  300:
+    cylinders: 382
+    field_density: 0.269
+    optimal_len_ours: 10.176
+    split: train
+    style: dense
+    tier: dense
+  301:
+    cylinders: 391
+    field_density: 0.2798
+    optimal_len_ours: 10.654
+    split: train
+    style: dense
+    tier: dense
+  302:
+    cylinders: 408
+    field_density: 0.3
+    optimal_len_ours: 12.794
+    split: train
+    style: dense
+    tier: denser
+  303:
+    cylinders: 424
+    field_density: 0.319
+    optimal_len_ours: 10.584
+    split: train
+    style: dense
+    tier: denser
+  304:
+    cylinders: 468
+    field_density: 0.3714
+    optimal_len_ours: 10.284
+    split: train
+    style: dense
+    tier: extreme
+  305:
+    cylinders: 483
+    field_density: 0.3893
+    optimal_len_ours: 10.309
+    split: train
+    style: dense
+    tier: extreme
+  306:
+    band_density: 0.1324
+    cylinders: 308
+    optimal_len_ours: 18.509
+    seed: 42
+    split: train
+    style: winding
+    tortuosity: 1.851
+    total_turn_deg: 1322.6
+    turns_ge_25deg: 28
+  307:
+    band_density: 0.1812
+    cylinders: 364
+    optimal_len_ours: 17.353
+    seed: 42
+    split: train
+    style: winding
+    tortuosity: 1.735
+    total_turn_deg: 1041.4
+    turns_ge_25deg: 20
+  308:
+    band_density: 0.1533
+    cylinders: 332
+    optimal_len_ours: 19.204
+    seed: 42
+    split: train
+    style: winding
+    tortuosity: 1.92
+    total_turn_deg: 1050.8
+    turns_ge_25deg: 20
+  309:
+    band_density: 0.1568
+    cylinders: 336
+    optimal_len_ours: 19.158
+    seed: 42
+    split: train
+    style: winding
+    tortuosity: 1.916
+    total_turn_deg: 1321.1
+    turns_ge_25deg: 27
+  310:
+    band_density: 0.1498
+    cylinders: 328
+    optimal_len_ours: 10.782
+    seed: 42
+    split: train
+    style: scatter
+    tortuosity: 1.078
+    total_turn_deg: 202.1
+    turns_ge_25deg: 3
+  311:
+    band_density: 0.142
+    cylinders: 319
+    optimal_len_ours: 10.681
+    seed: 42
+    split: train
+    style: scatter
+    tortuosity: 1.068
+    total_turn_deg: 291.9
+    turns_ge_25deg: 6
+  312:
+    band_density: 0.1812
+    cylinders: 364
+    optimal_len_ours: 11.5
+    seed: 42
+    split: train
+    style: scatter
+    tortuosity: 1.15
+    total_turn_deg: 505.2
+    turns_ge_25deg: 5
+  313:
+    band_density: 0.189
+    cylinders: 373
+    optimal_len_ours: 10.77
+    seed: 42
+    split: train
+    style: scatter
+    tortuosity: 1.077
+    total_turn_deg: 267.9
+    turns_ge_25deg: 6
+  314:
+    band_density: 0.1463
+    cylinders: 324
+    optimal_len_ours: 19.701
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.97
+    total_turn_deg: 1586.3
+    turns_ge_25deg: 35
+  315:
+    band_density: 0.1986
+    cylinders: 384
+    optimal_len_ours: 18.004
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.8
+    total_turn_deg: 964.7
+    turns_ge_25deg: 19
+  316:
+    band_density: 0.1385
+    cylinders: 315
+    optimal_len_ours: 19.445
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.945
+    total_turn_deg: 1141.7
+    turns_ge_25deg: 22
+  317:
+    band_density: 0.162
+    cylinders: 342
+    optimal_len_ours: 16.321
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.632
+    total_turn_deg: 1151.6
+    turns_ge_25deg: 18
+  318:
+    band_density: 0.1315
+    cylinders: 307
+    optimal_len_ours: 19.917
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.992
+    total_turn_deg: 965.7
+    turns_ge_25deg: 18
+  319:
+    band_density: 0.1646
+    cylinders: 345
+    optimal_len_ours: 16.626
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.663
+    total_turn_deg: 1104.7
+    turns_ge_25deg: 21
+  320:
+    band_density: 0.1629
+    cylinders: 343
+    optimal_len_ours: 14.647
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.465
+    total_turn_deg: 986.9
+    turns_ge_25deg: 17
+  321:
+    band_density: 0.1603
+    cylinders: 340
+    optimal_len_ours: 17.315
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.731
+    total_turn_deg: 1134.4
+    turns_ge_25deg: 23
+  322:
+    band_density: 0.1368
+    cylinders: 313
+    optimal_len_ours: 19.382
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.938
+    total_turn_deg: 1205.5
+    turns_ge_25deg: 22
+  323:
+    band_density: 0.1524
+    cylinders: 331
+    optimal_len_ours: 18.098
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.81
+    total_turn_deg: 963.3
+    turns_ge_25deg: 19
+  324:
+    band_density: 0.1768
+    cylinders: 359
+    optimal_len_ours: 17.14
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.714
+    total_turn_deg: 901.7
+    turns_ge_25deg: 17
+  325:
+    band_density: 0.1664
+    cylinders: 347
+    optimal_len_ours: 17.912
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.791
+    total_turn_deg: 1174.0
+    turns_ge_25deg: 21
+  326:
+    band_density: 0.176
+    cylinders: 358
+    optimal_len_ours: 20.092
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 2.009
+    total_turn_deg: 1125.2
+    turns_ge_25deg: 24
+  327:
+    band_density: 0.1777
+    cylinders: 360
+    optimal_len_ours: 19.181
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.918
+    total_turn_deg: 1144.6
+    turns_ge_25deg: 24
+  328:
+    band_density: 0.1594
+    cylinders: 339
+    optimal_len_ours: 18.892
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.889
+    total_turn_deg: 1136.6
+    turns_ge_25deg: 19
+  329:
+    band_density: 0.1455
+    cylinders: 323
+    optimal_len_ours: 20.109
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 2.011
+    total_turn_deg: 1683.2
+    turns_ge_25deg: 36
+  330:
+    band_density: 0.1716
+    cylinders: 353
+    optimal_len_ours: 19.93
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.993
+    total_turn_deg: 1215.9
+    turns_ge_25deg: 21
+  331:
+    band_density: 0.1777
+    cylinders: 360
+    optimal_len_ours: 20.625
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 2.063
+    total_turn_deg: 1231.9
+    turns_ge_25deg: 24
+  332:
+    band_density: 0.1533
+    cylinders: 332
+    optimal_len_ours: 17.074
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.707
+    total_turn_deg: 1059.1
+    turns_ge_25deg: 17
+  333:
+    band_density: 0.1437
+    cylinders: 321
+    optimal_len_ours: 17.318
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.732
+    total_turn_deg: 867.6
+    turns_ge_25deg: 15
+  334:
+    band_density: 0.1394
+    cylinders: 316
+    optimal_len_ours: 14.985
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.499
+    total_turn_deg: 960.5
+    turns_ge_25deg: 15
+  335:
+    band_density: 0.1716
+    cylinders: 353
+    optimal_len_ours: 18.012
+    seed: 20260711
+    split: train
+    style: winding
+    tortuosity: 1.801
+    total_turn_deg: 1149.8
+    turns_ge_25deg: 22
+  336:
+    band_density: 0.1333
+    cylinders: 309
+    optimal_len_ours: 15.839
+    seed: 20260711
+    split: holdout
+    style: winding
+    tortuosity: 1.584
+    total_turn_deg: 871.0
+    turns_ge_25deg: 16
+  337:
+    band_density: 0.1768
+    cylinders: 359
+    optimal_len_ours: 19.947
+    seed: 20260711
+    split: holdout
+    style: winding
+    tortuosity: 1.995
+    total_turn_deg: 1228.9
+    turns_ge_25deg: 25
+  338:
+    band_density: 0.1455
+    cylinders: 323
+    optimal_len_ours: 19.351
+    seed: 20260711
+    split: holdout
+    style: winding
+    tortuosity: 1.935
+    total_turn_deg: 1215.9
+    turns_ge_25deg: 27
+  339:
+    band_density: 0.1542
+    cylinders: 333
+    optimal_len_ours: 16.912
+    seed: 20260711
+    split: holdout
+    style: winding
+    tortuosity: 1.691
+    total_turn_deg: 1131.8
+    turns_ge_25deg: 19
+  340:
+    band_density: 0.1768
+    cylinders: 359
+    optimal_len_ours: 11.324
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.132
+    total_turn_deg: 200.8
+    turns_ge_25deg: 3
+  341:
+    band_density: 0.1324
+    cylinders: 308
+    optimal_len_ours: 10.553
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.055
+    total_turn_deg: 306.4
+    turns_ge_25deg: 5
+  342:
+    band_density: 0.1733
+    cylinders: 355
+    optimal_len_ours: 11.2
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.12
+    total_turn_deg: 417.4
+    turns_ge_25deg: 5
+  343:
+    band_density: 0.1794
+    cylinders: 362
+    optimal_len_ours: 11.701
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.17
+    total_turn_deg: 370.8
+    turns_ge_25deg: 7
+  344:
+    band_density: 0.176
+    cylinders: 358
+    optimal_len_ours: 10.963
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.096
+    total_turn_deg: 440.1
+    turns_ge_25deg: 5
+  345:
+    band_density: 0.196
+    cylinders: 381
+    optimal_len_ours: 10.932
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.093
+    total_turn_deg: 493.8
+    turns_ge_25deg: 9
+  346:
+    band_density: 0.1507
+    cylinders: 329
+    optimal_len_ours: 10.772
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.077
+    total_turn_deg: 273.6
+    turns_ge_25deg: 3
+  347:
+    band_density: 0.1481
+    cylinders: 326
+    optimal_len_ours: 10.99
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.099
+    total_turn_deg: 410.1
+    turns_ge_25deg: 6
+  348:
+    band_density: 0.1376
+    cylinders: 314
+    optimal_len_ours: 10.793
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.079
+    total_turn_deg: 346.1
+    turns_ge_25deg: 6
+  349:
+    band_density: 0.1298
+    cylinders: 305
+    optimal_len_ours: 10.771
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.077
+    total_turn_deg: 328.3
+    turns_ge_25deg: 4
+  350:
+    band_density: 0.1655
+    cylinders: 346
+    optimal_len_ours: 11.392
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.139
+    total_turn_deg: 212.9
+    turns_ge_25deg: 4
+  351:
+    band_density: 0.1246
+    cylinders: 299
+    optimal_len_ours: 10.868
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.087
+    total_turn_deg: 500.8
+    turns_ge_25deg: 5
+  352:
+    band_density: 0.1263
+    cylinders: 301
+    optimal_len_ours: 10.841
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.084
+    total_turn_deg: 192.8
+    turns_ge_25deg: 3
+  353:
+    band_density: 0.1716
+    cylinders: 353
+    optimal_len_ours: 11.9
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.19
+    total_turn_deg: 558.7
+    turns_ge_25deg: 10
+  354:
+    band_density: 0.135
+    cylinders: 311
+    optimal_len_ours: 11.028
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.103
+    total_turn_deg: 372.6
+    turns_ge_25deg: 6
+  355:
+    band_density: 0.196
+    cylinders: 381
+    optimal_len_ours: 10.881
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.088
+    total_turn_deg: 356.3
+    turns_ge_25deg: 5
+  356:
+    band_density: 0.1638
+    cylinders: 344
+    optimal_len_ours: 10.767
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.077
+    total_turn_deg: 192.6
+    turns_ge_25deg: 3
+  357:
+    band_density: 0.1437
+    cylinders: 321
+    optimal_len_ours: 10.537
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.054
+    total_turn_deg: 425.8
+    turns_ge_25deg: 7
+  358:
+    band_density: 0.1585
+    cylinders: 338
+    optimal_len_ours: 10.892
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.089
+    total_turn_deg: 445.2
+    turns_ge_25deg: 6
+  359:
+    band_density: 0.169
+    cylinders: 350
+    optimal_len_ours: 11.502
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.15
+    total_turn_deg: 610.4
+    turns_ge_25deg: 7
+  360:
+    band_density: 0.1873
+    cylinders: 371
+    optimal_len_ours: 10.701
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.07
+    total_turn_deg: 303.5
+    turns_ge_25deg: 3
+  361:
+    band_density: 0.1542
+    cylinders: 333
+    optimal_len_ours: 10.83
+    seed: 20260712
+    split: train
+    style: scatter
+    tortuosity: 1.083
+    total_turn_deg: 482.6
+    turns_ge_25deg: 10
+  362:
+    band_density: 0.1368
+    cylinders: 313
+    optimal_len_ours: 10.986
+    seed: 20260712
+    split: holdout
+    style: scatter
+    tortuosity: 1.099
+    total_turn_deg: 393.2
+    turns_ge_25deg: 7
+  363:
+    band_density: 0.1611
+    cylinders: 341
+    optimal_len_ours: 11.116
+    seed: 20260712
+    split: holdout
+    style: scatter
+    tortuosity: 1.112
+    total_turn_deg: 275.5
+    turns_ge_25deg: 4
+  364:
+    band_density: 0.1437
+    cylinders: 321
+    optimal_len_ours: 10.696
+    seed: 20260712
+    split: holdout
+    style: scatter
+    tortuosity: 1.07
+    total_turn_deg: 172.8
+    turns_ge_25deg: 2
+  365:
+    band_density: 0.1315
+    cylinders: 307
+    optimal_len_ours: 10.894
+    seed: 20260712
+    split: holdout
+    style: scatter
+    tortuosity: 1.089
+    total_turn_deg: 432.6
+    turns_ge_25deg: 4

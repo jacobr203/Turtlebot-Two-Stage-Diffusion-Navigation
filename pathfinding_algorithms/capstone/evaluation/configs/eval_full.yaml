@@ -1,0 +1,10 @@
+# The full proposal matrix: 3 models x 40 holdout worlds x {2,3,4} Hz x 4
+# trials = 1,440 trials. Multi-overnight at RTF 1; resumable; shard across
+# workers with --shard k/n --worker k (isolated ROS domain + Gazebo port).
+run_id: full_v1
+models: [dwa, single_stage, two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0

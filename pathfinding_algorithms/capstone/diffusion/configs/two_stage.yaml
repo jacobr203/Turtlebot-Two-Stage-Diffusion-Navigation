@@ -1,0 +1,29 @@
+# Two-stage variant v2: conditioned on the SUBGOAL (1.2 m along the live A*
+# path toward the goal) AND the final GOAL explicitly (9 vec features) — the
+# sampled waypoints are tied to the known target goal and the current
+# observations (scan stack + velocities), decisions.md #27.
+#
+# Trained on dataset v2: centered wide-preferring expert routes, 312-world
+# train pool (260 standard + 6 dense + 26 winding + 26 scatter).
+run_name: two_stage_v2
+data_dir: /home/turtlebot/pathfinding_algorithms/capstone/expert/data/v2
+conditioning: subgoal_goal
+
+horizon: 8            # predicted waypoints (0.25 s spacing -> 2 s reach)
+obs_stack: 2
+goal_clip: 3.0        # [m] distance feature saturation
+T: 35                 # DDPM denoising steps (proposal value)
+
+channels: [64, 128, 256]
+batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+ema_decay: 0.999
+epochs: 60
+eval_every: 5
+val_episode: 3        # episode 3 of every world held out for offline metrics
+
+seed: 7
+device: cpu
+threads: 12
+num_workers: 4

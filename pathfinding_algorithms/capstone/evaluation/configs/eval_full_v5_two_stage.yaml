@@ -1,0 +1,27 @@
+# Full closed-loop matrix for two_stage_v5 (combined pool + corridor-pocket
+# top-up). Same worlds, rates and trial count as full_v3 / full_v3_policies /
+# full_v4_policies, so the v5 row compares to the earlier generations
+# row-for-row. Earlier rows are not rerun.
+#
+# Checkpoint via env override (trial.py CKPTS):
+#   TWO_STAGE_CKPT=diffusion/runs/two_stage_v5/best.pt
+#
+# There is no single_stage_v5 counterpart, so the same-generation ablation
+# on the poster stays v4-vs-v4; this run reports two-stage generation
+# progress only.
+#
+# 1 model x 40 holdout worlds x 3 rates x 4 trials = 480 trials.
+#
+# Sharding: keep total workers x threads under the core count. The v5
+# regression run logged 347 ms mean sampling latency against a 250 ms tick
+# budget purely through core contention (standalone benchmark on an idle
+# machine: 45 ms, faster than v4's 51 ms). Over-sharding measures a
+# handicapped policy, so cap at 3 workers x 4 threads on 16 cores.
+run_id: full_v5_two_stage
+models: [two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

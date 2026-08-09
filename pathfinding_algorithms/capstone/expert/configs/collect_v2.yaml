@@ -1,0 +1,39 @@
+# Expert-data collection v2 (see collect_dataset.py / collect_episode.py)
+#
+# Differences from v1 (see notes/decisions.md #27):
+#   - expert routes use the v2 convention (common.grid.plan_route): wide
+#     corridor (0.24 m inflate) preferred with 0.21 m fallback, and paths are
+#     clearance-CENTERED instead of taut string-pulled — matching the route
+#     family that cleared the winding/scatter worlds with nav2 (#24c/#25)
+#   - the train pool adds the stress worlds' train splits from
+#     dense_worlds.yaml: 6 dense + 26 winding + 26 scatter on top of the 260
+#     standard BARN train worlds (holdouts: 40 standard, 336-339 winding,
+#     362-365 scatter)
+#
+# inflate_radius remains the FALLBACK feasibility gate (0.21 m); plan_route
+# tries WIDE_INFLATE_RADIUS (0.24) first.
+
+dataset_id: v2
+seed: 7
+
+# Episodes 0-3: clean expert runs (episode 3 = offline validation split).
+# Episodes 4-5: NOISE-INJECTED (DART-style, decisions #27a) — the tracker
+# veers off the path in short random bursts and pure pursuit demonstrates
+# the recovery. The centered v2 expert otherwise never passes closer than
+# ~0.3 m to obstacles, leaving the policy with no near-obstacle supervision
+# (v2.0 collided closed-loop on exactly those drift states).
+episodes_per_world: 6
+perturb_from_episode: 4
+perturb_every: 2.5          # mean seconds between veer bursts
+perturb_dur: 0.45           # burst length [s]
+perturb_w: 1.2              # max |yaw bias| [rad/s]
+perturb_min_clear: 0.35     # no bursts with obstacles this close ahead [m]
+
+inflate_radius: 0.21        # fallback A* clearance from cylinder centers [m]
+start_jitter_xy: 0.15       # uniform +- [m] around (-2.25, 3.0)
+start_jitter_yaw: 0.15      # uniform +- [rad] around 1.5708
+goal_jitter_xy: 0.30        # uniform +- [m] around (-2.25, 13.0)
+subgoal_dist: 1.2           # two-stage conditioning label lookahead [m]
+rate_hz: 4.0                # recorder sampling rate (sim time)
+tracker_rate_hz: 20.0       # pure-pursuit control rate (sim time)
+timeout_sim_s: 240.0

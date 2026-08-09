@@ -1,0 +1,102 @@
+dwa_node:
+  ros__parameters:
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TurtleBot3 Burger kinematic limits
+    #
+    # Primary source: ROBOTIS TurtleBot3 e-Manual "Specifications" table
+    #   https://emanual.robotis.com/docs/en/platform/turtlebot3/features/
+    #
+    # Cross-reference: turtlebot3_navigation2/param/humble/burger.yaml
+    #   (in this repo: ~/turtlebot3_ws/src/turtlebot3/turtlebot3_navigation2/
+    #    param/humble/burger.yaml) — the DWB controller block starting at
+    #   "FollowPath:" uses the same values for its local planner.
+    #
+    # Wheel geometry (turtlebot3_node/param/burger.yaml, "wheels:" block):
+    #   separation: 0.160 m   radius: 0.033 m
+    #   Motor: DYNAMIXEL XL430-W250
+    # ══════════════════════════════════════════════════════════════════════════
+
+    # Maximum forward speed.
+    # Source: e-Manual spec "Maximum translational velocity: 0.22 m/s"
+    # Confirmed in burger.yaml DWB block → max_vel_x: 0.22
+    max_speed: 0.22       # m/s
+
+    # Small reverse allowed for tight recovery manoeuvres.
+    # Nav2 DWB sets min_vel_x: 0.0 (no reverse). We allow a little here
+    # to give the DWA more options when trapped. Keep small to avoid
+    # confusing Cartographer's scan-matcher.
+    min_speed: -0.05      # m/s
+
+    # Maximum angular (yaw) rate.
+    # Source: e-Manual spec "Maximum rotational velocity: 2.84 rad/s"
+    # Note: Nav2 DWB burger.yaml caps max_vel_theta at 1.0 rad/s as a
+    # software safety limit; 2.84 is the physical hardware ceiling derived
+    # from the XL430 wheel speed and wheel separation (0.44 m/s / 0.16 m).
+    max_yaw_rate: 2.84    # rad/s
+
+    # Maximum linear acceleration.
+    # Source: burger.yaml DWB block → acc_lim_x: 2.5  (decel_lim_x: -2.5)
+    max_accel: 2.5        # m/s²
+
+    # Maximum angular acceleration.
+    # Source: burger.yaml DWB block → acc_lim_theta: 3.2  (decel_lim_theta: -3.2)
+    # Historical note: the ROS 1 dwa_local_planner for Burger used
+    # acc_lim_theta: 17.4524225 rad/s² (derived from raw XL430 torque specs).
+    # The ROS 2 / nav2 team reduced this to 3.2 for smoother, safer motion;
+    # we follow the nav2 convention here.
+    max_delta_yaw_rate: 3.2   # rad/s²
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Sampling resolution — finer grids find better trajectories but cost CPU.
+    # These match the granularity used in Nav2 DWB:
+    #   linear_granularity:  0.05 m/s  (we use 0.01 for smoother output)
+    #   angular_granularity: 0.025 rad/s (we use 0.1; increase if CPU is tight)
+    # Source: burger.yaml DWB block → linear_granularity / angular_granularity
+    # ──────────────────────────────────────────────────────────────────────────
+    v_resolution:        0.01   # m/s
+    yaw_rate_resolution: 0.10   # rad/s
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Prediction horizon
+    # Nav2 DWB burger.yaml uses sim_time: 1.5 s.
+    # We use 2.0 s to give DWA more lookahead for slower obstacle detection.
+    # dt must be ≤ the control loop period (timer fires at dt seconds).
+    # ──────────────────────────────────────────────────────────────────────────
+    dt:           0.10    # s per simulation step
+    predict_time: 1.50    # s total lookahead
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Collision safety
+    #
+    # robot_radius base value:
+    #   Nav2 costmap in burger.yaml sets robot_radius: 0.1 m (actual body radius).
+    #   The Burger chassis is roughly circular, ~0.138 m diameter → 0.069 m radius.
+    #   URDF (turtlebot3_burger.urdf) shows the caster at 0.055 m radius.
+    #   Nav2 uses 0.1 m as the footprint radius (adds a small buffer already).
+    #
+    # We use 0.15 m (robot_radius) + 0.05 m (obstacle_margin) = 0.20 m total
+    # clearance to keep a safe gap between the scan hits and the robot body,
+    # accounting for LiDAR noise and odometry drift during SLAM.
+    # ──────────────────────────────────────────────────────────────────────────
+    robot_radius:    0.15   # m  — matches Nav2 costmap robot_radius (0.1) + buffer
+    obstacle_margin: 0.05   # m  — extra clearance on top of robot_radius
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Cost weights — balance between goal-seeking, safety, and speed.
+    # Inspired by the original DWA paper (Fox et al. 1997) weighting scheme:
+    #   G(v,ω) = σ( α·heading + β·dist + γ·vel )
+    # w_clearance is highest so safety is never traded away for speed.
+    # ──────────────────────────────────────────────────────────────────────────
+    w_heading:   0.20
+    w_clearance: 1.00
+    w_speed:     0.50
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Goal / wander settings
+    # goal_tolerance matches Nav2 DWB xy_goal_tolerance: 0.25 m (outer checker).
+    # wander_lookahead: virtual goal distance when no explicit goal is set;
+    #   robot treats a point 2 m ahead as the target, producing exploration motion.
+    # ──────────────────────────────────────────────────────────────────────────
+    goal_tolerance:   0.25   # m  (Nav2 general_goal_checker → xy_goal_tolerance: 0.25)
+    wander_lookahead: 2.00   # m

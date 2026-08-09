@@ -1,0 +1,32 @@
+# Two-stage variant v3 (notes/diffusion_v3_plan.md): trained on dataset v3
+# (358-world pool incl. 40 fork worlds, 12 episodes/world with multi-start
+# short routes) with the four v3 treatments: 1.5 m motion-class-balanced
+# segments, 160-deg forward-arc scans (replicate padding — no wrap),
+# 7.5% scan corruption, fork-world multimodality.
+run_name: two_stage_v3
+data_dir: /home/turtlebot/pathfinding_algorithms/capstone/expert/data/v3
+conditioning: subgoal_goal
+
+horizon: 8
+obs_stack: 2
+goal_clip: 3.0
+T: 35
+
+scan_arc_deg: 160
+corrupt_frac: 0.075
+segment_balance: true
+seg_len_m: 1.5
+
+channels: [64, 128, 256]
+batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+ema_decay: 0.999
+epochs: 60
+eval_every: 5
+val_episode: 3
+
+seed: 7
+device: cpu
+threads: 12
+num_workers: 4

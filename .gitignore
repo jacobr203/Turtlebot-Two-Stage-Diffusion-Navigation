@@ -1,0 +1,118 @@
+# ── Large ROS2 workspaces (not source code) ───────────────────────────────────
+colcon_ws/
+turtlebot3_ws/
+ros2_test/
+
+# ── Nested git repos (tracked independently) ──────────────────────────────────
+ORB_SLAM3/
+project_/
+
+# ── colcon build artifacts ────────────────────────────────────────────────────
+build/
+install/
+log/
+pathfinding_algorithms/build/
+pathfinding_algorithms/install/
+pathfinding_algorithms/log/
+
+# ── Backups ───────────────────────────────────────────────────────────────────
+backups/
+
+# ── Legacy manual convenience scripts (superseded by run.sh / tbot alias) ─────
+scripts/
+
+# ── ROS2 runtime logs ─────────────────────────────────────────────────────────
+.ros/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+*.pyc
+__pycache__/
+
+# ── Large ORB-SLAM3 vocabulary binary ─────────────────────────────────────────
+ros2_orb_slam3/orb_slam3/Vocabulary/ORBvoc.txt.bin
+
+# ── Map binaries (track YAML metadata only) ───────────────────────────────────
+# Exception: my_map.pgm is a MEASURED map (real April sensor data, not
+# regenerable) and maps_test is its only copy — it must be tracked.
+*.pgm
+!maps_test/my_map.pgm
+
+# ── Editor / OS ───────────────────────────────────────────────────────────────
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# ── Sensitive / home dotfiles (home dir is the repo root — NEVER commit these) ─
+.ssh/
+.gitconfig
+.claude.json*
+.claude/
+.config/
+.cache/
+.npm/
+.local/
+.dotnet/
+.copilot/
+.landscape/
+.vscode-server/
+.gazebo/
+.sdformat/
+.rviz2/
+.bash_history
+.bash_logout
+.cmake/
+.sudo_as_admin_successful
+.motd_shown
+.lesshst
+.lesshsQ
+
+# ── Per-run occupancy maps (session artifacts; README is tracked) ─────────────
+pathfinding_algorithms/maps/**/*.pgm
+pathfinding_algorithms/maps/**/*.yaml
+
+# ── Capstone: regenerable/bulky artifacts (scripts + SHA256SUMS are tracked;
+#    barn/grids/ and barn/metadata.yaml ARE committed — small, needed at runtime)
+pathfinding_algorithms/capstone/.venv/
+pathfinding_algorithms/capstone/barn/raw/
+pathfinding_algorithms/capstone/barn/worlds/
+pathfinding_algorithms/capstone/barn/worlds_fast/
+# color-test variants: regenerable from place_color_targets.py (seeded);
+# targets/ yamls are the placement ground truth — same regen, so ignored too
+pathfinding_algorithms/capstone/barn/worlds_color/
+pathfinding_algorithms/capstone/barn/targets/
+pathfinding_algorithms/capstone/expert/data/
+pathfinding_algorithms/capstone/results/*
+!pathfinding_algorithms/capstone/results/summary/
+pathfinding_algorithms/capstone/**/runs/
+pathfinding_algorithms/capstone/barn/maps/
+
+# ── Robot connection details: IPs, usernames, passwords ──────────────────────
+# Never commit an address or a credential. run.sh sources robot.env; the
+# committed robot.env.example shows the shape without the values.
+robot.env
+**/robot.env
+*.env
+!*.env.example
+.netrc
+**/.netrc
+*credentials*
+*secrets*
+id_rsa
+id_ed25519
+*.pem
+*.ppk
+known_hosts
+
+# Assistant instruction file — local working notes, not part of the project
+CLAUDE.md
+**/CLAUDE.md
+
+# Personal reference material — bug logs and working notes
+bug_logs/
+notes/
+**/notes/
+
+# Poster sources and output
+pathfinding_algorithms/capstone/poster/
+**/poster/

@@ -1,0 +1,12 @@
+# Development smoke: every model once on 3 holdout worlds at 4 Hz.
+#
+# smoke_v1 ran 2026-07-08 in 7 min: two_stage 3/3 success, single_stage
+# 1/3, dwa 1/3; path efficiency of successes 1.00-1.03 (n=3 — direction
+# only, no statistical weight).
+run_id: smoke_v1
+models: [dwa, single_stage, two_stage]
+worlds: [18, 22, 51]
+hz_list: [4.0]
+trials: 1
+denoiser: ddpm
+timeout_sim_s: 240.0

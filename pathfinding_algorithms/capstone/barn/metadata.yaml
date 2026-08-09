@@ -1,0 +1,2760 @@
+source: Daffan/the-barn-challenge @ bf5a226f6088ec96bf0d2dbee3253a8ea6119b83 (MIT)
+constants:
+  cell: 0.15
+  cylinder_radius: 0.075
+  arena_origin:
+  - -4.425
+  - 0.075
+  start_pose:
+  - -2.25
+  - 3.0
+  - 1.5708
+  goal:
+  - -2.25
+  - 13.0
+  success_radius: 1.0
+  inflate_radius: 0.21
+  split_seed: 42
+holdout:
+- 18
+- 22
+- 23
+- 25
+- 26
+- 35
+- 51
+- 54
+- 66
+- 82
+- 104
+- 114
+- 115
+- 126
+- 128
+- 131
+- 140
+- 142
+- 157
+- 163
+- 172
+- 184
+- 186
+- 189
+- 197
+- 200
+- 202
+- 208
+- 216
+- 222
+- 228
+- 234
+- 236
+- 246
+- 254
+- 261
+- 263
+- 265
+- 276
+- 286
+unplannable: []
+worlds:
+  0:
+    world: worlds/world_000.world
+    world_fast: worlds_fast/world_000.world
+    grid: grids/grid_000.npy
+    n_cylinders: 209
+    optimal_len_barn: 13.592
+    split: train
+    optimal_len_ours: 10.088
+    min_clearance: 0.225
+  1:
+    world: worlds/world_001.world
+    world_fast: worlds_fast/world_001.world
+    grid: grids/grid_001.npy
+    n_cylinders: 237
+    optimal_len_barn: 12.431
+    split: train
+    optimal_len_ours: 10.063
+    min_clearance: 0.225
+  2:
+    world: worlds/world_002.world
+    world_fast: worlds_fast/world_002.world
+    grid: grids/grid_002.npy
+    n_cylinders: 234
+    optimal_len_barn: 12.632
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  3:
+    world: worlds/world_003.world
+    world_fast: worlds_fast/world_003.world
+    grid: grids/grid_003.npy
+    n_cylinders: 200
+    optimal_len_barn: 11.951
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  4:
+    world: worlds/world_004.world
+    world_fast: worlds_fast/world_004.world
+    grid: grids/grid_004.npy
+    n_cylinders: 230
+    optimal_len_barn: 11.929
+    split: train
+    optimal_len_ours: 10.05
+    min_clearance: 0.225
+  5:
+    world: worlds/world_005.world
+    world_fast: worlds_fast/world_005.world
+    grid: grids/grid_005.npy
+    n_cylinders: 187
+    optimal_len_barn: 11.86
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.525
+  6:
+    world: worlds/world_006.world
+    world_fast: worlds_fast/world_006.world
+    grid: grids/grid_006.npy
+    n_cylinders: 201
+    optimal_len_barn: 12.501
+    split: train
+    optimal_len_ours: 10.062
+    min_clearance: 0.225
+  7:
+    world: worlds/world_007.world
+    world_fast: worlds_fast/world_007.world
+    grid: grids/grid_007.npy
+    n_cylinders: 207
+    optimal_len_barn: 12.453
+    split: train
+    optimal_len_ours: 10.017
+    min_clearance: 0.225
+  8:
+    world: worlds/world_008.world
+    world_fast: worlds_fast/world_008.world
+    grid: grids/grid_008.npy
+    n_cylinders: 194
+    optimal_len_barn: 11.242
+    split: train
+    optimal_len_ours: 10.018
+    min_clearance: 0.225
+  9:
+    world: worlds/world_009.world
+    world_fast: worlds_fast/world_009.world
+    grid: grids/grid_009.npy
+    n_cylinders: 206
+    optimal_len_barn: 11.602
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  10:
+    world: worlds/world_010.world
+    world_fast: worlds_fast/world_010.world
+    grid: grids/grid_010.npy
+    n_cylinders: 318
+    optimal_len_barn: 11.116
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  11:
+    world: worlds/world_011.world
+    world_fast: worlds_fast/world_011.world
+    grid: grids/grid_011.npy
+    n_cylinders: 204
+    optimal_len_barn: 11.722
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  12:
+    world: worlds/world_012.world
+    world_fast: worlds_fast/world_012.world
+    grid: grids/grid_012.npy
+    n_cylinders: 239
+    optimal_len_barn: 11.736
+    split: train
+    optimal_len_ours: 10.127
+    min_clearance: 0.225
+  13:
+    world: worlds/world_013.world
+    world_fast: worlds_fast/world_013.world
+    grid: grids/grid_013.npy
+    n_cylinders: 281
+    optimal_len_barn: 12.777
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  14:
+    world: worlds/world_014.world
+    world_fast: worlds_fast/world_014.world
+    grid: grids/grid_014.npy
+    n_cylinders: 207
+    optimal_len_barn: 12.079
+    split: train
+    optimal_len_ours: 10.021
+    min_clearance: 0.225
+  15:
+    world: worlds/world_015.world
+    world_fast: worlds_fast/world_015.world
+    grid: grids/grid_015.npy
+    n_cylinders: 197
+    optimal_len_barn: 11.543
+    split: train
+    optimal_len_ours: 10.009
+    min_clearance: 0.225
+  16:
+    world: worlds/world_016.world
+    world_fast: worlds_fast/world_016.world
+    grid: grids/grid_016.npy
+    n_cylinders: 297
+    optimal_len_barn: 11.827
+    split: train
+    optimal_len_ours: 10.297
+    min_clearance: 0.225
+  17:
+    world: worlds/world_017.world
+    world_fast: worlds_fast/world_017.world
+    grid: grids/grid_017.npy
+    n_cylinders: 190
+    optimal_len_barn: 11.081
+    split: train
+    optimal_len_ours: 10.084
+    min_clearance: 0.225
+  18:
+    world: worlds/world_018.world
+    world_fast: worlds_fast/world_018.world
+    grid: grids/grid_018.npy
+    n_cylinders: 184
+    optimal_len_barn: 11.599
+    split: holdout
+    optimal_len_ours: 10.018
+    min_clearance: 0.225
+  19:
+    world: worlds/world_019.world
+    world_fast: worlds_fast/world_019.world
+    grid: grids/grid_019.npy
+    n_cylinders: 240
+    optimal_len_barn: 12.912
+    split: train
+    optimal_len_ours: 10.136
+    min_clearance: 0.225
+  20:
+    world: worlds/world_020.world
+    world_fast: worlds_fast/world_020.world
+    grid: grids/grid_020.npy
+    n_cylinders: 181
+    optimal_len_barn: 11.228
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  21:
+    world: worlds/world_021.world
+    world_fast: worlds_fast/world_021.world
+    grid: grids/grid_021.npy
+    n_cylinders: 208
+    optimal_len_barn: 11.464
+    split: train
+    optimal_len_ours: 10.031
+    min_clearance: 0.225
+  22:
+    world: worlds/world_022.world
+    world_fast: worlds_fast/world_022.world
+    grid: grids/grid_022.npy
+    n_cylinders: 264
+    optimal_len_barn: 11.723
+    split: holdout
+    optimal_len_ours: 10.041
+    min_clearance: 0.225
+  23:
+    world: worlds/world_023.world
+    world_fast: worlds_fast/world_023.world
+    grid: grids/grid_023.npy
+    n_cylinders: 252
+    optimal_len_barn: 11.546
+    split: holdout
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  24:
+    world: worlds/world_024.world
+    world_fast: worlds_fast/world_024.world
+    grid: grids/grid_024.npy
+    n_cylinders: 290
+    optimal_len_barn: 12.411
+    split: train
+    optimal_len_ours: 10.095
+    min_clearance: 0.225
+  25:
+    world: worlds/world_025.world
+    world_fast: worlds_fast/world_025.world
+    grid: grids/grid_025.npy
+    n_cylinders: 187
+    optimal_len_barn: 11.931
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  26:
+    world: worlds/world_026.world
+    world_fast: worlds_fast/world_026.world
+    grid: grids/grid_026.npy
+    n_cylinders: 206
+    optimal_len_barn: 11.426
+    split: holdout
+    optimal_len_ours: 10.019
+    min_clearance: 0.225
+  27:
+    world: worlds/world_027.world
+    world_fast: worlds_fast/world_027.world
+    grid: grids/grid_027.npy
+    n_cylinders: 194
+    optimal_len_barn: 11.605
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  28:
+    world: worlds/world_028.world
+    world_fast: worlds_fast/world_028.world
+    grid: grids/grid_028.npy
+    n_cylinders: 237
+    optimal_len_barn: 10.933
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  29:
+    world: worlds/world_029.world
+    world_fast: worlds_fast/world_029.world
+    grid: grids/grid_029.npy
+    n_cylinders: 204
+    optimal_len_barn: 11.671
+    split: train
+    optimal_len_ours: 10.021
+    min_clearance: 0.225
+  30:
+    world: worlds/world_030.world
+    world_fast: worlds_fast/world_030.world
+    grid: grids/grid_030.npy
+    n_cylinders: 254
+    optimal_len_barn: 11.846
+    split: train
+    optimal_len_ours: 10.047
+    min_clearance: 0.225
+  31:
+    world: worlds/world_031.world
+    world_fast: worlds_fast/world_031.world
+    grid: grids/grid_031.npy
+    n_cylinders: 195
+    optimal_len_barn: 10.94
+    split: train
+    optimal_len_ours: 10.141
+    min_clearance: 0.225
+  32:
+    world: worlds/world_032.world
+    world_fast: worlds_fast/world_032.world
+    grid: grids/grid_032.npy
+    n_cylinders: 242
+    optimal_len_barn: 11.364
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  33:
+    world: worlds/world_033.world
+    world_fast: worlds_fast/world_033.world
+    grid: grids/grid_033.npy
+    n_cylinders: 235
+    optimal_len_barn: 12.504
+    split: train
+    optimal_len_ours: 10.062
+    min_clearance: 0.225
+  34:
+    world: worlds/world_034.world
+    world_fast: worlds_fast/world_034.world
+    grid: grids/grid_034.npy
+    n_cylinders: 219
+    optimal_len_barn: 10.967
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  35:
+    world: worlds/world_035.world
+    world_fast: worlds_fast/world_035.world
+    grid: grids/grid_035.npy
+    n_cylinders: 213
+    optimal_len_barn: 11.053
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  36:
+    world: worlds/world_036.world
+    world_fast: worlds_fast/world_036.world
+    grid: grids/grid_036.npy
+    n_cylinders: 201
+    optimal_len_barn: 10.531
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.525
+  37:
+    world: worlds/world_037.world
+    world_fast: worlds_fast/world_037.world
+    grid: grids/grid_037.npy
+    n_cylinders: 240
+    optimal_len_barn: 11.371
+    split: train
+    optimal_len_ours: 10.068
+    min_clearance: 0.225
+  38:
+    world: worlds/world_038.world
+    world_fast: worlds_fast/world_038.world
+    grid: grids/grid_038.npy
+    n_cylinders: 285
+    optimal_len_barn: 11.866
+    split: train
+    optimal_len_ours: 10.119
+    min_clearance: 0.225
+  39:
+    world: worlds/world_039.world
+    world_fast: worlds_fast/world_039.world
+    grid: grids/grid_039.npy
+    n_cylinders: 212
+    optimal_len_barn: 11.094
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  40:
+    world: worlds/world_040.world
+    world_fast: worlds_fast/world_040.world
+    grid: grids/grid_040.npy
+    n_cylinders: 196
+    optimal_len_barn: 10.903
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.675
+  41:
+    world: worlds/world_041.world
+    world_fast: worlds_fast/world_041.world
+    grid: grids/grid_041.npy
+    n_cylinders: 213
+    optimal_len_barn: 10.875
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.525
+  42:
+    world: worlds/world_042.world
+    world_fast: worlds_fast/world_042.world
+    grid: grids/grid_042.npy
+    n_cylinders: 202
+    optimal_len_barn: 11.344
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.975
+  43:
+    world: worlds/world_043.world
+    world_fast: worlds_fast/world_043.world
+    grid: grids/grid_043.npy
+    n_cylinders: 209
+    optimal_len_barn: 11.188
+    split: train
+    optimal_len_ours: 10.017
+    min_clearance: 0.225
+  44:
+    world: worlds/world_044.world
+    world_fast: worlds_fast/world_044.world
+    grid: grids/grid_044.npy
+    n_cylinders: 234
+    optimal_len_barn: 12.023
+    split: train
+    optimal_len_ours: 10.036
+    min_clearance: 0.225
+  45:
+    world: worlds/world_045.world
+    world_fast: worlds_fast/world_045.world
+    grid: grids/grid_045.npy
+    n_cylinders: 214
+    optimal_len_barn: 11.893
+    split: train
+    optimal_len_ours: 10.056
+    min_clearance: 0.226
+  46:
+    world: worlds/world_046.world
+    world_fast: worlds_fast/world_046.world
+    grid: grids/grid_046.npy
+    n_cylinders: 212
+    optimal_len_barn: 10.641
+    split: train
+    optimal_len_ours: 10.05
+    min_clearance: 0.226
+  47:
+    world: worlds/world_047.world
+    world_fast: worlds_fast/world_047.world
+    grid: grids/grid_047.npy
+    n_cylinders: 184
+    optimal_len_barn: 10.625
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  48:
+    world: worlds/world_048.world
+    world_fast: worlds_fast/world_048.world
+    grid: grids/grid_048.npy
+    n_cylinders: 276
+    optimal_len_barn: 11.24
+    split: train
+    optimal_len_ours: 10.11
+    min_clearance: 0.226
+  49:
+    world: worlds/world_049.world
+    world_fast: worlds_fast/world_049.world
+    grid: grids/grid_049.npy
+    n_cylinders: 236
+    optimal_len_barn: 11.622
+    split: train
+    optimal_len_ours: 10.023
+    min_clearance: 0.225
+  50:
+    world: worlds/world_050.world
+    world_fast: worlds_fast/world_050.world
+    grid: grids/grid_050.npy
+    n_cylinders: 198
+    optimal_len_barn: 12.289
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  51:
+    world: worlds/world_051.world
+    world_fast: worlds_fast/world_051.world
+    grid: grids/grid_051.npy
+    n_cylinders: 201
+    optimal_len_barn: 10.989
+    split: holdout
+    optimal_len_ours: 10.023
+    min_clearance: 0.225
+  52:
+    world: worlds/world_052.world
+    world_fast: worlds_fast/world_052.world
+    grid: grids/grid_052.npy
+    n_cylinders: 198
+    optimal_len_barn: 10.701
+    split: train
+    optimal_len_ours: 10.031
+    min_clearance: 0.225
+  53:
+    world: worlds/world_053.world
+    world_fast: worlds_fast/world_053.world
+    grid: grids/grid_053.npy
+    n_cylinders: 212
+    optimal_len_barn: 10.749
+    split: train
+    optimal_len_ours: 10.066
+    min_clearance: 0.225
+  54:
+    world: worlds/world_054.world
+    world_fast: worlds_fast/world_054.world
+    grid: grids/grid_054.npy
+    n_cylinders: 198
+    optimal_len_barn: 11.157
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  55:
+    world: worlds/world_055.world
+    world_fast: worlds_fast/world_055.world
+    grid: grids/grid_055.npy
+    n_cylinders: 226
+    optimal_len_barn: 12.301
+    split: train
+    optimal_len_ours: 10.069
+    min_clearance: 0.225
+  56:
+    world: worlds/world_056.world
+    world_fast: worlds_fast/world_056.world
+    grid: grids/grid_056.npy
+    n_cylinders: 195
+    optimal_len_barn: 10.507
+    split: train
+    optimal_len_ours: 10.03
+    min_clearance: 0.225
+  57:
+    world: worlds/world_057.world
+    world_fast: worlds_fast/world_057.world
+    grid: grids/grid_057.npy
+    n_cylinders: 192
+    optimal_len_barn: 10.783
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  58:
+    world: worlds/world_058.world
+    world_fast: worlds_fast/world_058.world
+    grid: grids/grid_058.npy
+    n_cylinders: 264
+    optimal_len_barn: 13.149
+    split: train
+    optimal_len_ours: 10.235
+    min_clearance: 0.225
+  59:
+    world: worlds/world_059.world
+    world_fast: worlds_fast/world_059.world
+    grid: grids/grid_059.npy
+    n_cylinders: 227
+    optimal_len_barn: 11.441
+    split: train
+    optimal_len_ours: 10.075
+    min_clearance: 0.226
+  60:
+    world: worlds/world_060.world
+    world_fast: worlds_fast/world_060.world
+    grid: grids/grid_060.npy
+    n_cylinders: 192
+    optimal_len_barn: 10.938
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  61:
+    world: worlds/world_061.world
+    world_fast: worlds_fast/world_061.world
+    grid: grids/grid_061.npy
+    n_cylinders: 199
+    optimal_len_barn: 10.858
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.675
+  62:
+    world: worlds/world_062.world
+    world_fast: worlds_fast/world_062.world
+    grid: grids/grid_062.npy
+    n_cylinders: 279
+    optimal_len_barn: 11.784
+    split: train
+    optimal_len_ours: 10.114
+    min_clearance: 0.225
+  63:
+    world: worlds/world_063.world
+    world_fast: worlds_fast/world_063.world
+    grid: grids/grid_063.npy
+    n_cylinders: 217
+    optimal_len_barn: 10.712
+    split: train
+    optimal_len_ours: 10.025
+    min_clearance: 0.225
+  64:
+    world: worlds/world_064.world
+    world_fast: worlds_fast/world_064.world
+    grid: grids/grid_064.npy
+    n_cylinders: 237
+    optimal_len_barn: 11.042
+    split: train
+    optimal_len_ours: 10.082
+    min_clearance: 0.225
+  65:
+    world: worlds/world_065.world
+    world_fast: worlds_fast/world_065.world
+    grid: grids/grid_065.npy
+    n_cylinders: 222
+    optimal_len_barn: 12.046
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  66:
+    world: worlds/world_066.world
+    world_fast: worlds_fast/world_066.world
+    grid: grids/grid_066.npy
+    n_cylinders: 250
+    optimal_len_barn: 10.675
+    split: holdout
+    optimal_len_ours: 10.028
+    min_clearance: 0.225
+  67:
+    world: worlds/world_067.world
+    world_fast: worlds_fast/world_067.world
+    grid: grids/grid_067.npy
+    n_cylinders: 200
+    optimal_len_barn: 10.487
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.675
+  68:
+    world: worlds/world_068.world
+    world_fast: worlds_fast/world_068.world
+    grid: grids/grid_068.npy
+    n_cylinders: 203
+    optimal_len_barn: 11.739
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  69:
+    world: worlds/world_069.world
+    world_fast: worlds_fast/world_069.world
+    grid: grids/grid_069.npy
+    n_cylinders: 329
+    optimal_len_barn: 11.418
+    split: train
+    optimal_len_ours: 10.075
+    min_clearance: 0.226
+  70:
+    world: worlds/world_070.world
+    world_fast: worlds_fast/world_070.world
+    grid: grids/grid_070.npy
+    n_cylinders: 264
+    optimal_len_barn: 10.853
+    split: train
+    optimal_len_ours: 10.041
+    min_clearance: 0.225
+  71:
+    world: worlds/world_071.world
+    world_fast: worlds_fast/world_071.world
+    grid: grids/grid_071.npy
+    n_cylinders: 204
+    optimal_len_barn: 10.687
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  72:
+    world: worlds/world_072.world
+    world_fast: worlds_fast/world_072.world
+    grid: grids/grid_072.npy
+    n_cylinders: 226
+    optimal_len_barn: 10.52
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.525
+  73:
+    world: worlds/world_073.world
+    world_fast: worlds_fast/world_073.world
+    grid: grids/grid_073.npy
+    n_cylinders: 321
+    optimal_len_barn: 11.464
+    split: train
+    optimal_len_ours: 10.026
+    min_clearance: 0.225
+  74:
+    world: worlds/world_074.world
+    world_fast: worlds_fast/world_074.world
+    grid: grids/grid_074.npy
+    n_cylinders: 183
+    optimal_len_barn: 12.411
+    split: train
+    optimal_len_ours: 10.024
+    min_clearance: 0.225
+  75:
+    world: worlds/world_075.world
+    world_fast: worlds_fast/world_075.world
+    grid: grids/grid_075.npy
+    n_cylinders: 209
+    optimal_len_barn: 10.665
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.675
+  76:
+    world: worlds/world_076.world
+    world_fast: worlds_fast/world_076.world
+    grid: grids/grid_076.npy
+    n_cylinders: 227
+    optimal_len_barn: 10.735
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  77:
+    world: worlds/world_077.world
+    world_fast: worlds_fast/world_077.world
+    grid: grids/grid_077.npy
+    n_cylinders: 208
+    optimal_len_barn: 10.686
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  78:
+    world: worlds/world_078.world
+    world_fast: worlds_fast/world_078.world
+    grid: grids/grid_078.npy
+    n_cylinders: 313
+    optimal_len_barn: 13.044
+    split: train
+    optimal_len_ours: 10.334
+    min_clearance: 0.225
+  79:
+    world: worlds/world_079.world
+    world_fast: worlds_fast/world_079.world
+    grid: grids/grid_079.npy
+    n_cylinders: 198
+    optimal_len_barn: 10.747
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  80:
+    world: worlds/world_080.world
+    world_fast: worlds_fast/world_080.world
+    grid: grids/grid_080.npy
+    n_cylinders: 291
+    optimal_len_barn: 11.133
+    split: train
+    optimal_len_ours: 10.028
+    min_clearance: 0.225
+  81:
+    world: worlds/world_081.world
+    world_fast: worlds_fast/world_081.world
+    grid: grids/grid_081.npy
+    n_cylinders: 309
+    optimal_len_barn: 10.479
+    split: train
+    optimal_len_ours: 10.022
+    min_clearance: 0.225
+  82:
+    world: worlds/world_082.world
+    world_fast: worlds_fast/world_082.world
+    grid: grids/grid_082.npy
+    n_cylinders: 193
+    optimal_len_barn: 13.28
+    split: holdout
+    optimal_len_ours: 10.044
+    min_clearance: 0.225
+  83:
+    world: worlds/world_083.world
+    world_fast: worlds_fast/world_083.world
+    grid: grids/grid_083.npy
+    n_cylinders: 225
+    optimal_len_barn: 12.673
+    split: train
+    optimal_len_ours: 10.069
+    min_clearance: 0.225
+  84:
+    world: worlds/world_084.world
+    world_fast: worlds_fast/world_084.world
+    grid: grids/grid_084.npy
+    n_cylinders: 217
+    optimal_len_barn: 10.802
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  85:
+    world: worlds/world_085.world
+    world_fast: worlds_fast/world_085.world
+    grid: grids/grid_085.npy
+    n_cylinders: 338
+    optimal_len_barn: 10.864
+    split: train
+    optimal_len_ours: 10.3
+    min_clearance: 0.225
+  86:
+    world: worlds/world_086.world
+    world_fast: worlds_fast/world_086.world
+    grid: grids/grid_086.npy
+    n_cylinders: 227
+    optimal_len_barn: 10.823
+    split: train
+    optimal_len_ours: 10.042
+    min_clearance: 0.225
+  87:
+    world: worlds/world_087.world
+    world_fast: worlds_fast/world_087.world
+    grid: grids/grid_087.npy
+    n_cylinders: 186
+    optimal_len_barn: 11.118
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  88:
+    world: worlds/world_088.world
+    world_fast: worlds_fast/world_088.world
+    grid: grids/grid_088.npy
+    n_cylinders: 237
+    optimal_len_barn: 10.532
+    split: train
+    optimal_len_ours: 10.021
+    min_clearance: 0.225
+  89:
+    world: worlds/world_089.world
+    world_fast: worlds_fast/world_089.world
+    grid: grids/grid_089.npy
+    n_cylinders: 197
+    optimal_len_barn: 11.235
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  90:
+    world: worlds/world_090.world
+    world_fast: worlds_fast/world_090.world
+    grid: grids/grid_090.npy
+    n_cylinders: 189
+    optimal_len_barn: 11.116
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  91:
+    world: worlds/world_091.world
+    world_fast: worlds_fast/world_091.world
+    grid: grids/grid_091.npy
+    n_cylinders: 268
+    optimal_len_barn: 11.45
+    split: train
+    optimal_len_ours: 10.056
+    min_clearance: 0.225
+  92:
+    world: worlds/world_092.world
+    world_fast: worlds_fast/world_092.world
+    grid: grids/grid_092.npy
+    n_cylinders: 277
+    optimal_len_barn: 10.392
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  93:
+    world: worlds/world_093.world
+    world_fast: worlds_fast/world_093.world
+    grid: grids/grid_093.npy
+    n_cylinders: 194
+    optimal_len_barn: 10.692
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 1.125
+  94:
+    world: worlds/world_094.world
+    world_fast: worlds_fast/world_094.world
+    grid: grids/grid_094.npy
+    n_cylinders: 188
+    optimal_len_barn: 10.053
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.675
+  95:
+    world: worlds/world_095.world
+    world_fast: worlds_fast/world_095.world
+    grid: grids/grid_095.npy
+    n_cylinders: 259
+    optimal_len_barn: 10.423
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  96:
+    world: worlds/world_096.world
+    world_fast: worlds_fast/world_096.world
+    grid: grids/grid_096.npy
+    n_cylinders: 284
+    optimal_len_barn: 11.045
+    split: train
+    optimal_len_ours: 10.116
+    min_clearance: 0.225
+  97:
+    world: worlds/world_097.world
+    world_fast: worlds_fast/world_097.world
+    grid: grids/grid_097.npy
+    n_cylinders: 183
+    optimal_len_barn: 10.58
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  98:
+    world: worlds/world_098.world
+    world_fast: worlds_fast/world_098.world
+    grid: grids/grid_098.npy
+    n_cylinders: 355
+    optimal_len_barn: 10.782
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  99:
+    world: worlds/world_099.world
+    world_fast: worlds_fast/world_099.world
+    grid: grids/grid_099.npy
+    n_cylinders: 269
+    optimal_len_barn: 11.252
+    split: train
+    optimal_len_ours: 10.049
+    min_clearance: 0.225
+  100:
+    world: worlds/world_100.world
+    world_fast: worlds_fast/world_100.world
+    grid: grids/grid_100.npy
+    n_cylinders: 247
+    optimal_len_barn: 10.786
+    split: train
+    optimal_len_ours: 10.087
+    min_clearance: 0.225
+  101:
+    world: worlds/world_101.world
+    world_fast: worlds_fast/world_101.world
+    grid: grids/grid_101.npy
+    n_cylinders: 209
+    optimal_len_barn: 10.104
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  102:
+    world: worlds/world_102.world
+    world_fast: worlds_fast/world_102.world
+    grid: grids/grid_102.npy
+    n_cylinders: 246
+    optimal_len_barn: 10.627
+    split: train
+    optimal_len_ours: 10.019
+    min_clearance: 0.225
+  103:
+    world: worlds/world_103.world
+    world_fast: worlds_fast/world_103.world
+    grid: grids/grid_103.npy
+    n_cylinders: 324
+    optimal_len_barn: 11.121
+    split: train
+    optimal_len_ours: 10.151
+    min_clearance: 0.226
+  104:
+    world: worlds/world_104.world
+    world_fast: worlds_fast/world_104.world
+    grid: grids/grid_104.npy
+    n_cylinders: 204
+    optimal_len_barn: 11.298
+    split: holdout
+    optimal_len_ours: 10.026
+    min_clearance: 0.225
+  105:
+    world: worlds/world_105.world
+    world_fast: worlds_fast/world_105.world
+    grid: grids/grid_105.npy
+    n_cylinders: 295
+    optimal_len_barn: 11.072
+    split: train
+    optimal_len_ours: 10.228
+    min_clearance: 0.225
+  106:
+    world: worlds/world_106.world
+    world_fast: worlds_fast/world_106.world
+    grid: grids/grid_106.npy
+    n_cylinders: 258
+    optimal_len_barn: 11.262
+    split: train
+    optimal_len_ours: 10.265
+    min_clearance: 0.225
+  107:
+    world: worlds/world_107.world
+    world_fast: worlds_fast/world_107.world
+    grid: grids/grid_107.npy
+    n_cylinders: 193
+    optimal_len_barn: 11.871
+    split: train
+    optimal_len_ours: 10.009
+    min_clearance: 0.225
+  108:
+    world: worlds/world_108.world
+    world_fast: worlds_fast/world_108.world
+    grid: grids/grid_108.npy
+    n_cylinders: 185
+    optimal_len_barn: 10.663
+    split: train
+    optimal_len_ours: 10.114
+    min_clearance: 0.225
+  109:
+    world: worlds/world_109.world
+    world_fast: worlds_fast/world_109.world
+    grid: grids/grid_109.npy
+    n_cylinders: 281
+    optimal_len_barn: 11.213
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  110:
+    world: worlds/world_110.world
+    world_fast: worlds_fast/world_110.world
+    grid: grids/grid_110.npy
+    n_cylinders: 203
+    optimal_len_barn: 11.642
+    split: train
+    optimal_len_ours: 10.026
+    min_clearance: 0.225
+  111:
+    world: worlds/world_111.world
+    world_fast: worlds_fast/world_111.world
+    grid: grids/grid_111.npy
+    n_cylinders: 339
+    optimal_len_barn: 13.404
+    split: train
+    optimal_len_ours: 10.544
+    min_clearance: 0.225
+  112:
+    world: worlds/world_112.world
+    world_fast: worlds_fast/world_112.world
+    grid: grids/grid_112.npy
+    n_cylinders: 256
+    optimal_len_barn: 11.944
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  113:
+    world: worlds/world_113.world
+    world_fast: worlds_fast/world_113.world
+    grid: grids/grid_113.npy
+    n_cylinders: 269
+    optimal_len_barn: 11.396
+    split: train
+    optimal_len_ours: 10.243
+    min_clearance: 0.225
+  114:
+    world: worlds/world_114.world
+    world_fast: worlds_fast/world_114.world
+    grid: grids/grid_114.npy
+    n_cylinders: 246
+    optimal_len_barn: 12.464
+    split: holdout
+    optimal_len_ours: 10.163
+    min_clearance: 0.225
+  115:
+    world: worlds/world_115.world
+    world_fast: worlds_fast/world_115.world
+    grid: grids/grid_115.npy
+    n_cylinders: 323
+    optimal_len_barn: 11.057
+    split: holdout
+    optimal_len_ours: 10.057
+    min_clearance: 0.226
+  116:
+    world: worlds/world_116.world
+    world_fast: worlds_fast/world_116.world
+    grid: grids/grid_116.npy
+    n_cylinders: 238
+    optimal_len_barn: 10.507
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  117:
+    world: worlds/world_117.world
+    world_fast: worlds_fast/world_117.world
+    grid: grids/grid_117.npy
+    n_cylinders: 329
+    optimal_len_barn: 11.991
+    split: train
+    optimal_len_ours: 10.062
+    min_clearance: 0.226
+  118:
+    world: worlds/world_118.world
+    world_fast: worlds_fast/world_118.world
+    grid: grids/grid_118.npy
+    n_cylinders: 286
+    optimal_len_barn: 11.491
+    split: train
+    optimal_len_ours: 10.085
+    min_clearance: 0.225
+  119:
+    world: worlds/world_119.world
+    world_fast: worlds_fast/world_119.world
+    grid: grids/grid_119.npy
+    n_cylinders: 337
+    optimal_len_barn: 12.134
+    split: train
+    optimal_len_ours: 10.169
+    min_clearance: 0.226
+  120:
+    world: worlds/world_120.world
+    world_fast: worlds_fast/world_120.world
+    grid: grids/grid_120.npy
+    n_cylinders: 336
+    optimal_len_barn: 11.448
+    split: train
+    optimal_len_ours: 10.043
+    min_clearance: 0.226
+  121:
+    world: worlds/world_121.world
+    world_fast: worlds_fast/world_121.world
+    grid: grids/grid_121.npy
+    n_cylinders: 294
+    optimal_len_barn: 11.606
+    split: train
+    optimal_len_ours: 10.103
+    min_clearance: 0.225
+  122:
+    world: worlds/world_122.world
+    world_fast: worlds_fast/world_122.world
+    grid: grids/grid_122.npy
+    n_cylinders: 194
+    optimal_len_barn: 11.48
+    split: train
+    optimal_len_ours: 10.024
+    min_clearance: 0.225
+  123:
+    world: worlds/world_123.world
+    world_fast: worlds_fast/world_123.world
+    grid: grids/grid_123.npy
+    n_cylinders: 287
+    optimal_len_barn: 11.362
+    split: train
+    optimal_len_ours: 10.492
+    min_clearance: 0.226
+  124:
+    world: worlds/world_124.world
+    world_fast: worlds_fast/world_124.world
+    grid: grids/grid_124.npy
+    n_cylinders: 207
+    optimal_len_barn: 12.808
+    split: train
+    optimal_len_ours: 10.023
+    min_clearance: 0.225
+  125:
+    world: worlds/world_125.world
+    world_fast: worlds_fast/world_125.world
+    grid: grids/grid_125.npy
+    n_cylinders: 317
+    optimal_len_barn: 11.044
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  126:
+    world: worlds/world_126.world
+    world_fast: worlds_fast/world_126.world
+    grid: grids/grid_126.npy
+    n_cylinders: 318
+    optimal_len_barn: 11.034
+    split: holdout
+    optimal_len_ours: 10.367
+    min_clearance: 0.226
+  127:
+    world: worlds/world_127.world
+    world_fast: worlds_fast/world_127.world
+    grid: grids/grid_127.npy
+    n_cylinders: 287
+    optimal_len_barn: 11.465
+    split: train
+    optimal_len_ours: 10.519
+    min_clearance: 0.225
+  128:
+    world: worlds/world_128.world
+    world_fast: worlds_fast/world_128.world
+    grid: grids/grid_128.npy
+    n_cylinders: 192
+    optimal_len_barn: 11.098
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  129:
+    world: worlds/world_129.world
+    world_fast: worlds_fast/world_129.world
+    grid: grids/grid_129.npy
+    n_cylinders: 188
+    optimal_len_barn: 11.583
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  130:
+    world: worlds/world_130.world
+    world_fast: worlds_fast/world_130.world
+    grid: grids/grid_130.npy
+    n_cylinders: 209
+    optimal_len_barn: 11.154
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  131:
+    world: worlds/world_131.world
+    world_fast: worlds_fast/world_131.world
+    grid: grids/grid_131.npy
+    n_cylinders: 206
+    optimal_len_barn: 13.098
+    split: holdout
+    optimal_len_ours: 10.045
+    min_clearance: 0.226
+  132:
+    world: worlds/world_132.world
+    world_fast: worlds_fast/world_132.world
+    grid: grids/grid_132.npy
+    n_cylinders: 262
+    optimal_len_barn: 10.864
+    split: train
+    optimal_len_ours: 10.105
+    min_clearance: 0.225
+  133:
+    world: worlds/world_133.world
+    world_fast: worlds_fast/world_133.world
+    grid: grids/grid_133.npy
+    n_cylinders: 268
+    optimal_len_barn: 10.78
+    split: train
+    optimal_len_ours: 10.018
+    min_clearance: 0.225
+  134:
+    world: worlds/world_134.world
+    world_fast: worlds_fast/world_134.world
+    grid: grids/grid_134.npy
+    n_cylinders: 284
+    optimal_len_barn: 10.806
+    split: train
+    optimal_len_ours: 10.119
+    min_clearance: 0.226
+  135:
+    world: worlds/world_135.world
+    world_fast: worlds_fast/world_135.world
+    grid: grids/grid_135.npy
+    n_cylinders: 202
+    optimal_len_barn: 10.698
+    split: train
+    optimal_len_ours: 10.049
+    min_clearance: 0.225
+  136:
+    world: worlds/world_136.world
+    world_fast: worlds_fast/world_136.world
+    grid: grids/grid_136.npy
+    n_cylinders: 338
+    optimal_len_barn: 11.034
+    split: train
+    optimal_len_ours: 10.051
+    min_clearance: 0.225
+  137:
+    world: worlds/world_137.world
+    world_fast: worlds_fast/world_137.world
+    grid: grids/grid_137.npy
+    n_cylinders: 353
+    optimal_len_barn: 11.033
+    split: train
+    optimal_len_ours: 10.484
+    min_clearance: 0.225
+  138:
+    world: worlds/world_138.world
+    world_fast: worlds_fast/world_138.world
+    grid: grids/grid_138.npy
+    n_cylinders: 233
+    optimal_len_barn: 13.357
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  139:
+    world: worlds/world_139.world
+    world_fast: worlds_fast/world_139.world
+    grid: grids/grid_139.npy
+    n_cylinders: 338
+    optimal_len_barn: 10.268
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  140:
+    world: worlds/world_140.world
+    world_fast: worlds_fast/world_140.world
+    grid: grids/grid_140.npy
+    n_cylinders: 300
+    optimal_len_barn: 10.868
+    split: holdout
+    optimal_len_ours: 10.255
+    min_clearance: 0.225
+  141:
+    world: worlds/world_141.world
+    world_fast: worlds_fast/world_141.world
+    grid: grids/grid_141.npy
+    n_cylinders: 226
+    optimal_len_barn: 11.216
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  142:
+    world: worlds/world_142.world
+    world_fast: worlds_fast/world_142.world
+    grid: grids/grid_142.npy
+    n_cylinders: 236
+    optimal_len_barn: 11.089
+    split: holdout
+    optimal_len_ours: 10.019
+    min_clearance: 0.225
+  143:
+    world: worlds/world_143.world
+    world_fast: worlds_fast/world_143.world
+    grid: grids/grid_143.npy
+    n_cylinders: 290
+    optimal_len_barn: 11.286
+    split: train
+    optimal_len_ours: 10.143
+    min_clearance: 0.225
+  144:
+    world: worlds/world_144.world
+    world_fast: worlds_fast/world_144.world
+    grid: grids/grid_144.npy
+    n_cylinders: 264
+    optimal_len_barn: 10.991
+    split: train
+    optimal_len_ours: 10.12
+    min_clearance: 0.225
+  145:
+    world: worlds/world_145.world
+    world_fast: worlds_fast/world_145.world
+    grid: grids/grid_145.npy
+    n_cylinders: 245
+    optimal_len_barn: 10.893
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  146:
+    world: worlds/world_146.world
+    world_fast: worlds_fast/world_146.world
+    grid: grids/grid_146.npy
+    n_cylinders: 206
+    optimal_len_barn: 11.517
+    split: train
+    optimal_len_ours: 10.018
+    min_clearance: 0.225
+  147:
+    world: worlds/world_147.world
+    world_fast: worlds_fast/world_147.world
+    grid: grids/grid_147.npy
+    n_cylinders: 289
+    optimal_len_barn: 11.125
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  148:
+    world: worlds/world_148.world
+    world_fast: worlds_fast/world_148.world
+    grid: grids/grid_148.npy
+    n_cylinders: 224
+    optimal_len_barn: 11.009
+    split: train
+    optimal_len_ours: 10.026
+    min_clearance: 0.225
+  149:
+    world: worlds/world_149.world
+    world_fast: worlds_fast/world_149.world
+    grid: grids/grid_149.npy
+    n_cylinders: 261
+    optimal_len_barn: 12.4
+    split: train
+    optimal_len_ours: 10.05
+    min_clearance: 0.225
+  150:
+    world: worlds/world_150.world
+    world_fast: worlds_fast/world_150.world
+    grid: grids/grid_150.npy
+    n_cylinders: 292
+    optimal_len_barn: 10.899
+    split: train
+    optimal_len_ours: 10.236
+    min_clearance: 0.225
+  151:
+    world: worlds/world_151.world
+    world_fast: worlds_fast/world_151.world
+    grid: grids/grid_151.npy
+    n_cylinders: 302
+    optimal_len_barn: 10.993
+    split: train
+    optimal_len_ours: 10.13
+    min_clearance: 0.225
+  152:
+    world: worlds/world_152.world
+    world_fast: worlds_fast/world_152.world
+    grid: grids/grid_152.npy
+    n_cylinders: 309
+    optimal_len_barn: 11.324
+    split: train
+    optimal_len_ours: 10.173
+    min_clearance: 0.225
+  153:
+    world: worlds/world_153.world
+    world_fast: worlds_fast/world_153.world
+    grid: grids/grid_153.npy
+    n_cylinders: 276
+    optimal_len_barn: 11.639
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  154:
+    world: worlds/world_154.world
+    world_fast: worlds_fast/world_154.world
+    grid: grids/grid_154.npy
+    n_cylinders: 346
+    optimal_len_barn: 10.634
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  155:
+    world: worlds/world_155.world
+    world_fast: worlds_fast/world_155.world
+    grid: grids/grid_155.npy
+    n_cylinders: 310
+    optimal_len_barn: 10.755
+    split: train
+    optimal_len_ours: 10.048
+    min_clearance: 0.225
+  156:
+    world: worlds/world_156.world
+    world_fast: worlds_fast/world_156.world
+    grid: grids/grid_156.npy
+    n_cylinders: 225
+    optimal_len_barn: 10.455
+    split: train
+    optimal_len_ours: 10.041
+    min_clearance: 0.225
+  157:
+    world: worlds/world_157.world
+    world_fast: worlds_fast/world_157.world
+    grid: grids/grid_157.npy
+    n_cylinders: 261
+    optimal_len_barn: 12.434
+    split: holdout
+    optimal_len_ours: 10.033
+    min_clearance: 0.226
+  158:
+    world: worlds/world_158.world
+    world_fast: worlds_fast/world_158.world
+    grid: grids/grid_158.npy
+    n_cylinders: 335
+    optimal_len_barn: 10.936
+    split: train
+    optimal_len_ours: 10.01
+    min_clearance: 0.225
+  159:
+    world: worlds/world_159.world
+    world_fast: worlds_fast/world_159.world
+    grid: grids/grid_159.npy
+    n_cylinders: 197
+    optimal_len_barn: 11.276
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  160:
+    world: worlds/world_160.world
+    world_fast: worlds_fast/world_160.world
+    grid: grids/grid_160.npy
+    n_cylinders: 361
+    optimal_len_barn: 11.262
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  161:
+    world: worlds/world_161.world
+    world_fast: worlds_fast/world_161.world
+    grid: grids/grid_161.npy
+    n_cylinders: 188
+    optimal_len_barn: 10.926
+    split: train
+    optimal_len_ours: 10.026
+    min_clearance: 0.225
+  162:
+    world: worlds/world_162.world
+    world_fast: worlds_fast/world_162.world
+    grid: grids/grid_162.npy
+    n_cylinders: 315
+    optimal_len_barn: 10.839
+    split: train
+    optimal_len_ours: 10.03
+    min_clearance: 0.225
+  163:
+    world: worlds/world_163.world
+    world_fast: worlds_fast/world_163.world
+    grid: grids/grid_163.npy
+    n_cylinders: 241
+    optimal_len_barn: 11.542
+    split: holdout
+    optimal_len_ours: 10.092
+    min_clearance: 0.225
+  164:
+    world: worlds/world_164.world
+    world_fast: worlds_fast/world_164.world
+    grid: grids/grid_164.npy
+    n_cylinders: 240
+    optimal_len_barn: 12.43
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  165:
+    world: worlds/world_165.world
+    world_fast: worlds_fast/world_165.world
+    grid: grids/grid_165.npy
+    n_cylinders: 345
+    optimal_len_barn: 10.929
+    split: train
+    optimal_len_ours: 10.137
+    min_clearance: 0.225
+  166:
+    world: worlds/world_166.world
+    world_fast: worlds_fast/world_166.world
+    grid: grids/grid_166.npy
+    n_cylinders: 310
+    optimal_len_barn: 10.324
+    split: train
+    optimal_len_ours: 10.022
+    min_clearance: 0.225
+  167:
+    world: worlds/world_167.world
+    world_fast: worlds_fast/world_167.world
+    grid: grids/grid_167.npy
+    n_cylinders: 198
+    optimal_len_barn: 12.202
+    split: train
+    optimal_len_ours: 10.041
+    min_clearance: 0.225
+  168:
+    world: worlds/world_168.world
+    world_fast: worlds_fast/world_168.world
+    grid: grids/grid_168.npy
+    n_cylinders: 325
+    optimal_len_barn: 11.696
+    split: train
+    optimal_len_ours: 10.4
+    min_clearance: 0.225
+  169:
+    world: worlds/world_169.world
+    world_fast: worlds_fast/world_169.world
+    grid: grids/grid_169.npy
+    n_cylinders: 237
+    optimal_len_barn: 10.972
+    split: train
+    optimal_len_ours: 10.062
+    min_clearance: 0.225
+  170:
+    world: worlds/world_170.world
+    world_fast: worlds_fast/world_170.world
+    grid: grids/grid_170.npy
+    n_cylinders: 318
+    optimal_len_barn: 12.149
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  171:
+    world: worlds/world_171.world
+    world_fast: worlds_fast/world_171.world
+    grid: grids/grid_171.npy
+    n_cylinders: 274
+    optimal_len_barn: 11.33
+    split: train
+    optimal_len_ours: 10.066
+    min_clearance: 0.225
+  172:
+    world: worlds/world_172.world
+    world_fast: worlds_fast/world_172.world
+    grid: grids/grid_172.npy
+    n_cylinders: 213
+    optimal_len_barn: 10.709
+    split: holdout
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  173:
+    world: worlds/world_173.world
+    world_fast: worlds_fast/world_173.world
+    grid: grids/grid_173.npy
+    n_cylinders: 336
+    optimal_len_barn: 10.439
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  174:
+    world: worlds/world_174.world
+    world_fast: worlds_fast/world_174.world
+    grid: grids/grid_174.npy
+    n_cylinders: 331
+    optimal_len_barn: 10.696
+    split: train
+    optimal_len_ours: 10.08
+    min_clearance: 0.226
+  175:
+    world: worlds/world_175.world
+    world_fast: worlds_fast/world_175.world
+    grid: grids/grid_175.npy
+    n_cylinders: 314
+    optimal_len_barn: 11.576
+    split: train
+    optimal_len_ours: 10.231
+    min_clearance: 0.225
+  176:
+    world: worlds/world_176.world
+    world_fast: worlds_fast/world_176.world
+    grid: grids/grid_176.npy
+    n_cylinders: 286
+    optimal_len_barn: 10.883
+    split: train
+    optimal_len_ours: 10.375
+    min_clearance: 0.225
+  177:
+    world: worlds/world_177.world
+    world_fast: worlds_fast/world_177.world
+    grid: grids/grid_177.npy
+    n_cylinders: 222
+    optimal_len_barn: 13.264
+    split: train
+    optimal_len_ours: 10.043
+    min_clearance: 0.225
+  178:
+    world: worlds/world_178.world
+    world_fast: worlds_fast/world_178.world
+    grid: grids/grid_178.npy
+    n_cylinders: 333
+    optimal_len_barn: 10.88
+    split: train
+    optimal_len_ours: 10.074
+    min_clearance: 0.226
+  179:
+    world: worlds/world_179.world
+    world_fast: worlds_fast/world_179.world
+    grid: grids/grid_179.npy
+    n_cylinders: 336
+    optimal_len_barn: 10.829
+    split: train
+    optimal_len_ours: 10.121
+    min_clearance: 0.225
+  180:
+    world: worlds/world_180.world
+    world_fast: worlds_fast/world_180.world
+    grid: grids/grid_180.npy
+    n_cylinders: 292
+    optimal_len_barn: 11.358
+    split: train
+    optimal_len_ours: 10.212
+    min_clearance: 0.225
+  181:
+    world: worlds/world_181.world
+    world_fast: worlds_fast/world_181.world
+    grid: grids/grid_181.npy
+    n_cylinders: 260
+    optimal_len_barn: 12.136
+    split: train
+    optimal_len_ours: 10.259
+    min_clearance: 0.225
+  182:
+    world: worlds/world_182.world
+    world_fast: worlds_fast/world_182.world
+    grid: grids/grid_182.npy
+    n_cylinders: 270
+    optimal_len_barn: 10.804
+    split: train
+    optimal_len_ours: 10.018
+    min_clearance: 0.225
+  183:
+    world: worlds/world_183.world
+    world_fast: worlds_fast/world_183.world
+    grid: grids/grid_183.npy
+    n_cylinders: 328
+    optimal_len_barn: 10.924
+    split: train
+    optimal_len_ours: 10.066
+    min_clearance: 0.225
+  184:
+    world: worlds/world_184.world
+    world_fast: worlds_fast/world_184.world
+    grid: grids/grid_184.npy
+    n_cylinders: 271
+    optimal_len_barn: 12.196
+    split: holdout
+    optimal_len_ours: 10.148
+    min_clearance: 0.225
+  185:
+    world: worlds/world_185.world
+    world_fast: worlds_fast/world_185.world
+    grid: grids/grid_185.npy
+    n_cylinders: 260
+    optimal_len_barn: 11.152
+    split: train
+    optimal_len_ours: 10.137
+    min_clearance: 0.225
+  186:
+    world: worlds/world_186.world
+    world_fast: worlds_fast/world_186.world
+    grid: grids/grid_186.npy
+    n_cylinders: 283
+    optimal_len_barn: 11.871
+    split: holdout
+    optimal_len_ours: 10.039
+    min_clearance: 0.225
+  187:
+    world: worlds/world_187.world
+    world_fast: worlds_fast/world_187.world
+    grid: grids/grid_187.npy
+    n_cylinders: 324
+    optimal_len_barn: 10.942
+    split: train
+    optimal_len_ours: 10.052
+    min_clearance: 0.226
+  188:
+    world: worlds/world_188.world
+    world_fast: worlds_fast/world_188.world
+    grid: grids/grid_188.npy
+    n_cylinders: 347
+    optimal_len_barn: 11.152
+    split: train
+    optimal_len_ours: 10.257
+    min_clearance: 0.225
+  189:
+    world: worlds/world_189.world
+    world_fast: worlds_fast/world_189.world
+    grid: grids/grid_189.npy
+    n_cylinders: 312
+    optimal_len_barn: 10.873
+    split: holdout
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  190:
+    world: worlds/world_190.world
+    world_fast: worlds_fast/world_190.world
+    grid: grids/grid_190.npy
+    n_cylinders: 288
+    optimal_len_barn: 10.964
+    split: train
+    optimal_len_ours: 10.173
+    min_clearance: 0.225
+  191:
+    world: worlds/world_191.world
+    world_fast: worlds_fast/world_191.world
+    grid: grids/grid_191.npy
+    n_cylinders: 218
+    optimal_len_barn: 12.131
+    split: train
+    optimal_len_ours: 10.023
+    min_clearance: 0.225
+  192:
+    world: worlds/world_192.world
+    world_fast: worlds_fast/world_192.world
+    grid: grids/grid_192.npy
+    n_cylinders: 341
+    optimal_len_barn: 11.112
+    split: train
+    optimal_len_ours: 10.028
+    min_clearance: 0.225
+  193:
+    world: worlds/world_193.world
+    world_fast: worlds_fast/world_193.world
+    grid: grids/grid_193.npy
+    n_cylinders: 327
+    optimal_len_barn: 10.86
+    split: train
+    optimal_len_ours: 10.126
+    min_clearance: 0.225
+  194:
+    world: worlds/world_194.world
+    world_fast: worlds_fast/world_194.world
+    grid: grids/grid_194.npy
+    n_cylinders: 328
+    optimal_len_barn: 10.984
+    split: train
+    optimal_len_ours: 10.512
+    min_clearance: 0.225
+  195:
+    world: worlds/world_195.world
+    world_fast: worlds_fast/world_195.world
+    grid: grids/grid_195.npy
+    n_cylinders: 245
+    optimal_len_barn: 10.975
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  196:
+    world: worlds/world_196.world
+    world_fast: worlds_fast/world_196.world
+    grid: grids/grid_196.npy
+    n_cylinders: 333
+    optimal_len_barn: 10.665
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  197:
+    world: worlds/world_197.world
+    world_fast: worlds_fast/world_197.world
+    grid: grids/grid_197.npy
+    n_cylinders: 217
+    optimal_len_barn: 10.883
+    split: holdout
+    optimal_len_ours: 10.07
+    min_clearance: 0.226
+  198:
+    world: worlds/world_198.world
+    world_fast: worlds_fast/world_198.world
+    grid: grids/grid_198.npy
+    n_cylinders: 242
+    optimal_len_barn: 11.304
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  199:
+    world: worlds/world_199.world
+    world_fast: worlds_fast/world_199.world
+    grid: grids/grid_199.npy
+    n_cylinders: 237
+    optimal_len_barn: 11.941
+    split: train
+    optimal_len_ours: 10.242
+    min_clearance: 0.225
+  200:
+    world: worlds/world_200.world
+    world_fast: worlds_fast/world_200.world
+    grid: grids/grid_200.npy
+    n_cylinders: 349
+    optimal_len_barn: 10.682
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  201:
+    world: worlds/world_201.world
+    world_fast: worlds_fast/world_201.world
+    grid: grids/grid_201.npy
+    n_cylinders: 236
+    optimal_len_barn: 13.498
+    split: train
+    optimal_len_ours: 10.301
+    min_clearance: 0.225
+  202:
+    world: worlds/world_202.world
+    world_fast: worlds_fast/world_202.world
+    grid: grids/grid_202.npy
+    n_cylinders: 326
+    optimal_len_barn: 10.439
+    split: holdout
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  203:
+    world: worlds/world_203.world
+    world_fast: worlds_fast/world_203.world
+    grid: grids/grid_203.npy
+    n_cylinders: 291
+    optimal_len_barn: 11.291
+    split: train
+    optimal_len_ours: 10.063
+    min_clearance: 0.225
+  204:
+    world: worlds/world_204.world
+    world_fast: worlds_fast/world_204.world
+    grid: grids/grid_204.npy
+    n_cylinders: 314
+    optimal_len_barn: 13.675
+    split: train
+    optimal_len_ours: 10.614
+    min_clearance: 0.225
+  205:
+    world: worlds/world_205.world
+    world_fast: worlds_fast/world_205.world
+    grid: grids/grid_205.npy
+    n_cylinders: 290
+    optimal_len_barn: 11.096
+    split: train
+    optimal_len_ours: 10.177
+    min_clearance: 0.225
+  206:
+    world: worlds/world_206.world
+    world_fast: worlds_fast/world_206.world
+    grid: grids/grid_206.npy
+    n_cylinders: 324
+    optimal_len_barn: 11.495
+    split: train
+    optimal_len_ours: 10.092
+    min_clearance: 0.226
+  207:
+    world: worlds/world_207.world
+    world_fast: worlds_fast/world_207.world
+    grid: grids/grid_207.npy
+    n_cylinders: 324
+    optimal_len_barn: 11.014
+    split: train
+    optimal_len_ours: 10.144
+    min_clearance: 0.225
+  208:
+    world: worlds/world_208.world
+    world_fast: worlds_fast/world_208.world
+    grid: grids/grid_208.npy
+    n_cylinders: 295
+    optimal_len_barn: 11.784
+    split: holdout
+    optimal_len_ours: 10.023
+    min_clearance: 0.225
+  209:
+    world: worlds/world_209.world
+    world_fast: worlds_fast/world_209.world
+    grid: grids/grid_209.npy
+    n_cylinders: 218
+    optimal_len_barn: 11.506
+    split: train
+    optimal_len_ours: 10.022
+    min_clearance: 0.225
+  210:
+    world: worlds/world_210.world
+    world_fast: worlds_fast/world_210.world
+    grid: grids/grid_210.npy
+    n_cylinders: 336
+    optimal_len_barn: 10.549
+    split: train
+    optimal_len_ours: 10.096
+    min_clearance: 0.225
+  211:
+    world: worlds/world_211.world
+    world_fast: worlds_fast/world_211.world
+    grid: grids/grid_211.npy
+    n_cylinders: 336
+    optimal_len_barn: 10.488
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  212:
+    world: worlds/world_212.world
+    world_fast: worlds_fast/world_212.world
+    grid: grids/grid_212.npy
+    n_cylinders: 210
+    optimal_len_barn: 11.092
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  213:
+    world: worlds/world_213.world
+    world_fast: worlds_fast/world_213.world
+    grid: grids/grid_213.npy
+    n_cylinders: 279
+    optimal_len_barn: 10.567
+    split: train
+    optimal_len_ours: 10.043
+    min_clearance: 0.225
+  214:
+    world: worlds/world_214.world
+    world_fast: worlds_fast/world_214.world
+    grid: grids/grid_214.npy
+    n_cylinders: 232
+    optimal_len_barn: 11.908
+    split: train
+    optimal_len_ours: 10.01
+    min_clearance: 0.225
+  215:
+    world: worlds/world_215.world
+    world_fast: worlds_fast/world_215.world
+    grid: grids/grid_215.npy
+    n_cylinders: 275
+    optimal_len_barn: 11.11
+    split: train
+    optimal_len_ours: 10.175
+    min_clearance: 0.226
+  216:
+    world: worlds/world_216.world
+    world_fast: worlds_fast/world_216.world
+    grid: grids/grid_216.npy
+    n_cylinders: 280
+    optimal_len_barn: 11.186
+    split: holdout
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  217:
+    world: worlds/world_217.world
+    world_fast: worlds_fast/world_217.world
+    grid: grids/grid_217.npy
+    n_cylinders: 289
+    optimal_len_barn: 11.051
+    split: train
+    optimal_len_ours: 10.193
+    min_clearance: 0.225
+  218:
+    world: worlds/world_218.world
+    world_fast: worlds_fast/world_218.world
+    grid: grids/grid_218.npy
+    n_cylinders: 231
+    optimal_len_barn: 11.177
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  219:
+    world: worlds/world_219.world
+    world_fast: worlds_fast/world_219.world
+    grid: grids/grid_219.npy
+    n_cylinders: 262
+    optimal_len_barn: 12.232
+    split: train
+    optimal_len_ours: 10.129
+    min_clearance: 0.225
+  220:
+    world: worlds/world_220.world
+    world_fast: worlds_fast/world_220.world
+    grid: grids/grid_220.npy
+    n_cylinders: 269
+    optimal_len_barn: 11.304
+    split: train
+    optimal_len_ours: 10.111
+    min_clearance: 0.225
+  221:
+    world: worlds/world_221.world
+    world_fast: worlds_fast/world_221.world
+    grid: grids/grid_221.npy
+    n_cylinders: 238
+    optimal_len_barn: 12.314
+    split: train
+    optimal_len_ours: 10.022
+    min_clearance: 0.225
+  222:
+    world: worlds/world_222.world
+    world_fast: worlds_fast/world_222.world
+    grid: grids/grid_222.npy
+    n_cylinders: 315
+    optimal_len_barn: 11.065
+    split: holdout
+    optimal_len_ours: 10.069
+    min_clearance: 0.225
+  223:
+    world: worlds/world_223.world
+    world_fast: worlds_fast/world_223.world
+    grid: grids/grid_223.npy
+    n_cylinders: 354
+    optimal_len_barn: 10.811
+    split: train
+    optimal_len_ours: 10.155
+    min_clearance: 0.225
+  224:
+    world: worlds/world_224.world
+    world_fast: worlds_fast/world_224.world
+    grid: grids/grid_224.npy
+    n_cylinders: 357
+    optimal_len_barn: 10.95
+    split: train
+    optimal_len_ours: 10.638
+    min_clearance: 0.225
+  225:
+    world: worlds/world_225.world
+    world_fast: worlds_fast/world_225.world
+    grid: grids/grid_225.npy
+    n_cylinders: 291
+    optimal_len_barn: 10.796
+    split: train
+    optimal_len_ours: 10.099
+    min_clearance: 0.225
+  226:
+    world: worlds/world_226.world
+    world_fast: worlds_fast/world_226.world
+    grid: grids/grid_226.npy
+    n_cylinders: 211
+    optimal_len_barn: 10.864
+    split: train
+    optimal_len_ours: 10.028
+    min_clearance: 0.225
+  227:
+    world: worlds/world_227.world
+    world_fast: worlds_fast/world_227.world
+    grid: grids/grid_227.npy
+    n_cylinders: 351
+    optimal_len_barn: 10.749
+    split: train
+    optimal_len_ours: 10.132
+    min_clearance: 0.226
+  228:
+    world: worlds/world_228.world
+    world_fast: worlds_fast/world_228.world
+    grid: grids/grid_228.npy
+    n_cylinders: 265
+    optimal_len_barn: 12.555
+    split: holdout
+    optimal_len_ours: 10.127
+    min_clearance: 0.226
+  229:
+    world: worlds/world_229.world
+    world_fast: worlds_fast/world_229.world
+    grid: grids/grid_229.npy
+    n_cylinders: 361
+    optimal_len_barn: 10.61
+    split: train
+    optimal_len_ours: 10.142
+    min_clearance: 0.225
+  230:
+    world: worlds/world_230.world
+    world_fast: worlds_fast/world_230.world
+    grid: grids/grid_230.npy
+    n_cylinders: 339
+    optimal_len_barn: 11.26
+    split: train
+    optimal_len_ours: 10.408
+    min_clearance: 0.226
+  231:
+    world: worlds/world_231.world
+    world_fast: worlds_fast/world_231.world
+    grid: grids/grid_231.npy
+    n_cylinders: 234
+    optimal_len_barn: 11.686
+    split: train
+    optimal_len_ours: 10.15
+    min_clearance: 0.225
+  232:
+    world: worlds/world_232.world
+    world_fast: worlds_fast/world_232.world
+    grid: grids/grid_232.npy
+    n_cylinders: 257
+    optimal_len_barn: 12.238
+    split: train
+    optimal_len_ours: 10.201
+    min_clearance: 0.225
+  233:
+    world: worlds/world_233.world
+    world_fast: worlds_fast/world_233.world
+    grid: grids/grid_233.npy
+    n_cylinders: 194
+    optimal_len_barn: 11.495
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  234:
+    world: worlds/world_234.world
+    world_fast: worlds_fast/world_234.world
+    grid: grids/grid_234.npy
+    n_cylinders: 326
+    optimal_len_barn: 10.75
+    split: holdout
+    optimal_len_ours: 10.087
+    min_clearance: 0.225
+  235:
+    world: worlds/world_235.world
+    world_fast: worlds_fast/world_235.world
+    grid: grids/grid_235.npy
+    n_cylinders: 330
+    optimal_len_barn: 11.134
+    split: train
+    optimal_len_ours: 10.124
+    min_clearance: 0.225
+  236:
+    world: worlds/world_236.world
+    world_fast: worlds_fast/world_236.world
+    grid: grids/grid_236.npy
+    n_cylinders: 254
+    optimal_len_barn: 10.802
+    split: holdout
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  237:
+    world: worlds/world_237.world
+    world_fast: worlds_fast/world_237.world
+    grid: grids/grid_237.npy
+    n_cylinders: 272
+    optimal_len_barn: 11.37
+    split: train
+    optimal_len_ours: 10.052
+    min_clearance: 0.226
+  238:
+    world: worlds/world_238.world
+    world_fast: worlds_fast/world_238.world
+    grid: grids/grid_238.npy
+    n_cylinders: 254
+    optimal_len_barn: 11.562
+    split: train
+    optimal_len_ours: 10.377
+    min_clearance: 0.225
+  239:
+    world: worlds/world_239.world
+    world_fast: worlds_fast/world_239.world
+    grid: grids/grid_239.npy
+    n_cylinders: 236
+    optimal_len_barn: 13.474
+    split: train
+    optimal_len_ours: 10.028
+    min_clearance: 0.225
+  240:
+    world: worlds/world_240.world
+    world_fast: worlds_fast/world_240.world
+    grid: grids/grid_240.npy
+    n_cylinders: 217
+    optimal_len_barn: 12.785
+    split: train
+    optimal_len_ours: 10.13
+    min_clearance: 0.225
+  241:
+    world: worlds/world_241.world
+    world_fast: worlds_fast/world_241.world
+    grid: grids/grid_241.npy
+    n_cylinders: 270
+    optimal_len_barn: 11.271
+    split: train
+    optimal_len_ours: 10.135
+    min_clearance: 0.225
+  242:
+    world: worlds/world_242.world
+    world_fast: worlds_fast/world_242.world
+    grid: grids/grid_242.npy
+    n_cylinders: 325
+    optimal_len_barn: 10.936
+    split: train
+    optimal_len_ours: 10.417
+    min_clearance: 0.225
+  243:
+    world: worlds/world_243.world
+    world_fast: worlds_fast/world_243.world
+    grid: grids/grid_243.npy
+    n_cylinders: 276
+    optimal_len_barn: 13.735
+    split: train
+    optimal_len_ours: 10.07
+    min_clearance: 0.226
+  244:
+    world: worlds/world_244.world
+    world_fast: worlds_fast/world_244.world
+    grid: grids/grid_244.npy
+    n_cylinders: 321
+    optimal_len_barn: 10.778
+    split: train
+    optimal_len_ours: 10.046
+    min_clearance: 0.225
+  245:
+    world: worlds/world_245.world
+    world_fast: worlds_fast/world_245.world
+    grid: grids/grid_245.npy
+    n_cylinders: 255
+    optimal_len_barn: 11.17
+    split: train
+    optimal_len_ours: 10.145
+    min_clearance: 0.225
+  246:
+    world: worlds/world_246.world
+    world_fast: worlds_fast/world_246.world
+    grid: grids/grid_246.npy
+    n_cylinders: 256
+    optimal_len_barn: 10.921
+    split: holdout
+    optimal_len_ours: 10.08
+    min_clearance: 0.225
+  247:
+    world: worlds/world_247.world
+    world_fast: worlds_fast/world_247.world
+    grid: grids/grid_247.npy
+    n_cylinders: 268
+    optimal_len_barn: 12.018
+    split: train
+    optimal_len_ours: 10.046
+    min_clearance: 0.225
+  248:
+    world: worlds/world_248.world
+    world_fast: worlds_fast/world_248.world
+    grid: grids/grid_248.npy
+    n_cylinders: 334
+    optimal_len_barn: 11.06
+    split: train
+    optimal_len_ours: 10.134
+    min_clearance: 0.225
+  249:
+    world: worlds/world_249.world
+    world_fast: worlds_fast/world_249.world
+    grid: grids/grid_249.npy
+    n_cylinders: 289
+    optimal_len_barn: 11.301
+    split: train
+    optimal_len_ours: 10.098
+    min_clearance: 0.225
+  250:
+    world: worlds/world_250.world
+    world_fast: worlds_fast/world_250.world
+    grid: grids/grid_250.npy
+    n_cylinders: 365
+    optimal_len_barn: 10.518
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  251:
+    world: worlds/world_251.world
+    world_fast: worlds_fast/world_251.world
+    grid: grids/grid_251.npy
+    n_cylinders: 316
+    optimal_len_barn: 10.821
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  252:
+    world: worlds/world_252.world
+    world_fast: worlds_fast/world_252.world
+    grid: grids/grid_252.npy
+    n_cylinders: 224
+    optimal_len_barn: 10.283
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.375
+  253:
+    world: worlds/world_253.world
+    world_fast: worlds_fast/world_253.world
+    grid: grids/grid_253.npy
+    n_cylinders: 338
+    optimal_len_barn: 10.598
+    split: train
+    optimal_len_ours: 10.076
+    min_clearance: 0.225
+  254:
+    world: worlds/world_254.world
+    world_fast: worlds_fast/world_254.world
+    grid: grids/grid_254.npy
+    n_cylinders: 282
+    optimal_len_barn: 11.687
+    split: holdout
+    optimal_len_ours: 10.038
+    min_clearance: 0.225
+  255:
+    world: worlds/world_255.world
+    world_fast: worlds_fast/world_255.world
+    grid: grids/grid_255.npy
+    n_cylinders: 315
+    optimal_len_barn: 11.491
+    split: train
+    optimal_len_ours: 10.08
+    min_clearance: 0.225
+  256:
+    world: worlds/world_256.world
+    world_fast: worlds_fast/world_256.world
+    grid: grids/grid_256.npy
+    n_cylinders: 325
+    optimal_len_barn: 10.624
+    split: train
+    optimal_len_ours: 10.176
+    min_clearance: 0.225
+  257:
+    world: worlds/world_257.world
+    world_fast: worlds_fast/world_257.world
+    grid: grids/grid_257.npy
+    n_cylinders: 248
+    optimal_len_barn: 12.237
+    split: train
+    optimal_len_ours: 10.007
+    min_clearance: 0.225
+  258:
+    world: worlds/world_258.world
+    world_fast: worlds_fast/world_258.world
+    grid: grids/grid_258.npy
+    n_cylinders: 254
+    optimal_len_barn: 13.554
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  259:
+    world: worlds/world_259.world
+    world_fast: worlds_fast/world_259.world
+    grid: grids/grid_259.npy
+    n_cylinders: 258
+    optimal_len_barn: 11.1
+    split: train
+    optimal_len_ours: 10.008
+    min_clearance: 0.225
+  260:
+    world: worlds/world_260.world
+    world_fast: worlds_fast/world_260.world
+    grid: grids/grid_260.npy
+    n_cylinders: 330
+    optimal_len_barn: 11.461
+    split: train
+    optimal_len_ours: 10.0
+    min_clearance: 0.225
+  261:
+    world: worlds/world_261.world
+    world_fast: worlds_fast/world_261.world
+    grid: grids/grid_261.npy
+    n_cylinders: 350
+    optimal_len_barn: 10.532
+    split: holdout
+    optimal_len_ours: 10.025
+    min_clearance: 0.225
+  262:
+    world: worlds/world_262.world
+    world_fast: worlds_fast/world_262.world
+    grid: grids/grid_262.npy
+    n_cylinders: 321
+    optimal_len_barn: 11.0
+    split: train
+    optimal_len_ours: 10.102
+    min_clearance: 0.225
+  263:
+    world: worlds/world_263.world
+    world_fast: worlds_fast/world_263.world
+    grid: grids/grid_263.npy
+    n_cylinders: 341
+    optimal_len_barn: 11.225
+    split: holdout
+    optimal_len_ours: 10.027
+    min_clearance: 0.225
+  264:
+    world: worlds/world_264.world
+    world_fast: worlds_fast/world_264.world
+    grid: grids/grid_264.npy
+    n_cylinders: 273
+    optimal_len_barn: 11.945
+    split: train
+    optimal_len_ours: 10.202
+    min_clearance: 0.226
+  265:
+    world: worlds/world_265.world
+    world_fast: worlds_fast/world_265.world
+    grid: grids/grid_265.npy
+    n_cylinders: 347
+    optimal_len_barn: 12.597
+    split: holdout
+    optimal_len_ours: 10.17
+    min_clearance: 0.225
+  266:
+    world: worlds/world_266.world
+    world_fast: worlds_fast/world_266.world
+    grid: grids/grid_266.npy
+    n_cylinders: 239
+    optimal_len_barn: 13.128
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  267:
+    world: worlds/world_267.world
+    world_fast: worlds_fast/world_267.world
+    grid: grids/grid_267.npy
+    n_cylinders: 347
+    optimal_len_barn: 10.925
+    split: train
+    optimal_len_ours: 10.408
+    min_clearance: 0.225
+  268:
+    world: worlds/world_268.world
+    world_fast: worlds_fast/world_268.world
+    grid: grids/grid_268.npy
+    n_cylinders: 344
+    optimal_len_barn: 11.002
+    split: train
+    optimal_len_ours: 10.139
+    min_clearance: 0.225
+  269:
+    world: worlds/world_269.world
+    world_fast: worlds_fast/world_269.world
+    grid: grids/grid_269.npy
+    n_cylinders: 304
+    optimal_len_barn: 11.803
+    split: train
+    optimal_len_ours: 10.025
+    min_clearance: 0.225
+  270:
+    world: worlds/world_270.world
+    world_fast: worlds_fast/world_270.world
+    grid: grids/grid_270.npy
+    n_cylinders: 222
+    optimal_len_barn: 11.71
+    split: train
+    optimal_len_ours: 10.045
+    min_clearance: 0.225
+  271:
+    world: worlds/world_271.world
+    world_fast: worlds_fast/world_271.world
+    grid: grids/grid_271.npy
+    n_cylinders: 292
+    optimal_len_barn: 11.353
+    split: train
+    optimal_len_ours: 10.3
+    min_clearance: 0.225
+  272:
+    world: worlds/world_272.world
+    world_fast: worlds_fast/world_272.world
+    grid: grids/grid_272.npy
+    n_cylinders: 313
+    optimal_len_barn: 10.803
+    split: train
+    optimal_len_ours: 10.029
+    min_clearance: 0.225
+  273:
+    world: worlds/world_273.world
+    world_fast: worlds_fast/world_273.world
+    grid: grids/grid_273.npy
+    n_cylinders: 299
+    optimal_len_barn: 11.813
+    split: train
+    optimal_len_ours: 10.469
+    min_clearance: 0.225
+  274:
+    world: worlds/world_274.world
+    world_fast: worlds_fast/world_274.world
+    grid: grids/grid_274.npy
+    n_cylinders: 217
+    optimal_len_barn: 11.402
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  275:
+    world: worlds/world_275.world
+    world_fast: worlds_fast/world_275.world
+    grid: grids/grid_275.npy
+    n_cylinders: 262
+    optimal_len_barn: 10.945
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  276:
+    world: worlds/world_276.world
+    world_fast: worlds_fast/world_276.world
+    grid: grids/grid_276.npy
+    n_cylinders: 301
+    optimal_len_barn: 12.599
+    split: holdout
+    optimal_len_ours: 10.112
+    min_clearance: 0.225
+  277:
+    world: worlds/world_277.world
+    world_fast: worlds_fast/world_277.world
+    grid: grids/grid_277.npy
+    n_cylinders: 255
+    optimal_len_barn: 10.929
+    split: train
+    optimal_len_ours: 10.133
+    min_clearance: 0.225
+  278:
+    world: worlds/world_278.world
+    world_fast: worlds_fast/world_278.world
+    grid: grids/grid_278.npy
+    n_cylinders: 355
+    optimal_len_barn: 11.063
+    split: train
+    optimal_len_ours: 10.443
+    min_clearance: 0.226
+  279:
+    world: worlds/world_279.world
+    world_fast: worlds_fast/world_279.world
+    grid: grids/grid_279.npy
+    n_cylinders: 256
+    optimal_len_barn: 12.695
+    split: train
+    optimal_len_ours: 10.11
+    min_clearance: 0.226
+  280:
+    world: worlds/world_280.world
+    world_fast: worlds_fast/world_280.world
+    grid: grids/grid_280.npy
+    n_cylinders: 293
+    optimal_len_barn: 12.783
+    split: train
+    optimal_len_ours: 10.073
+    min_clearance: 0.225
+  281:
+    world: worlds/world_281.world
+    world_fast: worlds_fast/world_281.world
+    grid: grids/grid_281.npy
+    n_cylinders: 241
+    optimal_len_barn: 12.503
+    split: train
+    optimal_len_ours: 10.005
+    min_clearance: 0.225
+  282:
+    world: worlds/world_282.world
+    world_fast: worlds_fast/world_282.world
+    grid: grids/grid_282.npy
+    n_cylinders: 269
+    optimal_len_barn: 12.213
+    split: train
+    optimal_len_ours: 10.033
+    min_clearance: 0.225
+  283:
+    world: worlds/world_283.world
+    world_fast: worlds_fast/world_283.world
+    grid: grids/grid_283.npy
+    n_cylinders: 312
+    optimal_len_barn: 11.75
+    split: train
+    optimal_len_ours: 10.247
+    min_clearance: 0.225
+  284:
+    world: worlds/world_284.world
+    world_fast: worlds_fast/world_284.world
+    grid: grids/grid_284.npy
+    n_cylinders: 254
+    optimal_len_barn: 11.114
+    split: train
+    optimal_len_ours: 10.03
+    min_clearance: 0.225
+  285:
+    world: worlds/world_285.world
+    world_fast: worlds_fast/world_285.world
+    grid: grids/grid_285.npy
+    n_cylinders: 357
+    optimal_len_barn: 11.158
+    split: train
+    optimal_len_ours: 10.385
+    min_clearance: 0.226
+  286:
+    world: worlds/world_286.world
+    world_fast: worlds_fast/world_286.world
+    grid: grids/grid_286.npy
+    n_cylinders: 274
+    optimal_len_barn: 12.965
+    split: holdout
+    optimal_len_ours: 10.151
+    min_clearance: 0.225
+  287:
+    world: worlds/world_287.world
+    world_fast: worlds_fast/world_287.world
+    grid: grids/grid_287.npy
+    n_cylinders: 308
+    optimal_len_barn: 12.954
+    split: train
+    optimal_len_ours: 10.25
+    min_clearance: 0.225
+  288:
+    world: worlds/world_288.world
+    world_fast: worlds_fast/world_288.world
+    grid: grids/grid_288.npy
+    n_cylinders: 236
+    optimal_len_barn: 12.486
+    split: train
+    optimal_len_ours: 10.022
+    min_clearance: 0.225
+  289:
+    world: worlds/world_289.world
+    world_fast: worlds_fast/world_289.world
+    grid: grids/grid_289.npy
+    n_cylinders: 216
+    optimal_len_barn: 12.383
+    split: train
+    optimal_len_ours: 10.114
+    min_clearance: 0.225
+  290:
+    world: worlds/world_290.world
+    world_fast: worlds_fast/world_290.world
+    grid: grids/grid_290.npy
+    n_cylinders: 260
+    optimal_len_barn: 11.574
+    split: train
+    optimal_len_ours: 10.02
+    min_clearance: 0.225
+  291:
+    world: worlds/world_291.world
+    world_fast: worlds_fast/world_291.world
+    grid: grids/grid_291.npy
+    n_cylinders: 209
+    optimal_len_barn: 12.105
+    split: train
+    optimal_len_ours: 10.006
+    min_clearance: 0.225
+  292:
+    world: worlds/world_292.world
+    world_fast: worlds_fast/world_292.world
+    grid: grids/grid_292.npy
+    n_cylinders: 291
+    optimal_len_barn: 11.946
+    split: train
+    optimal_len_ours: 10.008
+    min_clearance: 0.225
+  293:
+    world: worlds/world_293.world
+    world_fast: worlds_fast/world_293.world
+    grid: grids/grid_293.npy
+    n_cylinders: 317
+    optimal_len_barn: 11.36
+    split: train
+    optimal_len_ours: 10.072
+    min_clearance: 0.225
+  294:
+    world: worlds/world_294.world
+    world_fast: worlds_fast/world_294.world
+    grid: grids/grid_294.npy
+    n_cylinders: 257
+    optimal_len_barn: 11.731
+    split: train
+    optimal_len_ours: 10.239
+    min_clearance: 0.225
+  295:
+    world: worlds/world_295.world
+    world_fast: worlds_fast/world_295.world
+    grid: grids/grid_295.npy
+    n_cylinders: 273
+    optimal_len_barn: 11.204
+    split: train
+    optimal_len_ours: 10.105
+    min_clearance: 0.225
+  296:
+    world: worlds/world_296.world
+    world_fast: worlds_fast/world_296.world
+    grid: grids/grid_296.npy
+    n_cylinders: 323
+    optimal_len_barn: 11.318
+    split: train
+    optimal_len_ours: 10.285
+    min_clearance: 0.225
+  297:
+    world: worlds/world_297.world
+    world_fast: worlds_fast/world_297.world
+    grid: grids/grid_297.npy
+    n_cylinders: 290
+    optimal_len_barn: 12.199
+    split: train
+    optimal_len_ours: 10.042
+    min_clearance: 0.225
+  298:
+    world: worlds/world_298.world
+    world_fast: worlds_fast/world_298.world
+    grid: grids/grid_298.npy
+    n_cylinders: 303
+    optimal_len_barn: 11.472
+    split: train
+    optimal_len_ours: 10.044
+    min_clearance: 0.225
+  299:
+    world: worlds/world_299.world
+    world_fast: worlds_fast/world_299.world
+    grid: grids/grid_299.npy
+    n_cylinders: 277
+    optimal_len_barn: 10.945
+    split: train
+    optimal_len_ours: 10.17
+    min_clearance: 0.225

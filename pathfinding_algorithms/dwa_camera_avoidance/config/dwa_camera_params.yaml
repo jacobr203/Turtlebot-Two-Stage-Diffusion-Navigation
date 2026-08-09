@@ -1,0 +1,31 @@
+dwa_camera_node:
+  ros__parameters:
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # TurtleBot3 Burger kinematic limits — same as dwa_avoidance/dwa_params.yaml
+    # ══════════════════════════════════════════════════════════════════════════
+    max_speed:           0.22
+    min_speed:          -0.05
+    max_yaw_rate:        2.84
+    max_accel:           2.5
+    max_delta_yaw_rate:  3.2
+    v_resolution:        0.01
+    yaw_rate_resolution: 0.10
+    dt:                  0.10
+    predict_time:        1.50
+    robot_radius:        0.15
+    obstacle_margin:     0.05
+    w_heading:           0.20
+    w_clearance:         1.00
+    w_speed:             0.50
+    goal_tolerance:      0.25
+    wander_lookahead:    2.00
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Camera fusion
+    # camera_obstacle_max_age: camera obstacles are discarded from the DWA
+    # obstacle list if the last /scan_camera message is older than this many
+    # seconds.  Prevents ghost obstacles if the camera node stops publishing
+    # (e.g. camera disconnected).
+    # ──────────────────────────────────────────────────────────────────────────
+    camera_obstacle_max_age: 0.5   # seconds

@@ -1,0 +1,22 @@
+# Expert-data collection configuration (see collect_dataset.py / collect_episode.py)
+#
+# v1 collected 2026-07-08 with exactly this config: 1040/1040 successful
+# episodes (260 train worlds x 4), 200,359 samples @ 4 Hz, 149 MB, 4.3 h.
+# Quality: cross-track 1.32 cm mean / 6.7 cm worst-episode max, path
+# efficiency 0.983, zero collisions in final data (3 gzserver segfaults
+# during the run, all recovered by the watchdog).
+
+dataset_id: v1
+seed: 7
+
+episodes_per_world: 4
+
+# Episode geometry / behavior (merged over collect_episode.DEFAULTS)
+inflate_radius: 0.21        # A* clearance from cylinder centers [m]
+start_jitter_xy: 0.15       # uniform +- [m] around (-2.25, 3.0)
+start_jitter_yaw: 0.15      # uniform +- [rad] around 1.5708
+goal_jitter_xy: 0.30        # uniform +- [m] around (-2.25, 13.0)
+subgoal_dist: 1.2           # two-stage conditioning label lookahead [m]
+rate_hz: 4.0                # recorder sampling rate (sim time)
+tracker_rate_hz: 20.0       # pure-pursuit control rate (sim time)
+timeout_sim_s: 240.0

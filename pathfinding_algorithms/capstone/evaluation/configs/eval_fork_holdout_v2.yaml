@@ -1,0 +1,10 @@
+# Counterpart to eval_fork_holdout_v3.yaml: the V2 policies (default
+# trial.py CKPTS, no env overrides) on the multipath fork holdout worlds.
+run_id: fork_holdout_v2pol
+models: [single_stage, two_stage]
+worlds: [440, 441, 442, 443, 444, 445, 446, 447]
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

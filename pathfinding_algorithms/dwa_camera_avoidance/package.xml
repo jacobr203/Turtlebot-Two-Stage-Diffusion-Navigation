@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>dwa_camera_avoidance</name>
+  <version>0.1.0</version>
+  <description>
+    DWA obstacle avoidance fused with monocular camera (Logitech BRIO) depth
+    estimation.  Camera detects overhanging objects (table tops, shelves) and
+    low floor obstacles (cables, debris) that the LiDAR scan plane misses.
+    Detected obstacles are injected into both the DWA planner and Cartographer
+    as a second virtual LaserScan.
+  </description>
+  <maintainer email="jacobr203@gmail.com">turtlebot</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+    <!-- Lets gazebo_ros launch machinery add our models/ dir to
+         GAZEBO_MODEL_PATH (resolves the turtlebot3_burger_brio model). -->
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+  </export>
+</package>

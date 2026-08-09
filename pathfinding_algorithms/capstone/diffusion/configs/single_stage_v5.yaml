@@ -1,0 +1,41 @@
+# Single-stage counterpart to two_stage_v5: the goal-conditioned ablation
+# on the same v5 pool (combined multipath + corridor pool plus the
+# corridor-pocket top-up).
+#
+# Every field below matches two_stage_v5.yaml except run_name and
+# conditioning. That is the point of the run: the evaluation matrix
+# compares two-stage against single-stage to isolate what the A* planning
+# stage contributes, and the comparison only means anything when the data,
+# architecture, treatments and seed are held constant. The existing
+# single_stage_v4 was trained on the v3 pool, so pairing it against
+# two_stage_v5 would confound the planning stage with a data change.
+#
+# conditioning: goal   -> final-goal features + lidar stack, no subgoal
+# conditioning: subgoal_goal -> adds the live A* subgoal (two-stage)
+run_name: single_stage_v5
+data_dir: /home/turtlebot/pathfinding_algorithms/capstone/expert/data/v5
+conditioning: goal
+
+horizon: 8
+obs_stack: 2
+goal_clip: 3.0
+T: 35
+
+scan_arc_deg: 160
+corrupt_frac: 0.075
+segment_balance: true
+seg_len_m: 1.5
+
+channels: [64, 128, 256]
+batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+ema_decay: 0.999
+epochs: 60
+eval_every: 5
+val_episode: 3
+
+seed: 7
+device: cpu
+threads: 12
+num_workers: 4

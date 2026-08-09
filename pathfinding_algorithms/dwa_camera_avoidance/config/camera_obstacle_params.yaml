@@ -1,0 +1,121 @@
+camera_obstacle_node:
+  ros__parameters:
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # Camera geometry — Logitech BRIO on TurtleBot3 Burger
+    #
+    # Measure and update these values for your specific mounting:
+    #   camera_height    : vertical distance from floor to camera optical centre
+    #   camera_tilt_deg  : positive = nose pointing down toward floor
+    #   camera_x_offset  : forward distance from robot centre to camera
+    #   camera_y_offset  : lateral offset (positive = left); 0.0 if centred
+    #
+    # TurtleBot3 Burger body height ≈ 192 mm.  A camera mounted on top of the
+    # chassis bracket is typically at ~280 mm.  Adjust if mounted elsewhere.
+    # ══════════════════════════════════════════════════════════════════════════
+    # 2026-07-08: BRIO remounted LEVEL (was pitched 8° down). Height is the
+    # lidar-referee calibrated value: with tilt 0 the floor back-projection
+    # is r = h*fy/(y_px - cy), linear in h, so height fits directly from
+    # matched lidar ranges (black-box target session: 0.1635 first fit,
+    # 0.1828 after one fixed-point iteration on mixed-scene residuals).
+    # Real intrinsics (fx=fy=464.7) installed on the robot at
+    # ~/.ros/camera_info/logitech_brio.yaml — auto-loaded by v4l2_camera.
+    camera_height:    0.1693   # m — lidar-referee JOINT fit (bands 1.5-2.3 m,
+                               #     residuals 2.5 cm median; also explains the
+                               #     0.9 m box test within 4 cm)
+    camera_tilt_deg:  0.86     # deg — small residual tilt from the joint fit.
+                               #     NOTE: tilt is baked into the rotation
+                               #     matrix at node STARTUP (runtime param
+                               #     changes are ignored) — restart to apply.
+    camera_x_offset:  0.05     # m — 5 cm forward of LiDAR (LiDAR is at robot centre x=0)
+    camera_y_offset:  0.0      # m — lateral offset (0 = centred)
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Processing resolution
+    # Images are resized to this before any processing.  Lower values reduce
+    # CPU load; 640×480 is a good balance on a laptop/Pi 5.
+    # ──────────────────────────────────────────────────────────────────────────
+    process_width:   640
+    process_height:  480
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Virtual scan geometry
+    # virtual_scan_fov_deg should match the camera's horizontal field of view.
+    # Logitech BRIO: ~90° @ 1080p, ~82° @ 4K.  Use 90 as a safe default.
+    # ──────────────────────────────────────────────────────────────────────────
+    virtual_scan_fov_deg:              69.0   # deg — BRIO horizontal FOV at 640x480 (manufacturer spec)
+    virtual_scan_angle_increment_deg:   1.0   # deg — angular resolution of output scan
+    virtual_scan_range_min:  0.05             # m
+    virtual_scan_range_max:  3.0              # m
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Floor obstacle detection
+    # Looks in the bottom floor_zone_fraction of the image.  Each image column
+    # is scanned for Canny edges; the nearest edge is back-projected to the
+    # floor plane via IPM.
+    # ──────────────────────────────────────────────────────────────────────────
+    floor_zone_fraction:  0.60     # bottom 60% — horizon is at ~32% from top given 8° tilt at 12cm
+    # Canny thresholds raised from 40/120 after a live sweep on the real
+    # floor (2026-07-07): at 40/120 floor texture produced 97% phantom
+    # detections; at 80/200 agreement with lidar hit 70% (phantom 30%).
+    # Obstacle-floor boundaries are high contrast; floor texture is not.
+    floor_canny_low:      80
+    floor_canny_high:     200
+    floor_min_height:     0.01     # m — ignore bumps shorter than this
+    floor_max_height:     0.14     # m — below LiDAR scan plane (~0.17 m)
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Overhead obstacle detection
+    # Looks between overhead_zone_top_fraction and overhead_zone_bottom_fraction
+    # of the image height (measured from the top).  Uses a horizontal-emphasis
+    # Sobel filter before Canny to prefer table-bottom and shelf-edge detections.
+    #
+    # overhead_assume_height: the height plane used for ray-plane intersection.
+    # Set this to the most common overhead obstacle height in your environment.
+    # For a typical office/home with tables at ~0.7 m, 0.55 m is a conservative
+    # lower bound that catches table bottoms before the robot is underneath.
+    # ──────────────────────────────────────────────────────────────────────────
+    overhead_zone_top_fraction:    0.05    # start 5% from image top
+    overhead_zone_bottom_fraction: 0.32    # end at horizon (~32% from top given 8° tilt)
+    overhead_canny_low:    25
+    overhead_canny_high:   80
+    overhead_assume_height: 0.55   # m — assumed height of overhead obstacle plane
+    overhead_min_height:    0.20   # m — discard detections below this (above LiDAR ~0.17m)
+    overhead_max_height:    1.30   # m — discard detections above this (ceiling etc.)
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Misc
+    # min_edge_density: minimum number of edge pixels in a column before that
+    # column produces an obstacle candidate.  Higher = fewer false positives.
+    # ──────────────────────────────────────────────────────────────────────────
+    # 2026-07-08 level-mount retune: the tilted camera saw textured floor, so
+    # texture filters could be aggressive. The LEVEL camera sees obstacle
+    # BODIES — a solid uniform object (black box test) presents exactly ONE
+    # clean base edge per column and nothing above, so density 8 rejected
+    # 100% of real solid obstacles. This carpet yields zero Canny edges at
+    # 80/200, so the density guard is redundant here anyway.
+    min_edge_density:     2      # min edge pixels per column
+    min_obstacle_columns: 4      # obstacle must span this many consecutive image columns (filters noise)
+    floor_min_range:      0.30   # m — ignore floor detections closer than this (floor texture FP zone)
+    publish_debug:        false  # set true to publish /camera_obstacles_debug
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # Floor vertical-continuity filter (bug #017 follow-up)
+    # A real obstacle's base edge has the object's body continuing above it in
+    # the image; floor texture (carpet, wood grain, reflections, shadows) is an
+    # isolated streak. A floor candidate is accepted only if edge pixels above
+    # it span at least floor_support_min_height meters of physical height —
+    # the pixel window is derived per detection from the camera intrinsics and
+    # the candidate's distance, so the filter is camera/resolution/range
+    # independent. Measured on the real floor 2026-07-07: without this, 77-95%
+    # of camera detections were phantoms and the robot dithered (8 m of path
+    # for 1.1 m net progress). Set floor_support_min_edges: 0 to disable.
+    # ──────────────────────────────────────────────────────────────────────────
+    floor_support_min_height: 0.03   # m — object must rise at least this far above its base
+    # 2026-07-08: DISABLED for the level mount — solid uniform obstacles
+    # (black box test) have no interior edges above the base, so the support
+    # check rejected them all. The filter's carpet-phantom job is currently
+    # covered by canny 80/200 + blur (this carpet yields zero edges). Proper
+    # fix pending: intensity-contrast support (uniform region above the base
+    # edge = object body) instead of edge-count support.
+    floor_support_min_edges:  0      # edge px required within that span (0 = off)

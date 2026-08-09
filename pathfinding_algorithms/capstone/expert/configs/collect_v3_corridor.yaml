@@ -1,0 +1,48 @@
+# v3 corridor TOP-UP (2026-07-22, decisions #31): the v3 policies trained
+# on the multipath pool only and regressed on the original-BARN holdout —
+# this config re-opens the ORIGINAL pool (260 std + 58 stress + 40 fork,
+# generated_pool_only off; trainpool worlds already collected, their rows
+# resume-skip) so corridor worlds get the same 12-episode v3 scheme.
+# Same dataset_id/manifests as collect_v3.yaml -> fully resumable merge.
+# Expert-data collection v3 (notes/diffusion_v3_plan.md).
+#
+# Differences from v2:
+#   - fork worlds joined to the train pool (barn/fork_worlds.yaml: 40 train)
+#     -> 358-world pool
+#   - episodes DOUBLED to 12/world: 0-5 keep exact v2 semantics (canonical
+#     full-course start/goal; 3 = offline validation split; 4-5 noise-
+#     injected), 6-11 are MULTI-START (short sampled routes, 2-6 m, start
+#     yaw along-route) with 10-11 noise-injected — the short-and-varied
+#     segments the v3 curation balances over
+#   - the segment cutter + motion-class balancer (diffusion side) does the
+#     final 1.5 m windowing; collection just supplies diverse raw routes
+
+dataset_id: v3
+seed: 11
+# User verified the multipath worlds 2026-07-21 ("those look good") —
+# training collects EXCLUSIVELY from the generated pool (fork 48 +
+# trainpool_v3 300); original BARN worlds stay as the eval benchmark.
+include_fork_worlds: true
+generated_pool_only: false
+
+episodes_per_world: 12
+multi_start_from_episode: 6
+# multi-start routes target the ~1.5 m training-path spec (plan §1)
+route_len_range: [1.2, 2.0]
+# multipath worlds (400+): EVERY episode multi-start — the robot begins in
+# empty space inside the clutter, never at the canonical outside start
+fork_all_multi_start: true
+perturb_episodes: [4, 5, 10, 11]
+perturb_every: 2.5
+perturb_dur: 0.45
+perturb_w: 1.2
+perturb_min_clear: 0.35
+
+inflate_radius: 0.21
+start_jitter_xy: 0.15
+start_jitter_yaw: 0.15
+goal_jitter_xy: 0.30
+subgoal_dist: 1.2
+rate_hz: 4.0
+tracker_rate_hz: 20.0
+timeout_sim_s: 240.0

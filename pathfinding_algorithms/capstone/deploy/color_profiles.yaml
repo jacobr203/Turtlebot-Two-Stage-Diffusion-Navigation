@@ -1,0 +1,25 @@
+# HSV detection bands for the 3-color scavenger test (see notes/color_test_plan.md §3).
+# OpenCV ranges: H 0-179, S 0-255, V 0-255.
+#
+# `sim` is tight around the exact Gazebo material colors (no lighting noise —
+# the sim camera is deliberately clean, plan §Resolved). `real` is wide to
+# absorb BRIO white-balance and indoor-lighting shift; calibrate against the
+# actual printed squares with dev_tools/color_mask_viz.py and tighten here.
+sim:
+  # h widened 55-65 -> 50-72: Gazebo renders #90EE90 at hue median 61-65
+  # with a tail above 65 (sniffer data 2026-07-22, world 405) — the old
+  # ceiling clipped ~half the blob's pixels at range. v floor relaxed to
+  # 140: shaded faces dip to ~150 (v_range low ~118-150 observed).
+  light_green: {h: [50, 72],  s: [60, 170],  v: [140, 255]}
+  # h floor 143 -> 133: Gazebo renders #800080 at hue median ~141 (sniffer
+  # 2026-07-22) — the old floor clipped most of the blob. s floor and v
+  # ceiling relaxed for angled/bright faces (measured s~205, v~89).
+  purple:      {h: [133, 160], s: [140, 255], v: [50, 220]}
+  orange:      {h: [8, 22],   s: [180, 255], v: [180, 255]}
+real:
+  light_green: {h: [45, 75],  s: [60, 255],  v: [80, 255]}
+  purple:      {h: [128, 165], s: [70, 255],  v: [50, 255]}
+  # orange S floor deliberately high: wood/skin tones live in the same hue
+  # band but are desaturated (validated against a synthetic wood patch,
+  # S~146) — vivid printed #FF7F00 sits well above 170
+  orange:      {h: [5, 25],   s: [170, 255], v: [120, 255]}

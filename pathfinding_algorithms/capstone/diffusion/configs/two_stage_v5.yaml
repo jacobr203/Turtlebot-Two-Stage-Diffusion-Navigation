@@ -1,0 +1,34 @@
+# v5 = the v4 recipe on the combined pool + the corridor-pocket top-up
+# (2026-08-03, NEEDS-TRAINING note in notes/progress.md: sampled
+# trajectories cannot thread 0.30 m pocket mouths — veto clusters and
+# net-zero circling in the world-768 color-test session). Data: data/v5 =
+# symlinked union of data/v3 (multipath + corridor combined pool) and
+# data/pocket_v1 (80 pocket worlds, enter/exit legs,
+# barn/make_pocket_worlds.py). Treatments unchanged from v4.
+run_name: two_stage_v5
+data_dir: /home/turtlebot/pathfinding_algorithms/capstone/expert/data/v5
+conditioning: subgoal_goal
+
+horizon: 8
+obs_stack: 2
+goal_clip: 3.0
+T: 35
+
+scan_arc_deg: 160
+corrupt_frac: 0.075
+segment_balance: true
+seg_len_m: 1.5
+
+channels: [64, 128, 256]
+batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+ema_decay: 0.999
+epochs: 60
+eval_every: 5
+val_episode: 3
+
+seed: 7
+device: cpu
+threads: 12
+num_workers: 4

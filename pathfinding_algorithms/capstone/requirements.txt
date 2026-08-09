@@ -1,0 +1,16 @@
+# Capstone ML dependencies (installed into capstone/.venv by setup_venv.sh).
+#
+# torch is deliberately NOT listed here: setup_venv.sh installs it first from
+# the PyTorch CPU wheel index (https://download.pytorch.org/whl/cpu) so pip can
+# never resolve the CUDA-bundled PyPI wheel on this GPU-less WSL2 box.
+#
+# numpy is pinned <2: the venv is created with --system-site-packages and the
+# ROS 2 Humble Python extensions (cv_bridge, sensor_msgs_py, ...) are built
+# against the numpy 1.x C ABI — a venv numpy 2.x would shadow the system one
+# and break them inside this interpreter.
+numpy>=1.24,<2
+pandas>=2.0,<3
+tensorboard>=2.14
+pyyaml>=6
+matplotlib>=3.7
+scipy>=1.10,<2

@@ -1,0 +1,23 @@
+# The full proposal matrix on the V2 POLICIES (decisions #27) — same design
+# as full_v2 (identical worlds/axes for comparability), fresh run_id so the
+# v1-era rows can never mix in. trial.py CKPTS resolve to *_v2/best.pt.
+#
+# full_v1 ran 3 unpinned shard workers: 3 policy nodes x 8 torch threads +
+# 3 gzservers thrashed the 16 cores and inflated DDPM sampling from ~40 ms
+# (idle, = the poster run's logged 37.7 ms) to 250-650 ms — over the 250 ms
+# budget at 4 Hz. Those results measure latency robustness, not the
+# proposal's comparison; full_v1 is KEPT as the "loaded" condition dataset.
+#
+# This rerun requires each worker LAUNCHED PINNED to its own 5 cores:
+#   worker k:  taskset -c $((5*k))-$((5*k+4))  (core 15 left for OS/DDS)
+# with threads: 4 below sizing torch to the share. Canary (25-rep DDPM-35,
+# 3 concurrent pinned processes): 58 ms mean / 65 ms p95 per worker.
+# Per-trial lat_sample_ms in the CSVs is the compliance receipt.
+run_id: full_v3
+models: [dwa, single_stage, two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cartographer Inputs — Live</title>
+<style>
+  :root {
+    --ground: #f4f7f7; --surface: #ffffff; --ink: #17262a; --muted: #5b6e73;
+    --line: #dde6e7; --accent: #0e7c86; --accent-soft: #e3f1f2;
+    --pass: #1f8a4c; --fail: #c2372c;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0f1719; --surface: #162225; --ink: #e2ecec; --muted: #8aa0a4;
+      --line: #24363a; --accent: #4fc3ce; --accent-soft: #12333a;
+      --pass: #56c98a; --fail: #ff7a6e;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--ground); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 48px; display: flex; flex-direction: column; gap: 16px; }
+
+  header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  #conn { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  #conn.down { color: var(--fail); font-weight: 700; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-family: var(--mono); font-size: 12px; padding: 4px 12px;
+    border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+  .chip.up .dot { background: var(--pass); }
+  .chip.down .dot { background: var(--fail); }
+  .chip.down { color: var(--fail); }
+
+  .viewport { position: relative; background: #2e3236; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; touch-action: none; }
+  .viewport canvas { display: block; width: 100%; height: 580px; cursor: grab; }
+  .viewport canvas:active { cursor: grabbing; }
+  .hud {
+    position: absolute; left: 12px; top: 12px; font-family: var(--mono); font-size: 11.5px;
+    color: #cdd6d9; background: rgba(20,24,27,.72); padding: 8px 12px; border-radius: 6px;
+    display: flex; flex-direction: column; gap: 2px; pointer-events: none;
+  }
+  .hud b { color: #fff; font-weight: 600; }
+  .hud .warn { color: #ffb020; font-weight: 700; }
+  .legend {
+    position: absolute; left: 12px; bottom: 12px; display: flex; gap: 14px; align-items: center;
+    font-family: var(--mono); font-size: 11px; color: #cdd6d9;
+    background: rgba(20,24,27,.72); padding: 6px 12px; border-radius: 6px; pointer-events: none;
+  }
+  .legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .hint { position: absolute; right: 12px; top: 12px; font-family: var(--mono); font-size: 11px; color: #9fadb1; background: rgba(20,24,27,.72); padding: 6px 10px; border-radius: 6px; pointer-events: none; }
+  footer { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">dwa_camera_avoidance · dev loop</div>
+      <h1>Cartographer inputs — live</h1>
+    </div>
+    <div id="conn">connecting…</div>
+  </header>
+
+  <div class="chips" id="chips"></div>
+
+  <div class="viewport">
+    <canvas id="view"></canvas>
+    <div class="hud" id="hud"></div>
+    <div class="hint">drag · scroll · double-click resets · follows robot until you pan</div>
+    <div class="legend">
+      <span><span class="sw" style="background:#e8e8e8"></span>free</span>
+      <span><span class="sw" style="background:#0a0a0a"></span>occupied</span>
+      <span><span class="sw" style="background:#787878"></span>unknown</span>
+      <span><span class="sw" style="background:#ff4a3d"></span>/scan_relayed</span>
+      <span><span class="sw" style="background:#ffb020"></span>/scan_camera</span>
+      <span><span class="sw" style="background:#39d98a;border-radius:50%"></span>robot</span>
+    </div>
+  </div>
+
+  <footer>Polls /data at 2 Hz from viewer_server.py (port 8765). The viewer stays up across stack restarts — chips go red while nodes are down, then recover.</footer>
+</div>
+
+<script>
+(function () {
+  const canvas = document.getElementById('view');
+  const ctx = canvas.getContext('2d');
+  const hud = document.getElementById('hud');
+  const chipsEl = document.getElementById('chips');
+  const conn = document.getElementById('conn');
+
+  let data = null;
+  let off = null, offW = 0, offH = 0;
+  let scale = 100, panX = 0, panY = 0;
+  let userPanned = false, initialized = false;
+
+  const NODE_ORDER = ['turtlebot3_node', 'scan_relay_node', 'tf_relay_node',
+                      'camera_obstacle_node', 'cartographer_node', 'dwa_camera_node'];
+
+  function rasterizeMap(m) {
+    if (!off || offW !== m.width || offH !== m.height) {
+      off = document.createElement('canvas');
+      off.width = offW = m.width; off.height = offH = m.height;
+    }
+    const octx = off.getContext('2d');
+    const img = octx.createImageData(m.width, m.height);
+    for (let y = 0; y < m.height; y++) {
+      for (let x = 0; x < m.width; x++) {
+        const v = m.data[x + y * m.width];
+        const i = 4 * (x + (m.height - 1 - y) * m.width);
+        const c = v < 0 ? 0x78 : Math.round(232 - (v / 100) * 222);
+        img.data[i] = c; img.data[i+1] = c; img.data[i+2] = c; img.data[i+3] = 255;
+      }
+    }
+    octx.putImageData(img, 0, 0);
+  }
+
+  function w2s(wx, wy) { return [panX + wx * scale, panY - wy * scale]; }
+
+  function centerOn(wx, wy) {
+    const r = canvas.getBoundingClientRect();
+    panX = r.width / 2 - wx * scale;
+    panY = r.height / 2 + wy * scale;
+  }
+
+  function draw() {
+    const r = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#2e3236';
+    ctx.fillRect(0, 0, r.width, r.height);
+    if (!data) return;
+
+    const m = data.map;
+    if (m && off) {
+      const [ox, oy] = w2s(m.origin_x, m.origin_y + m.height * m.resolution);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(off, ox, oy, m.width * m.resolution * scale, m.height * m.resolution * scale);
+    }
+
+    // 1 m grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+    ctx.lineWidth = 1;
+    const x0 = Math.floor(-panX / scale), x1 = Math.ceil((r.width - panX) / scale);
+    const y0 = Math.floor((panY - r.height) / scale), y1 = Math.ceil(panY / scale);
+    for (let g = x0; g <= x1; g++) { const [sx] = w2s(g, 0); ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx, r.height); ctx.stroke(); }
+    for (let g = y0; g <= y1; g++) { const [, sy] = w2s(0, g); ctx.beginPath(); ctx.moveTo(0, sy); ctx.lineTo(r.width, sy); ctx.stroke(); }
+
+    // scans
+    const pr = Math.max(1.5, scale * 0.02);
+    function drawPts(pts, color) {
+      if (!pts) return;
+      ctx.fillStyle = color;
+      for (const [wx, wy] of pts) {
+        const [sx, sy] = w2s(wx, wy);
+        ctx.fillRect(sx - pr / 2, sy - pr / 2, pr, pr);
+      }
+    }
+    drawPts(data.scan_lidar, '#ff4a3d');
+    drawPts(data.scan_camera, '#ffb020');
+
+    // robot
+    if (data.pose) {
+      const p = data.pose;
+      const [rx, ry] = w2s(p.x, p.y);
+      const rad = Math.max(5, 0.105 * scale);
+      ctx.fillStyle = 'rgba(57,217,138,0.25)';
+      ctx.strokeStyle = '#39d98a'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(rx, ry, rad, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      const L = rad * 1.9;
+      ctx.fillStyle = '#39d98a';
+      ctx.beginPath();
+      ctx.moveTo(rx + Math.cos(p.yaw) * L, ry - Math.sin(p.yaw) * L);
+      ctx.lineTo(rx + Math.cos(p.yaw + 2.5) * rad, ry - Math.sin(p.yaw + 2.5) * rad);
+      ctx.lineTo(rx + Math.cos(p.yaw - 2.5) * rad, ry - Math.sin(p.yaw - 2.5) * rad);
+      ctx.closePath(); ctx.fill();
+    }
+
+    // camera FOV wedge (69 deg) from pose
+    if (data.pose) {
+      const p = data.pose, fov = 69 * Math.PI / 180;
+      const [rx, ry] = w2s(p.x, p.y);
+      ctx.strokeStyle = 'rgba(255,176,32,0.35)';
+      ctx.lineWidth = 1;
+      for (const s of [-1, 1]) {
+        const a = p.yaw + s * fov / 2;
+        ctx.beginPath(); ctx.moveTo(rx, ry);
+        ctx.lineTo(rx + Math.cos(a) * 3 * scale, ry - Math.sin(a) * 3 * scale);
+        ctx.stroke();
+      }
+    }
+
+    // HUD
+    const rates = data.rates || {}, ages = data.ages || {};
+    const camHz = rates.scan_camera ?? 0;
+    hud.innerHTML =
+      `<span><b>/scan_relayed</b> ${rates.scan_relayed ?? 0} Hz</span>` +
+      `<span class="${camHz < 1 ? 'warn' : ''}"><b>/scan_camera</b> ${camHz} Hz${camHz < 1 ? ' — DEAD?' : ''}</span>` +
+      `<span><b>/map</b> ${rates.map ?? 0} Hz · age ${ages.map ?? '—'} s</span>` +
+      (data.pose ? `<span><b>pose</b> (${data.pose.x.toFixed(2)}, ${data.pose.y.toFixed(2)}) m</span>` : '<span class="warn"><b>pose</b> no TF</span>');
+  }
+
+  function updateChips() {
+    const nodes = (data && data.nodes) || {};
+    chipsEl.innerHTML = NODE_ORDER.map(n => {
+      const up = nodes[n];
+      return `<span class="chip ${up ? 'up' : 'down'}"><span class="dot"></span>${n}</span>`;
+    }).join('');
+  }
+
+  async function poll() {
+    try {
+      const res = await fetch('/data');
+      data = await res.json();
+      conn.textContent = 'live · ' + new Date().toLocaleTimeString();
+      conn.classList.remove('down');
+      if (data.map) rasterizeMap(data.map);
+      if (!initialized && data.map) {
+        const m = data.map, r = canvas.getBoundingClientRect();
+        scale = 0.8 * Math.min(r.width / (m.width * m.resolution), 580 / (m.height * m.resolution));
+        centerOn(m.origin_x + m.width * m.resolution / 2, m.origin_y + m.height * m.resolution / 2);
+        initialized = true;
+      } else if (!userPanned && data.pose) {
+        centerOn(data.pose.x, data.pose.y);
+      }
+      updateChips();
+      draw();
+    } catch (e) {
+      conn.textContent = 'viewer server unreachable';
+      conn.classList.add('down');
+    }
+  }
+
+  let dragging = false, lx = 0, ly = 0;
+  canvas.addEventListener('pointerdown', e => { dragging = true; lx = e.clientX; ly = e.clientY; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    userPanned = true;
+    panX += e.clientX - lx; panY += e.clientY - ly;
+    lx = e.clientX; ly = e.clientY; draw();
+  });
+  canvas.addEventListener('pointerup', () => dragging = false);
+  canvas.addEventListener('wheel', e => {
+    e.preventDefault();
+    const r = canvas.getBoundingClientRect();
+    const mx = e.clientX - r.left, my = e.clientY - r.top;
+    const f = Math.exp(-e.deltaY * 0.0015);
+    panX = mx - (mx - panX) * f; panY = my - (my - panY) * f;
+    scale *= f;
+    userPanned = true;
+    draw();
+  }, { passive: false });
+  canvas.addEventListener('dblclick', () => { userPanned = false; initialized = false; draw(); });
+  window.addEventListener('resize', draw);
+
+  setInterval(poll, 500);
+  poll();
+})();
+</script>
+</body>
+</html>
