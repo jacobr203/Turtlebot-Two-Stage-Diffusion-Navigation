@@ -104,7 +104,8 @@ class SeekMixin:
         if not st:
             return
         rgb = {'light_green': (0.56, 0.93, 0.56), 'purple': (0.5, 0.0, 0.5),
-               'orange': (1.0, 0.5, 0.0)}
+               'orange': (1.0, 0.5, 0.0), 'lime_green': (0.2, 0.8, 0.2),
+               'sky_blue': (0.42, 0.65, 0.8)}
         ma = MarkerArray()
         for i, (color, state) in enumerate(st['states'].items()):
             est = st['estimates'].get(color)

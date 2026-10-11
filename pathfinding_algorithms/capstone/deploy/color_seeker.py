@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Color-square detector for the 3-color scavenger test (color_test_plan.md §3).
+"""Color-square detector for the color scavenger test (color_test_plan.md §3).
 
-Watches the BRIO (real) or Gazebo camera (sim) for the three 2"x2" target
-squares and streams detections on /color_targets as one JSON object per
-frame-with-detections:
+Watches the BRIO (real) or Gazebo camera (sim) for the configured 2"x2"
+target squares (`colors` parameter, a comma-separated subset of the
+profile's bands) and streams detections on /color_targets as one JSON
+object per frame-with-detections:
 
     {"stamp": <float>, "detections": [
         {"color": "orange", "bearing_rad": -0.05, "distance_m": 1.42,
@@ -45,7 +46,8 @@ SQUARE_SIZE_M = 0.0508          # 2" target squares
 PROFILES_FILE = Path(__file__).resolve().parent / 'color_profiles.yaml'
 
 
-def detect_squares(bgr, bands, fx, cx_px, min_area_px=20):
+def detect_squares(bgr, bands, fx, cx_px, min_area_px=20,
+                   size_m=SQUARE_SIZE_M):
     # min_area 20 (was 60): a 2" square at the ~3.2 m range exploration
     # passes at renders 45-55 px^2 frontal — the 60 floor rejected every
     # sighting of world 405's light_green (sniffer data 2026-07-22); the
@@ -101,7 +103,9 @@ def detect_squares(bgr, bands, fx, cx_px, min_area_px=20):
         area, x, y, w, h, fill, aspect = best
         u = x + w / 2.0
         bearing = -math.atan2(u - cx_px, fx) # +left in base frame
-        distance = fx * SQUARE_SIZE_M / h
+        # height, not width: a target wrapped round a pole keeps its full
+        # height while its apparent width shrinks with the curvature
+        distance = fx * size_m / h
         # plausibility: the camera physically can't be closer than ~12 cm to
         # a mounted square, and beyond ~6 m a 2" square is sub-noise — a
         # detection outside this range is a big same-hue surface, not ours
@@ -116,7 +120,44 @@ def detect_squares(bgr, bands, fx, cx_px, min_area_px=20):
             'px_height': h,
             'aspect': round(aspect, 3),
             'confidence': round(fill, 2),
+            'bbox': [int(x), int(y), int(w), int(h)],
         })
+    return out
+
+
+DEBUG_THUMB_FRACTION = 5 # each mask thumbnail is 1/5 of the frame's size
+DEBUG_BOX_BGR = (0, 0, 255)
+DEBUG_TEXT_BGR = (255, 255, 255)
+
+
+def draw_debug(bgr, bands, dets):
+    """What the detector sees: the frame with every detection boxed and
+    labelled (colour, estimated distance), and one live mask thumbnail per
+    hunted colour along the bottom edge (white = pixels inside its band)."""
+    out = bgr.copy()
+    hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+    h, w = out.shape[:2]
+    tw, th = w // DEBUG_THUMB_FRACTION, h // DEBUG_THUMB_FRACTION
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    for k, (color, b) in enumerate(bands.items()):
+        mask = cv2.inRange(hsv, np.array([b['h'][0], b['s'][0], b['v'][0]]),
+                           np.array([b['h'][1], b['s'][1], b['v'][1]]))
+        thumb = cv2.resize(mask, (tw, th), interpolation=cv2.INTER_NEAREST)
+        x0, y0 = 4 + k * (tw + 4), h - th - 4
+        if x0 + tw > w:
+            break
+        out[y0:y0 + th, x0:x0 + tw] = cv2.cvtColor(thumb, cv2.COLOR_GRAY2BGR)
+        cv2.rectangle(out, (x0, y0), (x0 + tw, y0 + th), DEBUG_TEXT_BGR, 1)
+        cv2.putText(out, color, (x0 + 3, y0 + 13), font, 0.4, (0, 0, 0), 3)
+        cv2.putText(out, color, (x0 + 3, y0 + 13), font, 0.4,
+                    DEBUG_TEXT_BGR, 1)
+    for d in dets:
+        x, y, bw, bh = d['bbox']
+        cv2.rectangle(out, (x, y), (x + bw, y + bh), DEBUG_BOX_BGR, 2)
+        label = f"{d['color']} {d['distance_m']:.2f} m"
+        ty = y - 6 if y > 18 else y + bh + 16
+        cv2.putText(out, label, (x, ty), font, 0.5, (0, 0, 0), 3)
+        cv2.putText(out, label, (x, ty), font, 0.5, DEBUG_TEXT_BGR, 1)
     return out
 
 
@@ -126,6 +167,8 @@ class ColorSeeker(Node):
         p = lambda n: self.get_parameter(n).value # noqa: E731
         for name, default in [
                 ('profile', 'real'),
+                # comma-separated subset of the profile's bands to look for
+                ('colors', 'light_green,purple,orange'),
                 ('image_topic', '/image_raw/compressed'),
                 ('compressed', True),
                 ('camera_info_topic', '/camera_info'),
@@ -136,6 +179,9 @@ class ColorSeeker(Node):
                 # odom-frame projection, not distance/bearing themselves
                 ('cam_offset_x', 0.03),
                 ('min_period_s', 0.15),
+                # physical HEIGHT of the targets [m]: 2" printed squares by
+                # default; 3" sticky notes are 0.0762
+                ('square_size_m', SQUARE_SIZE_M),
                 ('publish_debug', False)]:
             self.declare_parameter(name, default)
 
@@ -143,12 +189,19 @@ class ColorSeeker(Node):
         if p('profile') not in profiles:
             raise SystemExit(f"unknown profile {p('profile')!r} "
                              f"(have {list(profiles)})")
-        self._bands = profiles[p('profile')]
+        wanted = [c.strip() for c in p('colors').split(',') if c.strip()]
+        unknown = [c for c in wanted if c not in profiles[p('profile')]]
+        if unknown or not wanted:
+            raise SystemExit(f"unknown colors {unknown} for profile "
+                             f"{p('profile')!r} "
+                             f"(have {list(profiles[p('profile')])})")
+        self._bands = {c: profiles[p('profile')][c] for c in wanted}
         self._fx = p('fx_fallback')
         self._cx = p('cx_fallback')
         self._have_info = False
         self._cam_dx = p('cam_offset_x')
         self._min_period = p('min_period_s')
+        self._size_m = float(p('square_size_m'))
         self._last = 0.0
         self._odom = None
         self._n_frames = 0
@@ -208,7 +261,10 @@ class ColorSeeker(Node):
         if now - self._last < self._min_period:
             return
         self._last = now
-        dets = detect_squares(bgr, self._bands, self._fx, self._cx)
+        dets = detect_squares(bgr, self._bands, self._fx, self._cx,
+                              size_m=self._size_m)
+        if self._debug_pub is not None: # also when nothing is detected
+            self._publish_debug(draw_debug(bgr, self._bands, dets))
         if not dets:
             return
         if self._odom is not None:
@@ -223,6 +279,15 @@ class ColorSeeker(Node):
         self._n_dets += 1
         self._pub.publish(String(data=json.dumps(
             {'stamp': now, 'detections': dets})))
+
+
+    def _publish_debug(self, img):
+        msg = Image()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        msg.height, msg.width = img.shape[:2]
+        msg.encoding, msg.step = 'bgr8', img.shape[1] * 3
+        msg.data = img.tobytes()
+        self._debug_pub.publish(msg)
 
 
 def main():

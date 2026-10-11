@@ -31,13 +31,18 @@ sys.path.insert(0, str(CAPSTONE))
 from deploy.color_seeker import detect_squares, PROFILES_FILE  # noqa: E402
 
 DRAW = {'light_green': (144, 238, 144), 'purple': (128, 0, 128),
-        'orange': (0, 127, 255)}  # BGR
+        'orange': (0, 127, 255), 'lime_green': (50, 205, 50),
+        'sky_blue': (205, 166, 108)}  # BGR
+SAMPLE_HALF = 3  # a click samples a 7x7 patch: one pixel is too noisy
 
 
 class Viz(Node):
     def __init__(self, args):
         super().__init__('color_mask_viz')
         self.bands = yaml.safe_load(PROFILES_FILE.read_text())[args.profile]
+        if args.colors:
+            wanted = [c.strip() for c in args.colors.split(',')]
+            self.bands = {c: self.bands[c] for c in wanted}
         self.frame = None
         qos = QoSProfile(depth=1)
         qos.reliability = QoSReliabilityPolicy.BEST_EFFORT
@@ -63,6 +68,8 @@ def main():
     ap.add_argument('--topic', default='/image_raw/compressed')
     ap.add_argument('--raw', action='store_true',
                     help='subscribe sensor_msgs/Image instead of Compressed')
+    ap.add_argument('--colors', default='',
+                    help='comma-separated subset of the profile to show')
     args = ap.parse_args()
 
     rclpy.init()
@@ -70,8 +77,15 @@ def main():
 
     def on_mouse(event, x, y, flags, _):
         if event == cv2.EVENT_LBUTTONDOWN and node.frame is not None:
-            h, s, v = cv2.cvtColor(node.frame, cv2.COLOR_BGR2HSV)[y, x]
-            print(f'({x},{y})  H={h} S={s} V={v}')
+            hsv = cv2.cvtColor(node.frame, cv2.COLOR_BGR2HSV)
+            k = SAMPLE_HALF
+            patch = hsv[max(y - k, 0):y + k + 1,
+                        max(x - k, 0):x + k + 1].reshape(-1, 3)
+            med = np.median(patch, axis=0).astype(int)
+            lo, hi = patch.min(axis=0), patch.max(axis=0)
+            print(f'({x},{y})  H={med[0]} S={med[1]} V={med[2]}  '
+                  f'patch H {lo[0]}-{hi[0]} S {lo[1]}-{hi[1]} '
+                  f'V {lo[2]}-{hi[2]}', flush=True)
 
     cv2.namedWindow('feed')
     cv2.setMouseCallback('feed', on_mouse)

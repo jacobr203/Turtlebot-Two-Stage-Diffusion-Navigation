@@ -1,0 +1,90 @@
+name: room1
+id: 9101
+map: room1_map.yaml
+pole_diameter_m: 0.04445
+# physical height of the targets (sticky notes); the detector's
+# distances scale with it. Solved 2026-09-28 from the blue note at two
+# lidar-measured ranges (0.540 m -> 88.5 px, 0.264 m -> 208 px): camera
+# 6.0 cm ahead of the lidar, focal x height = 42.5 px*m -> 0.0915 m with
+# camera_info fx 464.7. Cross-check: note/pole pixel ratio gives the pole
+# as 4.47 cm against its 4.445 cm spec.
+target_height_m: 0.0915
+# Lighting profiles: every colour run names one (--lighting), and it
+# picks the detector's colour profile and the BRIO controls locked for the
+# run. Colour ranges only hold under the light they were calibrated in.
+lighting:
+  day:
+    # daylight through the window, 2026-09-28 afternoon. Auto exposure blew
+    # the lime note out to white against the dark furniture; this lock
+    # holds 29.7 fps and renders both notes unclipped.
+    profile: real
+    camera_params:
+      auto_exposure: 1
+      backlight_compensation: 0
+      white_balance_automatic: false
+      white_balance_temperature: 4600
+      exposure_time_absolute: 330
+      gain: 60
+  night:
+    # room lamps, blinds closed, 2026-09-28 night. 3200 K makes the white
+    # wall neutral (channel spread 1.04); gain 130 brings the notes to V
+    # ~185 at 33 ms, 30.0 fps. The day lock left the scene at V ~10.
+    profile: real_night
+    camera_params:
+      auto_exposure: 1
+      backlight_compensation: 0
+      white_balance_automatic: false
+      white_balance_temperature: 3200
+      exposure_time_absolute: 330
+      gain: 130
+# extracted from the map; delete any line that is not a course
+# pole (chair/table legs look the same), then tape-check a few
+poles:
+  - [-0.11, 1.06]  # p00  (unknown cells only: weaker evidence)
+  - [0.47, 1.18]  # p01  (unknown cells only: weaker evidence)
+  - [0.49, -0.59]  # p02  (unknown cells only: weaker evidence)
+  - [0.88, -0.35]  # p03
+  - [1.12, 1.18]  # p04
+  - [1.58, -0.57]  # p05  (unknown cells only: weaker evidence)
+  - [1.70, 0.03]  # p06  (unknown cells only: weaker evidence)
+  - [2.10, 1.03]  # p07
+  - [2.28, 1.12]  # p08  (unknown cells only: weaker evidence)
+  - [2.33, -0.02]  # p09  (unknown cells only: weaker evidence)
+  - [2.62, 0.62]  # p10  (unknown cells only: weaker evidence)
+  - [2.99, 1.31]  # p11  added 2026-10-04: not extracted from the map; located from the
+                   #      P3 sky_blue detections (the note is taped to it)
+placements:
+  # one list per square arrangement; x, y in m from the start
+  # mark, facing_deg = direction the face points (0 = +x)
+  P1:
+    # sky_blue located 2026-09-28 from the robot: scan matched to this map
+    # (99% of points on the map), pole ruler for range: its pole measured
+    # at (1.11, 1.11), 7 cm from p04. Note spans 12-22 cm above the floor.
+    - {color: sky_blue, x: 1.14, y: 1.17, facing_deg: -20, mount: pole, pole: p04}
+    # lime_green MOVED by the operator between the afternoon and night
+    # sessions of 2026-09-28 (re-taped). It was at (2.93, -0.34) on the
+    # furniture face along the notch during the day calibration and the
+    # false-positive sweep; it is now on the near right-hand wall. Measured
+    # from the night shakedown's bag at its FOUND: robot scan-matched on
+    # this map (84%, rival 47%; the run's SLAM path agreed), detector 0.644 m
+    # at +4.6 deg, lidar wall fit 2.8 cm from the camera estimate.
+    - {color: lime_green, x: 0.22, y: -0.94, facing_deg: 91, mount: wall}
+  P2:
+    # The layout of the 2026-10-03 day session (the operator re-placed both
+    # notes after the night P1 block). Not measured by hand (operator's
+    # choice): positions are the clustered close detections of the day
+    # runs (evaluation/session_report.py), both within 7 cm of a pole;
+    # facing_deg is the mean direction from the note to where the robot
+    # stood at its finds (approximate, +-30 deg).
+    - {color: sky_blue, x: 2.32, y: 1.14, facing_deg: -25, mount: pole, pole: p08}
+    - {color: lime_green, x: -0.07, y: 1.00, facing_deg: -56, mount: pole, pole: p00}
+  P3:
+    # The layout of the 2026-10-04 night pass. Not measured by hand
+    # (operator's choice): positions are the clustered close detections of
+    # the ten counted runs (evaluation/session_report.py, note_sites.csv);
+    # facing_deg is the mean direction from the note to where the robot
+    # stood at its finds (approximate, +-30 deg).
+    - {color: lime_green, x: 1.69, y: 0.03, facing_deg: 165, mount: pole, pole: p06}
+    - {color: sky_blue, x: 2.97, y: 1.30, facing_deg: -146, mount: pole, pole: p11}
+  # - {color: purple, x: 2.10, y: -0.80, facing_deg: 90, mount: wall}
+  # - {color: orange, x: 1.20, y: 0.37, facing_deg: 180, mount: pole, pole: p03}

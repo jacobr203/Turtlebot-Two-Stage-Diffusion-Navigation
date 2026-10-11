@@ -8,6 +8,9 @@ logged as the training conditioning.
 grid_file may be:
   *.npy          a BARN arena grid (sim) — obstacle points are the exact
                  cylinder centers, planning bounds are the BARN course;
+  course layout  a physical test course (common/course.py) — tube and
+                 wall centres in the start frame, planned exactly like a
+                 BARN grid; the real-robot benchmark's prior map;
   *.yaml / *.yml a map_server/cartographer map (real robot) — occupied
                  pgm cells become obstacle points and the planning bounds
                  come from the map extent (+ the goal, + 1 m margin).
@@ -24,6 +27,7 @@ from pathlib import Path
 import numpy as np
 import yaml
 
+from common import course
 from common import grid as G
 
 
@@ -315,6 +319,10 @@ class SubgoalPlanner:
         if grid_file.suffix == '.npy':
             points = G.arena_grid_to_cylinders(np.load(grid_file))
             bounds = G.PLAN_BOUNDS
+        elif course.is_layout_file(grid_file):
+            layout = course.load(grid_file)
+            points = course.obstacle_points(layout)
+            bounds = course.planning_bounds(layout)
         else:
             points = _map_yaml_to_points(grid_file)
             lo = np.minimum(points.min(axis=0), goal_xy) - 1.0

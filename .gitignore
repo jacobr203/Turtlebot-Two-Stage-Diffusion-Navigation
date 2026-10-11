@@ -6,6 +6,7 @@ ros2_test/
 # ── Nested git repos (tracked independently) ──────────────────────────────────
 ORB_SLAM3/
 project_/
+water_mark_remover/
 
 # ── colcon build artifacts ────────────────────────────────────────────────────
 build/
@@ -36,6 +37,9 @@ ros2_orb_slam3/orb_slam3/Vocabulary/ORBvoc.txt.bin
 # regenerable) and maps_test is its only copy — it must be tracked.
 *.pgm
 !maps_test/my_map.pgm
+# Real-robot arena maps are measured too, and colour runs refuse to start
+# unless the arena's map is committed.
+!pathfinding_algorithms/capstone/evaluation/arenas/*.pgm
 
 # ── Editor / OS ───────────────────────────────────────────────────────────────
 .vscode/
@@ -84,6 +88,7 @@ pathfinding_algorithms/capstone/barn/targets/
 pathfinding_algorithms/capstone/expert/data/
 pathfinding_algorithms/capstone/results/*
 !pathfinding_algorithms/capstone/results/summary/
+!pathfinding_algorithms/capstone/results/color_test/
 pathfinding_algorithms/capstone/**/runs/
 pathfinding_algorithms/capstone/barn/maps/
 
@@ -116,3 +121,9 @@ notes/
 # Poster sources and output
 pathfinding_algorithms/capstone/poster/
 **/poster/
+
+# Dissertation drafts stay private (student details; avoids plagiarism-checker
+# matches against a public copy). Only the figure scripts are tracked.
+pathfinding_algorithms/capstone/report/*
+!pathfinding_algorithms/capstone/report/make_figures.py
+!pathfinding_algorithms/capstone/report/make_world_figures.py

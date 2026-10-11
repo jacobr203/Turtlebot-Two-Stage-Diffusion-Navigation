@@ -101,11 +101,11 @@ alone.
 |---|---|
 | `barn/` | BARN download (pinned SHA), world fix-up (eval + fast variants), world→grid derivation, per-world metadata + seeded 260/40 train/holdout split |
 | `models/` | `turtlebot3_burger_bumper` — apt Burger + contact sensor → `/bumper_states` + encoder-sourced odom (re-anchors at zero per respawn, like the real robot) |
-| `common/` | Grid A* (0.05 m supersampled, Burger-inflated) + string-pull, frame helpers, fixed-360-bin scan resampling, pure-pursuit tracker — shared by expert, deployment, and evaluation |
+| `common/` | Grid A* (0.05 m supersampled, Burger-inflated) + string-pull, frame helpers, fixed-360-bin scan resampling, pure-pursuit tracker, physical course and arena layouts (`course.py`, `arena.py`) — shared by expert, deployment, and evaluation |
 | `expert/` | A* expert: tracker + 4 Hz recorder nodes, per-episode and dataset collectors (resumable, gzserver-segfault watchdog) |
 | `diffusion/` | Dataset loader (H=8 waypoint labels), 1D-CNN encoder + FiLM temporal U-Net, DDPM T=35 (+DDIM fallback), training loop (TensorBoard), offline ADE/FDE + latency eval |
 | `deploy/` | `policy_node.py` (node setup and ROS callbacks) plus `deploy/policy/` — the behaviour layers, one concern per module; live A* `subgoal_planner.py` is the high-level stage |
-| `evaluation/` | `SimHarness` (worker isolation, gazebo lifecycle), `trial.py` (one closed-loop trial: policies + DWA), `run_matrix.py` (resumable sharded sweep), `aggregate.py`, configs |
+| `evaluation/` | `SimHarness` (worker isolation, gazebo lifecycle), `trial.py` (one closed-loop trial: policies + DWA), `run_matrix.py` (resumable sharded sweep), `aggregate.py`, configs; real robot: `real_trial.py` (operator-driven colour and point-to-point trials), `course_tools.py` + `courses/` + `arenas/` (physical course and arena layouts) |
 | `tests/` | Helper and equivalence tests that run without a simulator |
 | `results/` | Trial CSVs + latency logs (gitignored except `results/summary/`) |
 

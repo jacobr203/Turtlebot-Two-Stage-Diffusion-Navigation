@@ -124,6 +124,11 @@ class TrackingMixin:
         if self._scan is None or self._odom is None or self._done:
             return
         now = self.get_clock().now()
+        # input ages as the tick sees them, on the node's own monotonic
+        # receive stamps — immune to any robot/PC clock offset
+        now_mono = time.monotonic()
+        scan_age_ms = (now_mono - self._scan_rx) * 1000
+        odom_age_ms = (now_mono - self._odom_rx) * 1000
         pose = self._world_pose()
         # tight-approach mode: final 1.5 m to the current seek goal — the
         # gate/spin margins relax to benchmark values there (context
@@ -372,7 +377,8 @@ class TrackingMixin:
             dg = getattr(self, '_sel_diag', (0.0, 0.0))
             self._lat_f.write(f'{now.nanoseconds*1e-9:.3f},'
                               f'{t_plan:.1f},{t_sample:.1f},'
-                              f'{dg[0]:.2f},{dg[1]:.2f}\n')
+                              f'{dg[0]:.2f},{dg[1]:.2f},'
+                              f'{scan_age_ms:.1f},{odom_age_ms:.1f}\n')
             self._lat_f.flush()
         self._last_tick_wall = time.monotonic()
 
@@ -384,8 +390,8 @@ class TrackingMixin:
         # sensor-age deadman: the tick's
         # early returns on missing sensors now read "live" to the
         # watchdog, so INPUT liveness needs its own check — driving on
-        # a stale scan/odom is driving blind. 0.6 s at 5 Hz scans =
-        # 3 missed frames.
+        # a stale scan/odom is driving blind. The limit is the
+        # sensor_deadman_s parameter (0.6 s = 3 missed frames at 5 Hz).
         now_dm = time.monotonic()
         # executor-occupancy exemption deadman fires were self-inflicted — a
         # long denoise tick queues the sensor callbacks behind itself on the
@@ -396,12 +402,13 @@ class TrackingMixin:
         # command at all (live 2026-08-06, two dead launches: parked at spawn,
         # zero sightings).
         recent_tick = now_dm - getattr(self, '_tick_end_mono', 0.0) < 0.20
+        limit = self._deadman_s
         if not recent_tick and (
-                now_dm - getattr(self, '_scan_rx', now_dm) > 0.6 or
-                now_dm - getattr(self, '_odom_rx', now_dm) > 0.6):
+                now_dm - getattr(self, '_scan_rx', now_dm) > limit or
+                now_dm - getattr(self, '_odom_rx', now_dm) > limit):
             self._cmd_pub.publish(Twist())
             self.get_logger().warning(
-                'sensor deadman: scan/odom stale >0.6 s — wheels held',
+                f'sensor deadman: scan/odom stale >{limit} s — wheels held',
                 throttle_duration_sec=2.0)
             return
         if self._tracker is None:

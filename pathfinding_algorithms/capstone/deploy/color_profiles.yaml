@@ -16,10 +16,47 @@ sim:
   # ceiling relaxed for angled/bright faces (measured s~205, v~89).
   purple:      {h: [133, 160], s: [140, 255], v: [50, 220]}
   orange:      {h: [8, 22],   s: [180, 255], v: [180, 255]}
+  # lime green #32CD32 shares light_green's hue (pure green, H~60) — only
+  # saturation separates them (lime S~193 vs light green S~100), so the s
+  # bands are kept disjoint. Same Gazebo hue-spread assumption as
+  # light_green above; verify with the sniffer if detections look clipped.
+  lime_green:  {h: [50, 72],  s: [175, 255], v: [110, 255]}
+  # slightly-darker sky blue #6CA6CD: H~204 deg -> OpenCV ~102, S~121, V~205
+  sky_blue:    {h: [92, 112], s: [70, 200],  v: [110, 255]}
 real:
   light_green: {h: [45, 75],  s: [60, 255],  v: [80, 255]}
   purple:      {h: [128, 165], s: [70, 255],  v: [50, 255]}
+  # lime_green vs light_green: same hue band — the wide real light_green s
+  # floor (60) overlaps lime, so do NOT enable both in one run until both
+  # are calibrated against the printed squares (color_mask_viz.py)
+  # lime_green calibrated 2026-09-28 on the real BRIO against a lime sticky
+  # note under the arena's locked camera settings (33 ms, gain 60, WB
+  # 4600 K): H 38-49, S 68-136, V 118-216 (p1/p2-p98). The note is more
+  # yellow than #32CD32: the old h>=45 band never matched it.
+  lime_green:  {h: [33, 53],  s: [55, 255], v: [90, 255]}
+  # sky_blue calibrated 2026-09-28 on the real BRIO against a 3" sky-blue
+  # sticky note at 0.4 m, room daylight: H 94-96, S 89-171, V 207-250
+  # (p5-p95). Margins for range and shade; the old h<=115 / v>=70 band
+  # also matched a dark blue-grey furniture face 1.2 m away.
+  # S floor 125: window glare on the glossy black furniture renders as a
+  # blue-grey sheen at H 96, S 60-95 (max over 30 frames) under the locked
+  # camera settings, and the old floor of 60 reported it as sky_blue. The
+  # note itself reads S 177-205 (p1-p99) under the same settings.
+  sky_blue:    {h: [88, 104], s: [125, 255], v: [110, 255]}
   # orange S floor deliberately high: wood/skin tones live in the same hue
   # band but are desaturated (validated against a synthetic wood patch,
   # S~146) — vivid printed #FF7F00 sits well above 170
   orange:      {h: [5, 25],   s: [170, 255], v: [120, 255]}
+
+# Real BRIO under the room lamps at night (blinds closed), with the night
+# camera lock in the arena file (WB 3200 K, 33 ms, gain 130). Calibrated
+# 2026-09-28 on the arena's two sticky notes. Only these two colours have
+# been measured under this light; the detector refuses any other.
+real_night:
+  # note: H 95-98, S 105-196, V 142-196 (p1-p99); no sheen on the black
+  # furniture under the lamps (the daytime window glare does not occur)
+  sky_blue:    {h: [89, 106], s: [110, 255], v: [110, 255]}
+  # note: H 29-33, S 79-161, V median 183. The lamps shift it from H~40
+  # by day. The cardboard box (H 19-24, V ~79) is the nearest look-alike;
+  # hue and brightness floors both exclude it.
+  lime_green:  {h: [26, 42],  s: [90, 255],  v: [110, 255]}

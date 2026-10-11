@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Checkpoint manager for the 3-color scavenger test (color_test_plan.md §4).
+"""Checkpoint manager for the color scavenger test (color_test_plan.md §4).
 
-Per-color state machine over /color_targets detections:
+Per-color state machine (over the `colors` parameter's set — default the
+classic three) driven by /color_targets detections:
 
     UNSEEN -> SEEN (any valid detection; odom-frame estimate kept fresh)
            -> FOUND (checkpoint: distance <= 0.6 m +15% tolerance — no
@@ -11,7 +12,8 @@ Per-color state machine over /color_targets detections:
 
 Camera-only in both sim and real (the targets yaml is never read here).
 Publishes /color_test/status (JSON, latched-style on every change + 1 Hz)
-for the two-stage seeker and logs a results CSV. The test ends at 3/3:
+for the two-stage seeker and logs a results CSV. The test ends when every
+configured color is FOUND:
 the completion line is printed and status carries done=true — teardown is
 the session runner's job, so a human (or trial harness) can still inspect.
 """
@@ -28,7 +30,7 @@ from rclpy.node import Node
 from nav_msgs.msg import Odometry
 from std_msgs.msg import String
 
-COLORS = ('light_green', 'purple', 'orange')
+DEFAULT_COLORS = 'light_green,purple,orange'
 DIST_MAX = 0.6 * 1.15 # +15% wiggle room, outer edge only (plan §3)
 # Checkpoint relaxed 2026-07-23: FOUND = within DIST_MAX and the
 # square detected in CONSEC_NEEDED consecutive frames — "get close and
@@ -45,15 +47,21 @@ class ColorTestManager(Node):
     def __init__(self):
         super().__init__('color_test_manager')
         self.declare_parameter('results_csv', '/tmp/color_test_results.csv')
+        # must match the seeker's colors parameter — the set the run hunts
+        self.declare_parameter('colors', DEFAULT_COLORS)
+        self.colors = tuple(
+            c.strip() for c in self.get_parameter('colors').value.split(',')
+            if c.strip())
         self.t0 = time.time()
-        self.state = {c: 'UNSEEN' for c in COLORS}
+        self._started = time.strftime('%Y-%m-%d_%H:%M:%S')
+        self.state = {c: 'UNSEEN' for c in self.colors}
         self.est = {} # color -> FUSED odom-frame estimate
         # per-color history of recent detection positions: the published
         # estimate is the component-wise MEDIAN, so one bad frame (occluded
         # sliver, quantized distance) can't own the estimate — a 2 m phantom
         # from a single detection sent the seeker to empty space 2026-07-22
-        self._est_hist = {c: deque(maxlen=7) for c in COLORS}
-        self.consec = {c: 0 for c in COLORS}
+        self._est_hist = {c: deque(maxlen=7) for c in self.colors}
+        self.consec = {c: 0 for c in self.colors}
         self.found_t = {}
         self.path_len = 0.0
         self._last_xy = None
@@ -76,7 +84,8 @@ class ColorTestManager(Node):
         self._status_pub = self.create_publisher(String, '/color_test/status', 10)
         self.create_timer(1.0, self._publish_status)
         self.get_logger().info(
-            f'color test armed — find {len(COLORS)} squares '
+            f'color test armed — find {len(self.colors)} squares '
+            f'({", ".join(self.colors)}) '
             f'(<= {DIST_MAX:.2f} m, seen {CONSEC_NEEDED} consecutive frames)')
 
     def _on_bumper(self, msg):
@@ -151,24 +160,37 @@ class ColorTestManager(Node):
                     f'{d["distance_m"]:.2f} m, '
                     f'off-normal {d["offnormal_deg"]:.0f} deg) — '
                     f'{sum(s == "FOUND" for s in self.state.values())}'
-                    f'/{len(COLORS)}')
+                    f'/{len(self.colors)}')
                 self._publish_status()
         # a color not present in this frame loses its consecutive streak
-        for c in COLORS:
+        for c in self.colors:
             if c not in seen_this_msg and self.state[c] != 'FOUND':
                 self.consec[c] = 0
         if all(s == 'FOUND' for s in self.state.values()):
             self._finish()
 
     def _publish_status(self):
-        self._status_pub.publish(String(data=json.dumps({
+        status = {
             'elapsed_s': round(time.time() - self.t0, 1),
             'states': self.state,
             'estimates': self.est,
             'found_times': {k: round(v, 1) for k, v in self.found_t.items()},
+            'path_m': round(self.path_len, 2),
             'collisions': self.collisions,
             'done': all(s == 'FOUND' for s in self.state.values()),
-        })))
+        }
+        self._status_pub.publish(String(data=json.dumps(status)))
+        self._write_progress(status)
+
+    def _write_progress(self, status):
+        """Keep <results_csv stem>_progress.json current, so a run stopped
+        before 3/3 (timeout, Ctrl-C, SIGKILL from run.sh's cleanup) still
+        leaves its partial result: the CSV row is only written at 3/3."""
+        csv = Path(self.get_parameter('results_csv').value)
+        out = csv.with_name(f'{csv.stem}_progress.json')
+        tmp = out.with_suffix('.tmp')
+        tmp.write_text(json.dumps({'started': self._started, **status}))
+        tmp.replace(out) # atomic: a kill mid-write never leaves half a file
 
     def _finish(self):
         if self._done_logged:
@@ -176,17 +198,27 @@ class ColorTestManager(Node):
         self._done_logged = True
         total = time.time() - self.t0
         self.get_logger().info(
-            f'=== ALL {len(COLORS)} SQUARES FOUND in {total:.1f} s, '
+            f'=== ALL {len(self.colors)} SQUARES FOUND in {total:.1f} s, '
             f'path {self.path_len:.1f} m ===')
         csv = Path(self.get_parameter('results_csv').value)
+        header = ('stamp,total_s,path_m,collisions,' +
+                  ','.join(f'{c}_s' for c in self.colors))
+        # a run with a different color set must not append misaligned
+        # columns to an existing CSV — divert to a per-set file instead
+        if csv.exists() and csv.read_text().splitlines()[:1] != [header]:
+            csv = csv.with_name(
+                f'{csv.stem}_{"_".join(self.colors)}{csv.suffix}')
+            self.get_logger().warning(
+                f'results_csv header differs (other color set) — '
+                f'writing {csv}')
         new = not csv.exists()
         with csv.open('a') as f:
             if new:
-                f.write('stamp,total_s,path_m,collisions,' +
-                        ','.join(f'{c}_s' for c in COLORS) + '\n')
+                f.write(header + '\n')
             f.write(f'{time.strftime("%Y-%m-%d_%H:%M:%S")},{total:.1f},'
                     f'{self.path_len:.1f},{self.collisions},' +
-                    ','.join(f'{self.found_t[c]:.1f}' for c in COLORS) + '\n')
+                    ','.join(f'{self.found_t[c]:.1f}'
+                             for c in self.colors) + '\n')
 
 
 def main():

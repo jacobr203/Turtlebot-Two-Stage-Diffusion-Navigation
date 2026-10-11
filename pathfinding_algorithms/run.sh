@@ -30,6 +30,11 @@
 #            index (--sim 306 -> barn/worlds_color/world_306.world) or
 #            "random" (--sim random -> random world from the pool). No
 #            prior map is used in either variant.
+#              --colors a,b,c  which squares to hunt (default
+#                            light_green,purple,orange; also known:
+#                            lime_green, sky_blue). Sim worlds must have
+#                            been generated with the same set
+#                            (place_color_targets.py --colors ...).
 #
 #   --sim [world]   run in Gazebo instead of on the robot. Optional world:
 #                   turtlebot3_world (default) | house | empty | absolute
@@ -70,6 +75,8 @@ esac
 
 SIM=false; WORLD=turtlebot3_world; HEADLESS=false; RVIZ=true; MAP=""
 GOTO_X=""; GOTO_Y=""; HZ=4.0; CKPT=""; COLOR_TEST=false; PATH_SCALE=1.0
+TEST_COLORS=light_green,purple,orange
+KNOWN_COLORS=" light_green purple orange lime_green sky_blue "
 MIN_GOAL_DIST=0.5
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -92,6 +99,7 @@ while [[ $# -gt 0 ]]; do
     --path_scale) PATH_SCALE=$2; shift ;;
     --min_goal_dist) MIN_GOAL_DIST=$2; shift ;;
     --3_color_test) COLOR_TEST=true ;;
+    --colors)   TEST_COLORS=$2; shift ;;
     *) echo "unknown arg: $1"; usage ;;
   esac
   shift
@@ -100,6 +108,10 @@ done
 if $COLOR_TEST; then
   [ "$ALGO" = policy ] || { echo "--3_color_test needs a policy-* algo"; exit 1; }
   [ -n "$GOTO_X" ] && { echo "--3_color_test and --goto are exclusive"; exit 1; }
+  for c in ${TEST_COLORS//,/ }; do
+    [[ "$KNOWN_COLORS" == *" $c "* ]] || {
+      echo "unknown color '$c' (known:$KNOWN_COLORS)"; exit 1; }
+  done
   # single-stage wanders; two-stage runs the live-map A* seeker (plan §5/§6)
   POLICY_VARIANT=${POLICY_VARIANT:-single_stage}
 elif [ "$POLICY_VARIANT" = two_stage ] && [ -z "$GOTO_X" ]; then
@@ -199,7 +211,7 @@ reset_robot_motors() {  # last resort: restart bringup to re-init the OpenCR
   echo "[run] WARNING: robot still reports motion — restarting bringup to reset the motor controller..."
   ssh_robot_bg 'pkill -9 -f ros2; pkill -9 -f turtlebot3; sleep 2;
     source /opt/ros/humble/setup.bash &&
-    source /home/$ROBOT_USER/turtlebot3_ws/install/setup.bash &&
+    source $HOME/turtlebot3_ws/install/setup.bash &&
     export TURTLEBOT3_MODEL=burger LDS_MODEL=LDS-02 RMW_IMPLEMENTATION=rmw_cyclonedds_cpp &&
     nohup ros2 launch turtlebot3_bringup robot.launch.py > /tmp/tbot_bringup.log 2>&1 &'
   sleep 12
@@ -326,7 +338,7 @@ ensure_bringup() {
   fi
   echo "[run] starting robot bringup via SSH..."
   ssh_robot_bg 'source /opt/ros/humble/setup.bash &&
-    source /home/$ROBOT_USER/turtlebot3_ws/install/setup.bash &&
+    source $HOME/turtlebot3_ws/install/setup.bash &&
     export TURTLEBOT3_MODEL=burger LDS_MODEL=LDS-02 RMW_IMPLEMENTATION=rmw_cyclonedds_cpp &&
     nohup ros2 launch turtlebot3_bringup robot.launch.py > /tmp/tbot_bringup.log 2>&1 &'
   for i in $(seq 1 20); do
@@ -489,13 +501,15 @@ start_color_test() {  # start_color_test <sim|real> — seeker + checkpoint mana
   if [ "$profile" = sim ]; then
     img_topic=/camera/image_raw/compressed; info_topic=/camera/camera_info
   fi
-  echo "[run] 3-color test: seeker + manager (profile $profile) — logs /tmp/color_{seeker,test}.log"
+  echo "[run] color test ($TEST_COLORS): seeker + manager (profile $profile) — logs /tmp/color_{seeker,test}.log"
   nohup "$CAPSTONE/.venv/bin/python" "$CAPSTONE/deploy/color_seeker.py" \
-    --ros-args -p profile:=$profile -p image_topic:=$img_topic \
+    --ros-args -p profile:=$profile -p colors:="'$TEST_COLORS'" \
+    -p image_topic:=$img_topic \
     -p compressed:=true -p camera_info_topic:=$info_topic \
     > /tmp/color_seeker.log 2>&1 &
   nohup "$CAPSTONE/.venv/bin/python" "$CAPSTONE/deploy/color_test_manager.py" \
     --ros-args -p results_csv:=/tmp/color_test_results.csv \
+    -p colors:="'$TEST_COLORS'" \
     > /tmp/color_test.log 2>&1 &
   # camera POV window (what the color detector sees) — suppressed with --no-rviz
   $RVIZ && nohup env LIBGL_ALWAYS_SOFTWARE=1 \
@@ -509,22 +523,22 @@ run_policy() {  # run_policy <use_sim_time> — foreground; Ctrl-C lands here
   # policy-<variant> aliases pin the checkpoint; in the color test the
   # two-stage variant runs the live-map A* seeker (no prior grid, sim+real)
   [ -n "$POLICY_VARIANT" ] && \
-    CKPT=${CKPT:-$CAPSTONE/diffusion/runs/${POLICY_VARIANT}_v4/best.pt}
+    CKPT=${CKPT:-$CAPSTONE/diffusion/runs/${POLICY_VARIANT}_v5/best.pt}
   $COLOR_TEST && [ "$POLICY_VARIANT" = two_stage ] && behavior=seek
   if [ -n "$GOTO_X" ]; then
     behavior=goto
     [ -z "$GRID" ] && [ -n "$MAP" ] && GRID=$MAP
     if [ -n "$GRID" ]; then
-      CKPT=${CKPT:-$CAPSTONE/diffusion/runs/two_stage_v4/best.pt}
+      CKPT=${CKPT:-$CAPSTONE/diffusion/runs/two_stage_v5/best.pt}
       extra="-p grid_file:=$GRID"
     else
       echo "[run] no grid/map available — goto falls back to single_stage"
-      CKPT=${CKPT:-$CAPSTONE/diffusion/runs/single_stage_v4/best.pt}
+      CKPT=${CKPT:-$CAPSTONE/diffusion/runs/single_stage_v5/best.pt}
     fi
     extra="$extra -p goal_x:=$GOTO_X -p goal_y:=$GOTO_Y"
   else
     # wandering explores unknown space: goal-conditioned checkpoint
-    CKPT=${CKPT:-$CAPSTONE/diffusion/runs/single_stage_v4/best.pt}
+    CKPT=${CKPT:-$CAPSTONE/diffusion/runs/single_stage_v5/best.pt}
   fi
   echo "[run] policy: behavior=$behavior  hz=$HZ  ckpt=$CKPT"
   echo "[run] Ctrl-C stops everything (robot wheels included)."
@@ -569,6 +583,14 @@ if $SIM; then
       echo "[run] --3_color_test needs a generated color world (got: $WORLD)"
       echo "[run] generate with: capstone/.venv/bin/python capstone/barn/place_color_targets.py --idx N"
       exit 1; }
+    # the world must actually contain a square for every hunted color —
+    # otherwise the run can never finish (worlds are generated per color set)
+    for c in ${TEST_COLORS//,/ }; do
+      grep -q "color_target_$c" "$WORLD" || {
+        echo "[run] $(basename "$WORLD") has no $c square — regenerate:"
+        echo "[run]   capstone/.venv/bin/python capstone/barn/place_color_targets.py --idx N --colors $TEST_COLORS"
+        exit 1; }
+    done
   fi
   # BARN worlds (any mode): spawn at the official start; note the index for
   # the world's grid (policy two-stage) and generated map (nav2)

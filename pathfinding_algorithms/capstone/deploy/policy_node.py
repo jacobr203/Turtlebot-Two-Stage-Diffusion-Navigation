@@ -73,6 +73,11 @@ class DiffusionPolicyNode(SeekMixin, ExploreMixin, ViewpointMixin,
                 ('spawn_x', -2.25), ('spawn_y', 3.0), ('spawn_yaw', 1.5708),
                 ('goal_x', -2.25), ('goal_y', 13.0), ('goal_tol', 0.30),
                 ('subgoal_dist', 1.2), ('latency_log', ''),
+                # sensor-age deadman: hold the wheels when scan or odom is
+                # older than this. 0.6 s = 3 missed LDS frames at 5 Hz,
+                # sized for the simulator's sensor gaps; the real-robot
+                # value is set from measured LDS-02 timing.
+                ('sensor_deadman_s', 0.6),
                 ('tracker_lookahead', 0.12),
                 # EXPERIMENTAL: stretch the denormalized waypoint path by
                 # this factor (run.sh --path_scale). The trained horizon is
@@ -266,9 +271,11 @@ class DiffusionPolicyNode(SeekMixin, ExploreMixin, ViewpointMixin,
         self._tf_listener = TransformListener(self._tf_buffer, self,
                                               spin_thread=False)
 
+        self._deadman_s = float(p('sensor_deadman_s'))
         self._lat_f = open(p('latency_log'), 'w') if p('latency_log') else None
         if self._lat_f:
-            self._lat_f.write('sim_t,plan_ms,sample_ms,turn_pm,clear\n')
+            self._lat_f.write('sim_t,plan_ms,sample_ms,turn_pm,clear,'
+                              'scan_age_ms,odom_age_ms\n')
 
         sensor_qos = QoSProfile(depth=5)
         sensor_qos.reliability = ReliabilityPolicy.BEST_EFFORT

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate color-target variants of the BARN worlds (color_test_plan.md §2).
 
-For each input world, place the three 2"x2" scavenger squares (light green,
-purple, orange) on the sides of distinct cylinders, facing free space:
+For each input world, place one 2"x2" scavenger square per requested color
+(--colors, default light_green,purple,orange; lime_green and sky_blue also
+available) on the sides of distinct cylinders, facing free space:
 
   barn/worlds/world_NNN.world  ->  barn/worlds_color/world_NNN.world
                                    barn/targets/targets_NNN.yaml
@@ -52,7 +53,10 @@ COLORS = {                    # name -> (r, g, b) 0-1, plan §1
     'light_green': (0.565, 0.933, 0.565),
     'purple':      (0.502, 0.0, 0.502),
     'orange':      (1.0, 0.498, 0.0),
+    'lime_green':  (0.196, 0.804, 0.196),   # #32CD32
+    'sky_blue':    (0.424, 0.651, 0.804),   # #6CA6CD, slightly-darker sky blue
 }
+DEFAULT_COLORS = ('light_green', 'purple', 'orange')
 
 MODEL_TMPL = """    <model name="color_target_{name}">
       <static>1</static>
@@ -113,9 +117,9 @@ def wall_blocks(cylinders):
     ])
 
 
-def pick_targets(cylinders, rng):
-    """Choose 3 (cylinder_xy, outward_angle) pairs satisfying the plan's
-    constraints. Returns list of dicts or None if the world can't host 3."""
+def pick_targets(cylinders, rng, n):
+    """Choose n (cylinder_xy, outward_angle) pairs satisfying the plan's
+    constraints. Returns list of dicts or None if the world can't host n."""
     planner = G.Planner(cylinders, inflate_radius=G.DEFAULT_INFLATE_RADIUS)
     # squares must face the INSIDE of the maze: the approach pocket has to
     # sit within the cylinder field's extent (+small slack), not out in the
@@ -126,7 +130,7 @@ def pick_targets(cylinders, rng):
     order = rng.permutation(len(cylinders))
     chosen = []
     for ci in order:
-        if len(chosen) == 3:
+        if len(chosen) == n:
             break
         cx, cy = cylinders[ci]
         if any(math.hypot(cx - t['cx'], cy - t['cy']) < MIN_SEP
@@ -159,22 +163,22 @@ def pick_targets(cylinders, rng):
                            'approach': [round(float(approach[0]), 3),
                                         round(float(approach[1]), 3)]})
             break
-    return chosen if len(chosen) == 3 else None
+    return chosen if len(chosen) == n else None
 
 
-def build_world(idx, worlds_dir, out_worlds, out_targets):
+def build_world(idx, worlds_dir, out_worlds, out_targets, use_colors):
     src = worlds_dir / f'world_{idx:03d}.world'
     if not src.exists():
         return f'world_{idx:03d}: missing'
     cylinders = G.parse_world_cylinders(src)
-    if len(cylinders) < 3:
-        return f'world_{idx:03d}: <3 cylinders'
+    if len(cylinders) < len(use_colors):
+        return f'world_{idx:03d}: <{len(use_colors)} cylinders'
     rng = np.random.default_rng(BASE_SEED + idx)
-    picks = pick_targets(cylinders, rng)
+    picks = pick_targets(cylinders, rng, len(use_colors))
     if picks is None:
-        return f'world_{idx:03d}: could not place 3 targets'
+        return f'world_{idx:03d}: could not place {len(use_colors)} targets'
 
-    colors = list(COLORS)
+    colors = list(use_colors)
     rng.shuffle(colors)
     blocks, gt = [], []
     for color, t in zip(colors, picks):
@@ -207,9 +211,18 @@ def main():
     ap.add_argument('--idx', type=int, nargs='+')
     ap.add_argument('--all', action='store_true')
     ap.add_argument('--worlds-dir', default=BARN / 'worlds', type=Path)
+    ap.add_argument('--colors', default=','.join(DEFAULT_COLORS),
+                    help='comma-separated square colors to place '
+                         f'(known: {", ".join(COLORS)}). Regenerating with a '
+                         'different set OVERWRITES the worlds_color/targets '
+                         'output for those indices.')
     args = ap.parse_args()
     if not args.idx and not args.all:
         ap.error('need --idx or --all')
+    use_colors = [c.strip() for c in args.colors.split(',') if c.strip()]
+    unknown = [c for c in use_colors if c not in COLORS]
+    if unknown or not use_colors:
+        ap.error(f'unknown colors {unknown} (known: {list(COLORS)})')
 
     out_worlds = BARN / 'worlds_color'
     out_targets = BARN / 'targets'
@@ -223,7 +236,8 @@ def main():
         idxs = args.idx
     fails = []
     for i in idxs:
-        err = build_world(i, args.worlds_dir, out_worlds, out_targets)
+        err = build_world(i, args.worlds_dir, out_worlds, out_targets,
+                          use_colors)
         if err:
             fails.append(err)
             print(err)

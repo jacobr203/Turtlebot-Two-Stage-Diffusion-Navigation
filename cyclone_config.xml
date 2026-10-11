@@ -5,6 +5,11 @@
       <Interfaces>
         <NetworkInterface name="eth0" multicast="true" />
       </Interfaces>
+      <!-- Multicast for discovery only; data goes unicast. Under WSL2
+           mirrored networking, multicast DATA stops arriving after a few
+           minutes (measured 2026-09-28: robot camera 30 fps delivered as
+           0.5 fps over multicast, 30.2 fps over unicast, same network). -->
+      <AllowMulticast>spdp</AllowMulticast>
     </General>
   </Domain>
 </CycloneDDS>
