@@ -1,0 +1,13 @@
+# V4 policies on the same worlds and axes as full_v3 and full_v3_policies.
+# Checkpoints via env overrides (trial.py CKPTS):
+#   TWO_STAGE_CKPT=diffusion/runs/two_stage_v4/best.pt
+#   SINGLE_STAGE_CKPT=diffusion/runs/single_stage_v4/best.pt
+# Pin workers: worker k on cores 5k..5k+4, core 15 free.
+run_id: full_v4_policies
+models: [single_stage, two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

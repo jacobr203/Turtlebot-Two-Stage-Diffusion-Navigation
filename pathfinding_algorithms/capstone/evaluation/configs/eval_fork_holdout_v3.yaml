@@ -1,0 +1,12 @@
+# V3 policies on the multipath fork holdout worlds (440-447, never trained on),
+# to separate a worse policy from one specialized to that distribution.
+# Canonical start/goal: guaranteed navigable by the generator's base-route check.
+# Checkpoints via TWO_STAGE_CKPT/SINGLE_STAGE_CKPT env overrides.
+run_id: fork_holdout_v3pol
+models: [single_stage, two_stage]
+worlds: [440, 441, 442, 443, 444, 445, 446, 447]
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

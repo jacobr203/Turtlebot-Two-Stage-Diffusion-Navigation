@@ -1,0 +1,15 @@
+# Two-stage half of the v5 ablation, same worlds, rates and trials as the earlier
+# full_v* matrices.
+# Checkpoint via env override (trial.py CKPTS):
+#   TWO_STAGE_CKPT=diffusion/runs/two_stage_v5/best.pt
+# 1 model x 40 holdout worlds x 3 rates x 4 trials = 480 trials.
+# Cap at 3 workers x 4 threads on 16 cores: over-sharding inflates sampling
+# latency past the 250 ms tick and measures a handicapped policy.
+run_id: full_v5_two_stage
+models: [two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4

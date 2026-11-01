@@ -1,0 +1,4 @@
+model,hz,n,success_%,collision_%,timeout_%,time_to_goal_s,path_eff,lat_sample_ms,lat_plan_ms
+dwa,4.0,3,33.3,66.7,0.0,42.8,1.031,,
+single_stage,4.0,3,33.3,66.7,0.0,42.4,1.018,35.0,0.0
+two_stage,4.0,3,100.0,0.0,0.0,41.8,1.003,38.3,15.7

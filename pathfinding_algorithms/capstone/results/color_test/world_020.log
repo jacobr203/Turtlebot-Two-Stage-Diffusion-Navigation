@@ -1,0 +1,8 @@
+[INFO] [1786302551.965619141] [color_test_manager]: color test armed — find 3 squares (<= 0.69 m, seen 10 consecutive frames)
+[INFO] [1786302576.568128009] [color_test_manager]: purple SEEN at 3.94 m (bearing -31 deg)
+[INFO] [1786302601.094976718] [color_test_manager]: *** purple FOUND (49.4 s, 0.62 m, off-normal 19 deg) — 1/3
+[INFO] [1786302639.121498550] [color_test_manager]: orange SEEN at 2.96 m (bearing -34 deg)
+[INFO] [1786302656.140360051] [color_test_manager]: *** orange FOUND (104.4 s, 0.53 m, off-normal 39 deg) — 2/3
+[INFO] [1786302828.192519455] [color_test_manager]: light_green SEEN at 3.38 m (bearing 34 deg)
+[INFO] [1786302851.054996771] [color_test_manager]: *** light_green FOUND (299.3 s, 0.54 m, off-normal 17 deg) — 3/3
+[INFO] [1786302851.055330123] [color_test_manager]: === ALL 3 SQUARES FOUND in 299.3 s, path 31.6 m ===

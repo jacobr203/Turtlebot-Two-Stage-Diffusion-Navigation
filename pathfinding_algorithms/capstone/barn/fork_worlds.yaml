@@ -1,0 +1,596 @@
+generator: multipath-v3
+generator_seed: 42
+n: 48
+min_routes: 3
+cost_parity_max: 0.18
+holdout:
+- 440
+- 441
+- 442
+- 443
+- 444
+- 445
+- 446
+- 447
+train:
+- 400
+- 401
+- 402
+- 403
+- 404
+- 405
+- 406
+- 407
+- 408
+- 409
+- 410
+- 411
+- 412
+- 413
+- 414
+- 415
+- 416
+- 417
+- 418
+- 419
+- 420
+- 421
+- 422
+- 423
+- 424
+- 425
+- 426
+- 427
+- 428
+- 429
+- 430
+- 431
+- 432
+- 433
+- 434
+- 435
+- 436
+- 437
+- 438
+- 439
+worlds:
+- idx: 400
+  seed: 1130604998
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 5.33
+  - 5.87
+  - 6.09
+  goal:
+  - -2.175
+  - 7.425
+  n_cylinders: 336
+- idx: 401
+  seed: 1634535063
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.88
+  - 3.08
+  goal:
+  - -3.825
+  - 1.125
+  n_cylinders: 337
+- idx: 402
+  seed: 1803345591
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.76
+  - 3.78
+  goal:
+  - -4.125
+  - 4.275
+  n_cylinders: 332
+- idx: 403
+  seed: 1766867110
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 2.62
+  - 2.94
+  goal:
+  - -0.375
+  - 2.175
+  n_cylinders: 376
+- idx: 404
+  seed: 1190961761
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 5.48
+  - 5.35
+  - 6.35
+  goal:
+  - -0.825
+  - 6.975
+  n_cylinders: 350
+- idx: 405
+  seed: 1843166519
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.64
+  - 3.11
+  goal:
+  - -3.075
+  - 1.125
+  n_cylinders: 313
+- idx: 406
+  seed: 354826746
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.51
+  - 3.54
+  goal:
+  - -4.125
+  - 4.125
+  n_cylinders: 376
+- idx: 407
+  seed: 145857092
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.52
+  - 3.62
+  goal:
+  - -0.375
+  - 4.725
+  n_cylinders: 308
+- idx: 408
+  seed: 1917963003
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 5.44
+  - 5.52
+  - 6.23
+  goal:
+  - -1.875
+  - 5.775
+  n_cylinders: 346
+- idx: 409
+  seed: 781482251
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 3.44
+  - 3.87
+  goal:
+  - -1.425
+  - 1.125
+  n_cylinders: 347
+- idx: 410
+  seed: 1068999196
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.52
+  - 3.51
+  goal:
+  - -4.125
+  - 3.825
+  n_cylinders: 325
+- idx: 411
+  seed: 1981113450
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 2.79
+  - 3.21
+  goal:
+  - -0.525
+  - 4.725
+  n_cylinders: 353
+- idx: 412
+  seed: 487284116
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.61
+  - 7.05
+  - 7.58
+  goal:
+  - -2.325
+  - 8.625
+  n_cylinders: 330
+- idx: 413
+  seed: 1438414600
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.97
+  - 3.08
+  goal:
+  - -0.675
+  - 1.275
+  n_cylinders: 365
+- idx: 414
+  seed: 2019291965
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.03
+  - 3.31
+  goal:
+  - -4.125
+  - 4.125
+  n_cylinders: 342
+- idx: 415
+  seed: 208792607
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.05
+  - 3.4
+  goal:
+  - -0.525
+  - 1.725
+  n_cylinders: 305
+- idx: 416
+  seed: 2110414631
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.44
+  - 6.02
+  - 6.9
+  goal:
+  - -1.425
+  - 7.875
+  n_cylinders: 323
+- idx: 417
+  seed: 460817075
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 3.43
+  - 2.92
+  goal:
+  - -0.975
+  - 1.425
+  n_cylinders: 362
+- idx: 418
+  seed: 593883019
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.68
+  - 3.98
+  goal:
+  - -3.975
+  - 1.425
+  n_cylinders: 335
+- idx: 419
+  seed: 74502574
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.9
+  - 3.28
+  goal:
+  - -0.675
+  - 4.425
+  n_cylinders: 378
+- idx: 420
+  seed: 512746651
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.5
+  - 7.28
+  - 7.32
+  goal:
+  - -1.125
+  - 7.725
+  n_cylinders: 314
+- idx: 421
+  seed: 1468235992
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 3.0
+  - 3.27
+  goal:
+  - -3.675
+  - 1.275
+  n_cylinders: 335
+- idx: 422
+  seed: 727876280
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 2.48
+  - 2.89
+  goal:
+  - -3.825
+  - 4.275
+  n_cylinders: 326
+- idx: 423
+  seed: 2065659505
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.36
+  - 3.31
+  goal:
+  - -0.525
+  - 4.575
+  n_cylinders: 371
+- idx: 424
+  seed: 2081290422
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.51
+  - 5.59
+  - 7.5
+  goal:
+  - -2.625
+  - 7.275
+  n_cylinders: 380
+- idx: 425
+  seed: 1672354832
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.39
+  - 2.81
+  goal:
+  - -3.675
+  - 1.575
+  n_cylinders: 357
+- idx: 426
+  seed: 560793882
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 2.78
+  - 2.98
+  goal:
+  - -3.825
+  - 4.275
+  n_cylinders: 359
+- idx: 427
+  seed: 1582522788
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.29
+  - 3.78
+  goal:
+  - -0.525
+  - 4.725
+  n_cylinders: 367
+- idx: 428
+  seed: 170195625
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.05
+  - 6.84
+  - 6.44
+  goal:
+  - -1.275
+  - 7.275
+  n_cylinders: 379
+- idx: 429
+  seed: 1938323887
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 3.09
+  - 2.97
+  goal:
+  - -0.825
+  - 1.125
+  n_cylinders: 349
+- idx: 430
+  seed: 1511897337
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 2.9
+  - 3.0
+  goal:
+  - -3.975
+  - 4.425
+  n_cylinders: 353
+- idx: 431
+  seed: 1243864552
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.86
+  - 3.81
+  goal:
+  - -0.375
+  - 1.275
+  n_cylinders: 347
+- idx: 432
+  seed: 41927453
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.28
+  - 7.17
+  - 7.3
+  goal:
+  - -2.025
+  - 8.175
+  n_cylinders: 330
+- idx: 433
+  seed: 1058199178
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.66
+  - 3.08
+  goal:
+  - -3.375
+  - 1.275
+  n_cylinders: 370
+- idx: 434
+  seed: 1545034933
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.13
+  - 3.4
+  goal:
+  - -4.125
+  - 4.125
+  n_cylinders: 340
+- idx: 435
+  seed: 662857766
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 2.73
+  - 2.71
+  goal:
+  - -0.675
+  - 1.575
+  n_cylinders: 373
+- idx: 436
+  seed: 2013966976
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.33
+  - 6.17
+  - 7.08
+  goal:
+  - -0.825
+  - 7.425
+  n_cylinders: 328
+- idx: 437
+  seed: 345785549
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.87
+  - 3.34
+  goal:
+  - -0.825
+  - 1.125
+  n_cylinders: 334
+- idx: 438
+  seed: 1734302301
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.46
+  - 3.73
+  goal:
+  - -4.125
+  - 1.275
+  n_cylinders: 339
+- idx: 439
+  seed: 2048211626
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 3.05
+  - 3.13
+  goal:
+  - -0.675
+  - 4.425
+  n_cylinders: 339
+- idx: 440
+  seed: 1774448395
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.12
+  - 5.65
+  - 6.78
+  goal:
+  - -3.375
+  - 6.975
+  n_cylinders: 338
+- idx: 441
+  seed: 1165712302
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 2.79
+  - 2.59
+  goal:
+  - -1.425
+  - 1.125
+  n_cylinders: 374
+- idx: 442
+  seed: 301182625
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 3.15
+  - 3.28
+  goal:
+  - -3.825
+  - 4.275
+  n_cylinders: 338
+- idx: 443
+  seed: 648925168
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 2.75
+  - 2.95
+  goal:
+  - -0.375
+  - 4.125
+  n_cylinders: 351
+- idx: 444
+  seed: 1443624607
+  goal_dir: above
+  n_routes: 3
+  route_costs:
+  - 6.31
+  - 6.21
+  - 6.86
+  goal:
+  - -0.375
+  - 5.625
+  n_cylinders: 344
+- idx: 445
+  seed: 255280512
+  goal_dir: behind
+  n_routes: 2
+  route_costs:
+  - 3.12
+  - 3.31
+  goal:
+  - -3.675
+  - 1.575
+  n_cylinders: 328
+- idx: 446
+  seed: 688653859
+  goal_dir: left
+  n_routes: 2
+  route_costs:
+  - 2.52
+  - 2.81
+  goal:
+  - -3.975
+  - 4.125
+  n_cylinders: 349
+- idx: 447
+  seed: 231371919
+  goal_dir: right
+  n_routes: 2
+  route_costs:
+  - 2.85
+  - 3.21
+  goal:
+  - -0.675
+  - 4.275
+  n_cylinders: 366

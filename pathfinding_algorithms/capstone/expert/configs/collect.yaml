@@ -1,0 +1,16 @@
+# Expert-data collection v1 (see collect_dataset.py / collect_episode.py).
+
+dataset_id: v1
+seed: 7
+
+episodes_per_world: 4
+
+# Episode geometry / behavior (merged over collect_episode.DEFAULTS)
+inflate_radius: 0.21        # A* clearance from cylinder centers [m]
+start_jitter_xy: 0.15       # uniform +- [m] around (-2.25, 3.0)
+start_jitter_yaw: 0.15      # uniform +- [rad] around 1.5708
+goal_jitter_xy: 0.30        # uniform +- [m] around (-2.25, 13.0)
+subgoal_dist: 1.2           # two-stage conditioning label lookahead [m]
+rate_hz: 4.0                # recorder sampling rate (sim time)
+tracker_rate_hz: 20.0       # pure-pursuit control rate (sim time)
+timeout_sim_s: 240.0

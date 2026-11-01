@@ -1,0 +1,2709 @@
+worlds:
+  1000:
+    cylinders: 265
+    legs:
+    - gx: -2.625
+      gy: 8.5
+      kind: enter
+      sx: -4.05
+      sy: 7.1
+      syaw: 1.0065
+    - gx: -4.85
+      gy: 12.1
+      kind: exit
+      sx: -2.625
+      sy: 8.5
+      syaw: 2.3876
+    - gx: -1.0
+      gy: 8.775
+      kind: enter
+      sx: -4.85
+      sy: 9.8
+      syaw: 0.5244
+    - gx: -1.75
+      gy: 13.15
+      kind: exit
+      sx: -1.0
+      sy: 8.775
+      syaw: -2.4207
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1001:
+    cylinders: 241
+    legs:
+    - gx: -0.975
+      gy: 7.7
+      kind: enter
+      sx: -0.75
+      sy: 4.15
+      syaw: 1.6935
+    - gx: -1.65
+      gy: 2.75
+      kind: exit
+      sx: -0.975
+      sy: 7.7
+      syaw: -1.5013
+    - gx: -2.475
+      gy: 8.3
+      kind: enter
+      sx: -4.05
+      sy: 8.8
+      syaw: 0.3747
+    - gx: -2.75
+      gy: 5.0
+      kind: exit
+      sx: -2.475
+      sy: 8.3
+      syaw: -1.9421
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1002:
+    cylinders: 249
+    legs:
+    - gx: -1.15
+      gy: 5.925
+      kind: enter
+      sx: -3.1
+      sy: 5.5
+      syaw: 0.2687
+    - gx: -3.95
+      gy: 3.25
+      kind: exit
+      sx: -1.15
+      sy: 5.925
+      syaw: 2.9227
+    - gx: -0.975
+      gy: 8.35
+      kind: enter
+      sx: -3.55
+      sy: 10.95
+      syaw: -0.9313
+    - gx: -0.25
+      gy: 10.4
+      kind: exit
+      sx: -0.975
+      sy: 8.35
+      syaw: 2.0577
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1003:
+    cylinders: 228
+    legs:
+    - gx: -3.5
+      gy: 5.775
+      kind: enter
+      sx: -3.45
+      sy: 3.5
+      syaw: 1.4312
+    - gx: -1.1
+      gy: 5.9
+      kind: exit
+      sx: -3.5
+      sy: 5.775
+      syaw: -0.1549
+    - gx: -1.75
+      gy: 8.475
+      kind: enter
+      sx: -2.2
+      sy: 6.3
+      syaw: 2.5805
+    - gx: -1.8
+      gy: 6.8
+      kind: exit
+      sx: -1.75
+      sy: 8.475
+      syaw: -2.6783
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1004:
+    cylinders: 237
+    legs:
+    - gx: -3.075
+      gy: 7.25
+      kind: enter
+      sx: -1.1
+      sy: 5.65
+      syaw: 2.4621
+    - gx: -2.1
+      gy: 10.65
+      kind: exit
+      sx: -3.075
+      sy: 7.25
+      syaw: -1.7725
+    - gx: -2.95
+      gy: 8.775
+      kind: enter
+      sx: -0.6
+      sy: 12.3
+      syaw: -2.3137
+    - gx: -3.1
+      gy: 10.9
+      kind: exit
+      sx: -2.95
+      sy: 8.775
+      syaw: 3.0184
+    - gx: -3.075
+      gy: 5.95
+      kind: enter
+      sx: -2.15
+      sy: 2.55
+      syaw: 1.5131
+    - gx: -0.5
+      gy: 6.25
+      kind: exit
+      sx: -3.075
+      sy: 5.95
+      syaw: 1.8385
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1005:
+    cylinders: 234
+    legs:
+    - gx: -3.075
+      gy: 6.55
+      kind: enter
+      sx: -2.5
+      sy: 11.3
+      syaw: -1.4946
+    - gx: -2.3
+      gy: 11.05
+      kind: exit
+      sx: -3.075
+      sy: 6.55
+      syaw: 1.4926
+    - gx: -1.425
+      gy: 7.4
+      kind: enter
+      sx: -2.55
+      sy: 2.9
+      syaw: 1.6048
+    - gx: -0.9
+      gy: 2.45
+      kind: exit
+      sx: -1.425
+      sy: 7.4
+      syaw: -0.9995
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1006:
+    cylinders: 244
+    legs:
+    - gx: -2.175
+      gy: 8.5
+      kind: enter
+      sx: -1.35
+      sy: 7.25
+      syaw: 1.552
+    - gx: 0.15
+      gy: 12.35
+      kind: exit
+      sx: -2.175
+      sy: 8.5
+      syaw: 2.0504
+    - gx: -2.775
+      gy: 6.35
+      kind: enter
+      sx: -3.85
+      sy: 5.05
+      syaw: -0.357
+    - gx: -4.05
+      gy: 3.9
+      kind: exit
+      sx: -2.775
+      sy: 6.35
+      syaw: -2.4533
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1007:
+    cylinders: 216
+    legs:
+    - gx: -2.025
+      gy: 7.6
+      kind: enter
+      sx: -2.95
+      sy: 11.2
+      syaw: -1.5116
+    - gx: -1.65
+      gy: 11.4
+      kind: exit
+      sx: -2.025
+      sy: 7.6
+      syaw: 1.636
+    - gx: -1.15
+      gy: 8.775
+      kind: enter
+      sx: -0.4
+      sy: 11.15
+      syaw: -1.827
+    - gx: -4.75
+      gy: 10.35
+      kind: exit
+      sx: -1.15
+      sy: 8.775
+      syaw: -2.956
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1008:
+    cylinders: 226
+    legs:
+    - gx: -2.475
+      gy: 7.85
+      kind: enter
+      sx: -0.6
+      sy: 7.35
+      syaw: -2.8898
+    - gx: -2.65
+      gy: 3.8
+      kind: exit
+      sx: -2.475
+      sy: 7.85
+      syaw: -1.5755
+    - gx: -2.625
+      gy: 6.4
+      kind: enter
+      sx: -3.5
+      sy: 3.45
+      syaw: 1.6716
+    - gx: -1.4
+      gy: 3.6
+      kind: exit
+      sx: -2.625
+      sy: 6.4
+      syaw: 1.5705
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1009:
+    cylinders: 226
+    legs:
+    - gx: -3.05
+      gy: 8.625
+      kind: enter
+      sx: -3.55
+      sy: 10.45
+      syaw: -0.7546
+    - gx: -2.5
+      gy: 12.35
+      kind: exit
+      sx: -3.05
+      sy: 8.625
+      syaw: -0.0416
+    - gx: -1.4
+      gy: 8.175
+      kind: enter
+      sx: -3.8
+      sy: 10.85
+      syaw: -0.8267
+    - gx: -2.0
+      gy: 4.6
+      kind: exit
+      sx: -1.4
+      sy: 8.175
+      syaw: 0.069
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1010:
+    cylinders: 221
+    legs:
+    - gx: -1.55
+      gy: 7.875
+      kind: enter
+      sx: -2.2
+      sy: 3.4
+      syaw: 1.7188
+    - gx: -2.4
+      gy: 10.85
+      kind: exit
+      sx: -1.55
+      sy: 7.875
+      syaw: -0.338
+    - gx: -3.525
+      gy: 7.6
+      kind: enter
+      sx: -2.5
+      sy: 3.8
+      syaw: 1.6884
+    - gx: -4.8
+      gy: 9.9
+      kind: exit
+      sx: -3.525
+      sy: 7.6
+      syaw: 1.5698
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1011:
+    cylinders: 243
+    legs:
+    - gx: -2.45
+      gy: 6.075
+      kind: enter
+      sx: 0.2
+      sy: 10.05
+      syaw: -2.8008
+    - gx: -3.55
+      gy: 5.1
+      kind: exit
+      sx: -2.45
+      sy: 6.075
+      syaw: 0.0844
+    - gx: -2.475
+      gy: 7.6
+      kind: enter
+      sx: 0.05
+      sy: 11.3
+      syaw: -2.3329
+    - gx: -1.15
+      gy: 12.4
+      kind: exit
+      sx: -2.475
+      sy: 7.6
+      syaw: 2.0816
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1012:
+    cylinders: 236
+    legs:
+    - gx: -1.6
+      gy: 7.575
+      kind: enter
+      sx: -1.8
+      sy: 11.15
+      syaw: -1.3383
+    - gx: -1.5
+      gy: 10.05
+      kind: exit
+      sx: -1.6
+      sy: 7.575
+      syaw: -3.1393
+    - gx: -3.2
+      gy: 5.925
+      kind: enter
+      sx: -3.2
+      sy: 3.8
+      syaw: 1.5479
+    - gx: -1.75
+      gy: 9.05
+      kind: exit
+      sx: -3.2
+      sy: 5.925
+      syaw: -0.2405
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1013:
+    cylinders: 263
+    legs:
+    - gx: -2.15
+      gy: 7.275
+      kind: enter
+      sx: -0.8
+      sy: 11.45
+      syaw: -1.5011
+    - gx: -1.9
+      gy: 10.15
+      kind: exit
+      sx: -2.15
+      sy: 7.275
+      syaw: -0.8958
+    - gx: -3.525
+      gy: 7.4
+      kind: enter
+      sx: -1.95
+      sy: 3.15
+      syaw: 1.7439
+    - gx: -1.15
+      gy: 7.4
+      kind: exit
+      sx: -3.525
+      sy: 7.4
+      syaw: -2.3351
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1014:
+    cylinders: 251
+    legs:
+    - gx: -2.0
+      gy: 8.325
+      kind: enter
+      sx: -3.05
+      sy: 7.25
+      syaw: 0.1861
+    - gx: -2.25
+      gy: 3.95
+      kind: exit
+      sx: -2.0
+      sy: 8.325
+      syaw: 0.0197
+    - gx: -0.95
+      gy: 5.925
+      kind: enter
+      sx: -3.45
+      sy: 4.4
+      syaw: 0.2714
+    - gx: -3.75
+      gy: 5.2
+      kind: exit
+      sx: -0.95
+      sy: 5.925
+      syaw: -0.8557
+    - gx: -3.525
+      gy: 6.05
+      kind: enter
+      sx: -1.9
+      sy: 3.65
+      syaw: 2.4908
+    - gx: -3.0
+      gy: 3.7
+      kind: exit
+      sx: -3.525
+      sy: 6.05
+      syaw: -1.9309
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1015:
+    cylinders: 262
+    legs:
+    - gx: -2.2
+      gy: 7.725
+      kind: enter
+      sx: -3.35
+      sy: 3.75
+      syaw: 1.6271
+    - gx: -0.6
+      gy: 4.8
+      kind: exit
+      sx: -2.2
+      sy: 7.725
+      syaw: -2.499
+    - gx: -3.375
+      gy: 8.65
+      kind: enter
+      sx: -0.75
+      sy: 7.75
+      syaw: 1.6338
+    - gx: -4.95
+      gy: 9.55
+      kind: exit
+      sx: -3.375
+      sy: 8.65
+      syaw: 2.011
+    - gx: -0.825
+      gy: 6.55
+      kind: enter
+      sx: -1.9
+      sy: 9.85
+      syaw: -1.2284
+    - gx: 0.2
+      gy: 10.5
+      kind: exit
+      sx: -0.825
+      sy: 6.55
+      syaw: 1.609
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: holdout
+  1016:
+    cylinders: 247
+    legs:
+    - gx: -1.275
+      gy: 7.45
+      kind: enter
+      sx: -3.0
+      sy: 11.6
+      syaw: -1.3229
+    - gx: -4.0
+      gy: 9.4
+      kind: exit
+      sx: -1.275
+      sy: 7.45
+      syaw: 1.8304
+    - gx: -0.95
+      gy: 6.225
+      kind: enter
+      sx: -1.8
+      sy: 8.8
+      syaw: -0.7103
+    - gx: -2.9
+      gy: 10.65
+      kind: exit
+      sx: -0.95
+      sy: 6.225
+      syaw: -0.5047
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1017:
+    cylinders: 218
+    legs:
+    - gx: -2.95
+      gy: 7.425
+      kind: enter
+      sx: -0.5
+      sy: 11.7
+      syaw: -2.4435
+    - gx: -2.55
+      gy: 3.1
+      kind: exit
+      sx: -2.95
+      sy: 7.425
+      syaw: -3.0733
+    - gx: -1.25
+      gy: 7.275
+      kind: enter
+      sx: -0.95
+      sy: 3.75
+      syaw: 1.6
+    - gx: -2.4
+      gy: 4.2
+      kind: exit
+      sx: -1.25
+      sy: 7.275
+      syaw: 0.104
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1018:
+    cylinders: 226
+    legs:
+    - gx: -1.25
+      gy: 6.825
+      kind: enter
+      sx: -2.65
+      sy: 5.05
+      syaw: 0.6568
+    - gx: -0.2
+      gy: 11.05
+      kind: exit
+      sx: -1.25
+      sy: 6.825
+      syaw: -0.5126
+    - gx: -3.225
+      gy: 6.85
+      kind: enter
+      sx: -4.9
+      sy: 9.85
+      syaw: 0.2408
+    - gx: -2.3
+      gy: 9.45
+      kind: exit
+      sx: -3.225
+      sy: 6.85
+      syaw: 2.075
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1019:
+    cylinders: 217
+    legs:
+    - gx: -1.7
+      gy: 6.975
+      kind: enter
+      sx: -1.5
+      sy: 11.6
+      syaw: -1.4927
+    - gx: -1.7
+      gy: 10.65
+      kind: exit
+      sx: -1.7
+      sy: 6.975
+      syaw: -0.2459
+    - gx: -1.7
+      gy: 8.325
+      kind: enter
+      sx: -3.4
+      sy: 8.95
+      syaw: -0.2703
+    - gx: -5.0
+      gy: 10.1
+      kind: exit
+      sx: -1.7
+      sy: 8.325
+      syaw: 0.1239
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1020:
+    cylinders: 249
+    legs:
+    - gx: -1.875
+      gy: 8.35
+      kind: enter
+      sx: -4.65
+      sy: 10.2
+      syaw: -0.4776
+    - gx: -4.95
+      gy: 8.5
+      kind: exit
+      sx: -1.875
+      sy: 8.35
+      syaw: 2.0037
+    - gx: -3.225
+      gy: 7.0
+      kind: enter
+      sx: -1.05
+      sy: 9.6
+      syaw: -2.21
+    - gx: -0.95
+      gy: 4.3
+      kind: exit
+      sx: -3.225
+      sy: 7.0
+      syaw: 2.1091
+    - gx: -1.7
+      gy: 5.925
+      kind: enter
+      sx: -2.55
+      sy: 9.5
+      syaw: -0.7881
+    - gx: -2.75
+      gy: 2.1
+      kind: exit
+      sx: -1.7
+      sy: 5.925
+      syaw: -0.1045
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1021:
+    cylinders: 241
+    legs:
+    - gx: -2.6
+      gy: 7.875
+      kind: enter
+      sx: -1.15
+      sy: 3.65
+      syaw: 1.5973
+    - gx: -4.15
+      gy: 11.5
+      kind: exit
+      sx: -2.6
+      sy: 7.875
+      syaw: -0.555
+    - gx: -3.2
+      gy: 5.925
+      kind: enter
+      sx: -1.0
+      sy: 1.8
+      syaw: 1.8226
+    - gx: -0.45
+      gy: 7.55
+      kind: exit
+      sx: -3.2
+      sy: 5.925
+      syaw: -0.4013
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1022:
+    cylinders: 252
+    legs:
+    - gx: -3.675
+      gy: 8.05
+      kind: enter
+      sx: -2.6
+      sy: 10.35
+      syaw: -2.2575
+    - gx: 0.25
+      gy: 9.9
+      kind: exit
+      sx: -3.675
+      sy: 8.05
+      syaw: 1.6907
+    - gx: -1.275
+      gy: 8.0
+      kind: enter
+      sx: -3.15
+      sy: 4.5
+      syaw: 0.8649
+    - gx: -1.35
+      gy: 3.9
+      kind: exit
+      sx: -1.275
+      sy: 8.0
+      syaw: -1.9956
+    - gx: -0.825
+      gy: 6.5
+      kind: enter
+      sx: -3.5
+      sy: 2.55
+      syaw: 0.8731
+    - gx: -2.65
+      gy: 2.4
+      kind: exit
+      sx: -0.825
+      sy: 6.5
+      syaw: -1.6016
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1023:
+    cylinders: 227
+    legs:
+    - gx: -1.0
+      gy: 8.475
+      kind: enter
+      sx: -2.9
+      sy: 4.65
+      syaw: 0.5303
+    - gx: 0.05
+      gy: 12.05
+      kind: exit
+      sx: -1.0
+      sy: 8.475
+      syaw: -3.212
+    - gx: -2.6
+      gy: 5.925
+      kind: enter
+      sx: -1.45
+      sy: 3.35
+      syaw: 2.0853
+    - gx: -2.55
+      gy: 10.65
+      kind: exit
+      sx: -2.6
+      sy: 5.925
+      syaw: -0.2695
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1024:
+    cylinders: 221
+    legs:
+    - gx: -3.25
+      gy: 8.625
+      kind: enter
+      sx: -2.85
+      sy: 11.45
+      syaw: -1.7316
+    - gx: -0.95
+      gy: 8.8
+      kind: exit
+      sx: -3.25
+      sy: 8.625
+      syaw: -2.864
+    - gx: -1.15
+      gy: 7.575
+      kind: enter
+      sx: -1.5
+      sy: 6.0
+      syaw: 2.0895
+    - gx: -1.8
+      gy: 3.1
+      kind: exit
+      sx: -1.15
+      sy: 7.575
+      syaw: -2.6526
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1025:
+    cylinders: 232
+    legs:
+    - gx: -2.925
+      gy: 6.95
+      kind: enter
+      sx: -1.5
+      sy: 5.0
+      syaw: 2.5039
+    - gx: -1.7
+      gy: 2.15
+      kind: exit
+      sx: -2.925
+      sy: 6.95
+      syaw: -1.6667
+    - gx: -1.6
+      gy: 8.775
+      kind: enter
+      sx: -4.0
+      sy: 11.4
+      syaw: -0.6425
+    - gx: -3.5
+      gy: 8.3
+      kind: exit
+      sx: -1.6
+      sy: 8.775
+      syaw: -2.8533
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1026:
+    cylinders: 218
+    legs:
+    - gx: -2.625
+      gy: 6.65
+      kind: enter
+      sx: -1.6
+      sy: 7.35
+      syaw: -2.6193
+    - gx: -3.9
+      gy: 2.2
+      kind: exit
+      sx: -2.625
+      sy: 6.65
+      syaw: -1.6308
+    - gx: -2.3
+      gy: 8.025
+      kind: enter
+      sx: -1.25
+      sy: 11.95
+      syaw: -1.4461
+    - gx: -1.05
+      gy: 10.6
+      kind: exit
+      sx: -2.3
+      sy: 8.025
+      syaw: -0.3141
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1027:
+    cylinders: 258
+    legs:
+    - gx: -0.825
+      gy: 7.3
+      kind: enter
+      sx: 0.35
+      sy: 7.05
+      syaw: 1.4018
+    - gx: -0.9
+      gy: 4.45
+      kind: exit
+      sx: -0.825
+      sy: 7.3
+      syaw: 2.1117
+    - gx: -3.525
+      gy: 5.6
+      kind: enter
+      sx: -3.2
+      sy: 3.3
+      syaw: 1.6756
+    - gx: -2.05
+      gy: 0.95
+      kind: exit
+      sx: -3.525
+      sy: 5.6
+      syaw: -1.4896
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1028:
+    cylinders: 250
+    legs:
+    - gx: -2.625
+      gy: 6.05
+      kind: enter
+      sx: -0.6
+      sy: 8.25
+      syaw: -1.3895
+    - gx: -3.6
+      gy: 4.25
+      kind: exit
+      sx: -2.625
+      sy: 6.05
+      syaw: -1.9972
+    - gx: -2.775
+      gy: 8.2
+      kind: enter
+      sx: -1.5
+      sy: 9.55
+      syaw: 2.8569
+    - gx: -4.45
+      gy: 10.8
+      kind: exit
+      sx: -2.775
+      sy: 8.2
+      syaw: 1.7666
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1029:
+    cylinders: 249
+    legs:
+    - gx: -2.025
+      gy: 6.55
+      kind: enter
+      sx: -0.75
+      sy: 4.85
+      syaw: 1.5926
+    - gx: -1.75
+      gy: 3.05
+      kind: exit
+      sx: -2.025
+      sy: 6.55
+      syaw: 1.4284
+    - gx: -1.45
+      gy: 8.025
+      kind: enter
+      sx: -3.45
+      sy: 10.3
+      syaw: -0.7034
+    - gx: -1.3
+      gy: 5.15
+      kind: exit
+      sx: -1.45
+      sy: 8.025
+      syaw: -2.9562
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1030:
+    cylinders: 221
+    legs:
+    - gx: -1.45
+      gy: 5.925
+      kind: enter
+      sx: -1.2
+      sy: 9.85
+      syaw: -2.7963
+    - gx: -2.75
+      gy: 1.55
+      kind: exit
+      sx: -1.45
+      sy: 5.925
+      syaw: -2.7139
+    - gx: -0.8
+      gy: 8.775
+      kind: enter
+      sx: -2.3
+      sy: 4.6
+      syaw: 1.4364
+    - gx: -1.45
+      gy: 7.6
+      kind: exit
+      sx: -0.8
+      sy: 8.775
+      syaw: 0.1606
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1031:
+    cylinders: 213
+    legs:
+    - gx: -2.175
+      gy: 7.0
+      kind: enter
+      sx: -0.75
+      sy: 7.35
+      syaw: -3.042
+    - gx: -2.85
+      gy: 9.1
+      kind: exit
+      sx: -2.175
+      sy: 7.0
+      syaw: 1.4633
+    - gx: -1.9
+      gy: 8.625
+      kind: enter
+      sx: -0.45
+      sy: 11.85
+      syaw: -2.0032
+    - gx: -1.1
+      gy: 5.6
+      kind: exit
+      sx: -1.9
+      sy: 8.625
+      syaw: -2.7171
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1032:
+    cylinders: 238
+    legs:
+    - gx: -0.825
+      gy: 7.0
+      kind: enter
+      sx: -0.7
+      sy: 10.35
+      syaw: -1.4333
+    - gx: -3.3
+      gy: 11.15
+      kind: exit
+      sx: -0.825
+      sy: 7.0
+      syaw: 2.3613
+    - gx: -2.65
+      gy: 7.575
+      kind: enter
+      sx: -2.75
+      sy: 10.65
+      syaw: -1.8389
+    - gx: -2.85
+      gy: 3.6
+      kind: exit
+      sx: -2.65
+      sy: 7.575
+      syaw: -2.4502
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1033:
+    cylinders: 230
+    legs:
+    - gx: -3.225
+      gy: 8.35
+      kind: enter
+      sx: -0.65
+      sy: 9.0
+      syaw: -3.0966
+    - gx: -1.05
+      gy: 7.3
+      kind: exit
+      sx: -3.225
+      sy: 8.35
+      syaw: 1.4588
+    - gx: -3.1
+      gy: 6.375
+      kind: enter
+      sx: -0.85
+      sy: 8.0
+      syaw: -2.3318
+    - gx: -2.35
+      gy: 9.2
+      kind: exit
+      sx: -3.1
+      sy: 6.375
+      syaw: -3.1937
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1034:
+    cylinders: 260
+    legs:
+    - gx: -3.25
+      gy: 6.375
+      kind: enter
+      sx: -2.2
+      sy: 10.55
+      syaw: -2.399
+    - gx: -1.2
+      gy: 7.4
+      kind: exit
+      sx: -3.25
+      sy: 6.375
+      syaw: -2.4128
+    - gx: -2.325
+      gy: 8.45
+      kind: enter
+      sx: -4.45
+      sy: 9.95
+      syaw: -0.6437
+    - gx: -3.95
+      gy: 11.05
+      kind: exit
+      sx: -2.325
+      sy: 8.45
+      syaw: -2.2734
+    - gx: -0.825
+      gy: 5.9
+      kind: enter
+      sx: -2.95
+      sy: 3.15
+      syaw: 0.895
+    - gx: -0.85
+      gy: 3.9
+      kind: exit
+      sx: -0.825
+      sy: 5.9
+      syaw: -1.7049
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1035:
+    cylinders: 223
+    legs:
+    - gx: -1.275
+      gy: 7.4
+      kind: enter
+      sx: -4.8
+      sy: 9.85
+      syaw: 0.3216
+    - gx: -4.05
+      gy: 9.9
+      kind: exit
+      sx: -1.275
+      sy: 7.4
+      syaw: -1.5212
+    - gx: -1.55
+      gy: 8.775
+      kind: enter
+      sx: -2.0
+      sy: 12.85
+      syaw: -1.5389
+    - gx: -4.6
+      gy: 11.25
+      kind: exit
+      sx: -1.55
+      sy: 8.775
+      syaw: -0.0197
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1036:
+    cylinders: 249
+    legs:
+    - gx: -2.5
+      gy: 7.875
+      kind: enter
+      sx: -2.35
+      sy: 4.55
+      syaw: 2.612
+    - gx: -3.4
+      gy: 9.15
+      kind: exit
+      sx: -2.5
+      sy: 7.875
+      syaw: -2.7824
+    - gx: -2.0
+      gy: 5.925
+      kind: enter
+      sx: -3.5
+      sy: 9.1
+      syaw: -1.0364
+    - gx: -2.6
+      gy: 3.0
+      kind: exit
+      sx: -2.0
+      sy: 5.925
+      syaw: -0.3547
+    - gx: -1.0
+      gy: 8.625
+      kind: enter
+      sx: -1.25
+      sy: 10.2
+      syaw: -1.8996
+    - gx: -0.2
+      gy: 10.0
+      kind: exit
+      sx: -1.0
+      sy: 8.625
+      syaw: -2.9318
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1037:
+    cylinders: 235
+    legs:
+    - gx: -1.575
+      gy: 6.8
+      kind: enter
+      sx: -2.1
+      sy: 1.95
+      syaw: 1.5415
+    - gx: -0.95
+      gy: 9.5
+      kind: exit
+      sx: -1.575
+      sy: 6.8
+      syaw: -1.5589
+    - gx: -3.075
+      gy: 7.4
+      kind: enter
+      sx: -1.8
+      sy: 8.5
+      syaw: -2.3098
+    - gx: -3.55
+      gy: 2.95
+      kind: exit
+      sx: -3.075
+      sy: 7.4
+      syaw: -1.942
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1038:
+    cylinders: 262
+    legs:
+    - gx: -3.075
+      gy: 6.25
+      kind: enter
+      sx: -5.05
+      sy: 10.1
+      syaw: -0.5721
+    - gx: -3.25
+      gy: 3.2
+      kind: exit
+      sx: -3.075
+      sy: 6.25
+      syaw: 1.594
+    - gx: -1.125
+      gy: 8.45
+      kind: enter
+      sx: -1.45
+      sy: 10.3
+      syaw: -1.7413
+    - gx: -3.95
+      gy: 5.15
+      kind: exit
+      sx: -1.125
+      sy: 8.45
+      syaw: -1.4906
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1039:
+    cylinders: 217
+    legs:
+    - gx: -1.0
+      gy: 6.975
+      kind: enter
+      sx: 0.0
+      sy: 11.35
+      syaw: -1.6979
+    - gx: -0.9
+      gy: 2.5
+      kind: exit
+      sx: -1.0
+      sy: 6.975
+      syaw: -3.1638
+    - gx: -2.775
+      gy: 7.45
+      kind: enter
+      sx: -0.6
+      sy: 10.15
+      syaw: -2.4041
+    - gx: -3.0
+      gy: 4.05
+      kind: exit
+      sx: -2.775
+      sy: 7.45
+      syaw: 1.8381
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1040:
+    cylinders: 260
+    legs:
+    - gx: -3.225
+      gy: 6.55
+      kind: enter
+      sx: -3.5
+      sy: 3.75
+      syaw: 1.5843
+    - gx: -0.6
+      gy: 5.0
+      kind: exit
+      sx: -3.225
+      sy: 6.55
+      syaw: 1.6304
+    - gx: -2.05
+      gy: 6.225
+      kind: enter
+      sx: -3.95
+      sy: 2.35
+      syaw: 1.0749
+    - gx: -4.0
+      gy: 2.85
+      kind: exit
+      sx: -2.05
+      sy: 6.225
+      syaw: -3.0677
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1041:
+    cylinders: 253
+    legs:
+    - gx: -1.45
+      gy: 6.675
+      kind: enter
+      sx: -2.8
+      sy: 2.8
+      syaw: 1.659
+    - gx: -3.15
+      gy: 2.8
+      kind: exit
+      sx: -1.45
+      sy: 6.675
+      syaw: -2.6721
+    - gx: -2.75
+      gy: 7.425
+      kind: enter
+      sx: -2.2
+      sy: 11.3
+      syaw: -1.5841
+    - gx: -1.75
+      gy: 9.4
+      kind: exit
+      sx: -2.75
+      sy: 7.425
+      syaw: -0.5842
+    - gx: -3.25
+      gy: 8.775
+      kind: enter
+      sx: -3.0
+      sy: 13.1
+      syaw: -1.636
+    - gx: -2.35
+      gy: 13.6
+      kind: exit
+      sx: -3.25
+      sy: 8.775
+      syaw: -2.9898
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1042:
+    cylinders: 245
+    legs:
+    - gx: -3.25
+      gy: 6.825
+      kind: enter
+      sx: -1.95
+      sy: 7.25
+      syaw: -2.0855
+    - gx: -0.9
+      gy: 2.7
+      kind: exit
+      sx: -3.25
+      sy: 6.825
+      syaw: -2.7567
+    - gx: -2.75
+      gy: 8.625
+      kind: enter
+      sx: -2.55
+      sy: 11.4
+      syaw: -1.5302
+    - gx: -0.05
+      gy: 10.25
+      kind: exit
+      sx: -2.75
+      sy: 8.625
+      syaw: -0.2502
+    - gx: -0.825
+      gy: 7.15
+      kind: enter
+      sx: 0.4
+      sy: 11.1
+      syaw: -1.9042
+    - gx: -1.05
+      gy: 4.25
+      kind: exit
+      sx: -0.825
+      sy: 7.15
+      syaw: 1.641
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1043:
+    cylinders: 231
+    legs:
+    - gx: -2.025
+      gy: 7.3
+      kind: enter
+      sx: -1.1
+      sy: 11.7
+      syaw: -1.5392
+    - gx: -3.7
+      gy: 10.45
+      kind: exit
+      sx: -2.025
+      sy: 7.3
+      syaw: 2.0949
+    - gx: -3.375
+      gy: 7.6
+      kind: enter
+      sx: -4.9
+      sy: 10.3
+      syaw: -0.5478
+    - gx: 0.55
+      gy: 9.4
+      kind: exit
+      sx: -3.375
+      sy: 7.6
+      syaw: 2.2846
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1044:
+    cylinders: 258
+    legs:
+    - gx: -1.575
+      gy: 8.0
+      kind: enter
+      sx: -1.6
+      sy: 6.15
+      syaw: -1.4829
+    - gx: -1.15
+      gy: 3.9
+      kind: exit
+      sx: -1.575
+      sy: 8.0
+      syaw: -1.9927
+    - gx: -1.425
+      gy: 5.9
+      kind: enter
+      sx: -3.65
+      sy: 4.1
+      syaw: 0.8848
+    - gx: -3.8
+      gy: 3.0
+      kind: exit
+      sx: -1.425
+      sy: 5.9
+      syaw: -2.1829
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1045:
+    cylinders: 245
+    legs:
+    - gx: -2.925
+      gy: 7.7
+      kind: enter
+      sx: -3.0
+      sy: 9.95
+      syaw: -1.4899
+    - gx: -3.6
+      gy: 5.05
+      kind: exit
+      sx: -2.925
+      sy: 7.7
+      syaw: -1.814
+    - gx: -0.825
+      gy: 6.65
+      kind: enter
+      sx: -3.4
+      sy: 5.05
+      syaw: 0.8988
+    - gx: -3.9
+      gy: 6.65
+      kind: exit
+      sx: -0.825
+      sy: 6.65
+      syaw: -2.0556
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1046:
+    cylinders: 258
+    legs:
+    - gx: -3.2
+      gy: 6.975
+      kind: enter
+      sx: -1.0
+      sy: 7.65
+      syaw: -1.6972
+    - gx: -1.8
+      gy: 9.0
+      kind: exit
+      sx: -3.2
+      sy: 6.975
+      syaw: -0.15
+    - gx: -1.85
+      gy: 5.925
+      kind: enter
+      sx: -1.7
+      sy: 9.0
+      syaw: -0.6805
+    - gx: -2.75
+      gy: 4.6
+      kind: exit
+      sx: -1.85
+      sy: 5.925
+      syaw: -0.6731
+    - gx: -1.85
+      gy: 7.725
+      kind: enter
+      sx: 0.55
+      sy: 7.7
+      syaw: 1.8182
+    - gx: -2.25
+      gy: 11.5
+      kind: exit
+      sx: -1.85
+      sy: 7.725
+      syaw: -0.1658
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1047:
+    cylinders: 258
+    legs:
+    - gx: -1.575
+      gy: 6.8
+      kind: enter
+      sx: -0.95
+      sy: 2.65
+      syaw: 1.6204
+    - gx: -3.15
+      gy: 5.45
+      kind: exit
+      sx: -1.575
+      sy: 6.8
+      syaw: -1.8751
+    - gx: -2.9
+      gy: 7.875
+      kind: enter
+      sx: -2.5
+      sy: 11.4
+      syaw: -1.6433
+    - gx: -0.05
+      gy: 10.75
+      kind: exit
+      sx: -2.9
+      sy: 7.875
+      syaw: -0.3777
+    - gx: -1.125
+      gy: 8.35
+      kind: enter
+      sx: -2.3
+      sy: 13.1
+      syaw: -1.4963
+    - gx: -2.2
+      gy: 10.75
+      kind: exit
+      sx: -1.125
+      sy: 8.35
+      syaw: 2.008
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: holdout
+  1048:
+    cylinders: 238
+    legs:
+    - gx: -3.7
+      gy: 6.525
+      kind: enter
+      sx: -1.75
+      sy: 4.55
+      syaw: 1.8821
+    - gx: -0.8
+      gy: 6.7
+      kind: exit
+      sx: -3.7
+      sy: 6.525
+      syaw: 3.2387
+    - gx: -3.05
+      gy: 8.475
+      kind: enter
+      sx: -2.25
+      sy: 4.3
+      syaw: 1.5867
+    - gx: -3.0
+      gy: 9.9
+      kind: exit
+      sx: -3.05
+      sy: 8.475
+      syaw: -0.2653
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1049:
+    cylinders: 250
+    legs:
+    - gx: -3.1
+      gy: 7.575
+      kind: enter
+      sx: -2.6
+      sy: 11.4
+      syaw: -1.4268
+    - gx: -3.0
+      gy: 10.8
+      kind: exit
+      sx: -3.1
+      sy: 7.575
+      syaw: -2.9244
+    - gx: -3.375
+      gy: 5.9
+      kind: enter
+      sx: -2.15
+      sy: 6.45
+      syaw: -1.9594
+    - gx: -2.4
+      gy: 2.0
+      kind: exit
+      sx: -3.375
+      sy: 5.9
+      syaw: -1.8255
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1050:
+    cylinders: 235
+    legs:
+    - gx: -2.2
+      gy: 6.375
+      kind: enter
+      sx: -1.6
+      sy: 2.5
+      syaw: 1.7471
+    - gx: -1.45
+      gy: 3.65
+      kind: exit
+      sx: -2.2
+      sy: 6.375
+      syaw: -2.7487
+    - gx: -1.575
+      gy: 8.5
+      kind: enter
+      sx: -4.5
+      sy: 10.25
+      syaw: -0.1887
+    - gx: -1.75
+      gy: 11.9
+      kind: exit
+      sx: -1.575
+      sy: 8.5
+      syaw: 1.7539
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1051:
+    cylinders: 253
+    legs:
+    - gx: -2.475
+      gy: 8.3
+      kind: enter
+      sx: -3.75
+      sy: 7.55
+      syaw: 0.0336
+    - gx: -2.2
+      gy: 5.6
+      kind: exit
+      sx: -2.475
+      sy: 8.3
+      syaw: -1.8317
+    - gx: -0.825
+      gy: 6.2
+      kind: enter
+      sx: -3.65
+      sy: 7.15
+      syaw: -0.8677
+    - gx: -2.8
+      gy: 4.4
+      kind: exit
+      sx: -0.825
+      sy: 6.2
+      syaw: -1.9495
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1052:
+    cylinders: 244
+    legs:
+    - gx: -0.8
+      gy: 6.675
+      kind: enter
+      sx: -3.2
+      sy: 3.7
+      syaw: 0.756
+    - gx: -3.65
+      gy: 4.2
+      kind: exit
+      sx: -0.8
+      sy: 6.675
+      syaw: 0.1285
+    - gx: -2.35
+      gy: 8.175
+      kind: enter
+      sx: 0.35
+      sy: 10.7
+      syaw: -2.634
+    - gx: -2.9
+      gy: 12.95
+      kind: exit
+      sx: -2.35
+      sy: 8.175
+      syaw: -2.7354
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1053:
+    cylinders: 244
+    legs:
+    - gx: -2.025
+      gy: 6.7
+      kind: enter
+      sx: -2.55
+      sy: 3.35
+      syaw: 1.3303
+    - gx: -3.0
+      gy: 9.9
+      kind: exit
+      sx: -2.025
+      sy: 6.7
+      syaw: 1.5501
+    - gx: -3.05
+      gy: 5.775
+      kind: enter
+      sx: -3.95
+      sy: 3.15
+      syaw: 1.3277
+    - gx: -2.9
+      gy: 4.45
+      kind: exit
+      sx: -3.05
+      sy: 5.775
+      syaw: 0.1223
+    - gx: -1.6
+      gy: 8.025
+      kind: enter
+      sx: -3.2
+      sy: 10.0
+      syaw: -0.7268
+    - gx: -3.45
+      gy: 9.2
+      kind: exit
+      sx: -1.6
+      sy: 8.025
+      syaw: -2.7537
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1054:
+    cylinders: 251
+    legs:
+    - gx: -2.025
+      gy: 8.6
+      kind: enter
+      sx: 0.35
+      sy: 11.4
+      syaw: -2.4307
+    - gx: -2.95
+      gy: 4.7
+      kind: exit
+      sx: -2.025
+      sy: 8.6
+      syaw: -2.1032
+    - gx: -2.65
+      gy: 5.925
+      kind: enter
+      sx: -1.0
+      sy: 3.35
+      syaw: 2.2123
+    - gx: -3.45
+      gy: 1.85
+      kind: exit
+      sx: -2.65
+      sy: 5.925
+      syaw: -2.7621
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1055:
+    cylinders: 220
+    legs:
+    - gx: -3.375
+      gy: 8.15
+      kind: enter
+      sx: -0.7
+      sy: 9.4
+      syaw: -2.1323
+    - gx: -2.95
+      gy: 9.35
+      kind: exit
+      sx: -3.375
+      sy: 8.15
+      syaw: -1.6479
+    - gx: -1.55
+      gy: 7.875
+      kind: enter
+      sx: -1.15
+      sy: 5.0
+      syaw: 1.5935
+    - gx: -2.2
+      gy: 3.2
+      kind: exit
+      sx: -1.55
+      sy: 7.875
+      syaw: -0.3126
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1056:
+    cylinders: 243
+    legs:
+    - gx: -2.35
+      gy: 8.775
+      kind: enter
+      sx: -0.55
+      sy: 6.6
+      syaw: 2.7457
+    - gx: -2.8
+      gy: 10.4
+      kind: exit
+      sx: -2.35
+      sy: 8.775
+      syaw: -2.6155
+    - gx: -2.325
+      gy: 6.05
+      kind: enter
+      sx: -1.3
+      sy: 4.2
+      syaw: 2.4975
+    - gx: -0.7
+      gy: 4.4
+      kind: exit
+      sx: -2.325
+      sy: 6.05
+      syaw: -2.4311
+    - gx: -0.8
+      gy: 8.325
+      kind: enter
+      sx: -1.55
+      sy: 3.85
+      syaw: 1.613
+    - gx: -1.85
+      gy: 4.65
+      kind: exit
+      sx: -0.8
+      sy: 8.325
+      syaw: -0.2155
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1057:
+    cylinders: 231
+    legs:
+    - gx: -1.1
+      gy: 6.225
+      kind: enter
+      sx: -2.05
+      sy: 1.55
+      syaw: 1.5049
+    - gx: -2.85
+      gy: 1.55
+      kind: exit
+      sx: -1.1
+      sy: 6.225
+      syaw: -0.3035
+    - gx: -3.225
+      gy: 8.05
+      kind: enter
+      sx: -3.95
+      sy: 4.9
+      syaw: 0.9134
+    - gx: -3.05
+      gy: 11.95
+      kind: exit
+      sx: -3.225
+      sy: 8.05
+      syaw: 1.7077
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1058:
+    cylinders: 205
+    legs:
+    - gx: -3.4
+      gy: 6.075
+      kind: enter
+      sx: -1.9
+      sy: 10.1
+      syaw: -1.8997
+    - gx: -5.0
+      gy: 10.1
+      kind: exit
+      sx: -3.4
+      sy: 6.075
+      syaw: -2.874
+    - gx: -1.9
+      gy: 8.625
+      kind: enter
+      sx: -1.65
+      sy: 10.9
+      syaw: -1.5475
+    - gx: -4.85
+      gy: 9.75
+      kind: exit
+      sx: -1.9
+      sy: 8.625
+      syaw: -2.6951
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1059:
+    cylinders: 250
+    legs:
+    - gx: -1.875
+      gy: 8.0
+      kind: enter
+      sx: -4.3
+      sy: 10.95
+      syaw: -1.2257
+    - gx: -1.8
+      gy: 4.65
+      kind: exit
+      sx: -1.875
+      sy: 8.0
+      syaw: -2.1833
+    - gx: -1.0
+      gy: 5.775
+      kind: enter
+      sx: -1.1
+      sy: 7.3
+      syaw: -1.6169
+    - gx: -0.95
+      gy: 2.2
+      kind: exit
+      sx: -1.0
+      sy: 5.775
+      syaw: 3.2123
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1060:
+    cylinders: 237
+    legs:
+    - gx: -1.55
+      gy: 7.275
+      kind: enter
+      sx: -0.7
+      sy: 10.1
+      syaw: -1.5547
+    - gx: -0.55
+      gy: 4.45
+      kind: exit
+      sx: -1.55
+      sy: 7.275
+      syaw: 0.0858
+    - gx: -3.2
+      gy: 7.875
+      kind: enter
+      sx: 0.55
+      sy: 9.8
+      syaw: 2.6483
+    - gx: -3.9
+      gy: 9.1
+      kind: exit
+      sx: -3.2
+      sy: 7.875
+      syaw: -0.7488
+    - gx: -2.6
+      gy: 5.925
+      kind: enter
+      sx: -1.45
+      sy: 9.6
+      syaw: -1.6215
+    - gx: -1.8
+      gy: 8.2
+      kind: exit
+      sx: -2.6
+      sy: 5.925
+      syaw: -0.6015
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1061:
+    cylinders: 262
+    legs:
+    - gx: -1.9
+      gy: 8.475
+      kind: enter
+      sx: -1.95
+      sy: 5.1
+      syaw: 2.2651
+    - gx: 0.45
+      gy: 10.7
+      kind: exit
+      sx: -1.9
+      sy: 8.475
+      syaw: -3.0285
+    - gx: -0.825
+      gy: 5.95
+      kind: enter
+      sx: -1.05
+      sy: 4.45
+      syaw: 2.3327
+    - gx: -1.9
+      gy: 4.2
+      kind: exit
+      sx: -0.825
+      sy: 5.95
+      syaw: 2.0778
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1062:
+    cylinders: 244
+    legs:
+    - gx: -1.1
+      gy: 5.775
+      kind: enter
+      sx: -1.9
+      sy: 3.15
+      syaw: 1.6039
+    - gx: -1.65
+      gy: 4.3
+      kind: exit
+      sx: -1.1
+      sy: 5.775
+      syaw: -0.0217
+    - gx: -1.85
+      gy: 8.475
+      kind: enter
+      sx: -0.5
+      sy: 5.05
+      syaw: 1.5753
+    - gx: 0.35
+      gy: 8.4
+      kind: exit
+      sx: -1.85
+      sy: 8.475
+      syaw: -0.2887
+    - gx: -3.35
+      gy: 7.875
+      kind: enter
+      sx: -2.4
+      sy: 11.3
+      syaw: -1.5906
+    - gx: -2.3
+      gy: 3.75
+      kind: exit
+      sx: -3.35
+      sy: 7.875
+      syaw: -0.3462
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1063:
+    cylinders: 248
+    legs:
+    - gx: -1.9
+      gy: 7.575
+      kind: enter
+      sx: -2.4
+      sy: 4.8
+      syaw: 2.0494
+    - gx: -1.2
+      gy: 5.55
+      kind: exit
+      sx: -1.9
+      sy: 7.575
+      syaw: -2.7623
+    - gx: -3.675
+      gy: 6.95
+      kind: enter
+      sx: -1.35
+      sy: 4.85
+      syaw: 2.6534
+    - gx: -1.4
+      gy: 2.65
+      kind: exit
+      sx: -3.675
+      sy: 6.95
+      syaw: -1.785
+    - gx: -3.675
+      gy: 8.5
+      kind: enter
+      sx: -1.65
+      sy: 9.6
+      syaw: -2.7232
+    - gx: -3.2
+      gy: 12.6
+      kind: exit
+      sx: -3.675
+      sy: 8.5
+      syaw: 1.6643
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: holdout
+  1064:
+    cylinders: 225
+    legs:
+    - gx: -3.1
+      gy: 7.125
+      kind: enter
+      sx: -4.95
+      sy: 10.3
+      syaw: -0.8162
+    - gx: -4.6
+      gy: 9.85
+      kind: exit
+      sx: -3.1
+      sy: 7.125
+      syaw: -2.8431
+    - gx: -0.975
+      gy: 8.8
+      kind: enter
+      sx: 0.45
+      sy: 7.0
+      syaw: 1.8164
+    - gx: -3.45
+      gy: 8.1
+      kind: exit
+      sx: -0.975
+      sy: 8.8
+      syaw: 1.6765
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1065:
+    cylinders: 231
+    legs:
+    - gx: -3.35
+      gy: 8.325
+      kind: enter
+      sx: 0.25
+      sy: 11.35
+      syaw: -2.461
+    - gx: -2.75
+      gy: 11.8
+      kind: exit
+      sx: -3.35
+      sy: 8.325
+      syaw: -0.0977
+    - gx: -2.025
+      gy: 5.95
+      kind: enter
+      sx: -3.25
+      sy: 4.8
+      syaw: 1.4416
+    - gx: -3.45
+      gy: 3.4
+      kind: exit
+      sx: -2.025
+      sy: 5.95
+      syaw: 1.8906
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1066:
+    cylinders: 219
+    legs:
+    - gx: -0.975
+      gy: 7.25
+      kind: enter
+      sx: -1.5
+      sy: 4.7
+      syaw: 1.4492
+    - gx: -1.55
+      gy: 3.75
+      kind: exit
+      sx: -0.975
+      sy: 7.25
+      syaw: -2.1851
+    - gx: -3.525
+      gy: 7.15
+      kind: enter
+      sx: -1.15
+      sy: 4.8
+      syaw: 2.629
+    - gx: -1.7
+      gy: 4.55
+      kind: exit
+      sx: -3.525
+      sy: 7.15
+      syaw: 1.8911
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1067:
+    cylinders: 267
+    legs:
+    - gx: -3.075
+      gy: 6.85
+      kind: enter
+      sx: -0.75
+      sy: 9.25
+      syaw: -2.3127
+    - gx: -0.95
+      gy: 9.05
+      kind: exit
+      sx: -3.075
+      sy: 6.85
+      syaw: 1.5604
+    - gx: -2.925
+      gy: 8.65
+      kind: enter
+      sx: 0.5
+      sy: 8.2
+      syaw: 1.9982
+    - gx: 0.2
+      gy: 10.4
+      kind: exit
+      sx: -2.925
+      sy: 8.65
+      syaw: 1.9652
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1068:
+    cylinders: 239
+    legs:
+    - gx: -1.1
+      gy: 8.175
+      kind: enter
+      sx: -0.6
+      sy: 10.45
+      syaw: -1.6192
+    - gx: -2.2
+      gy: 8.75
+      kind: exit
+      sx: -1.1
+      sy: 8.175
+      syaw: 0.0221
+    - gx: -3.225
+      gy: 7.0
+      kind: enter
+      sx: -0.85
+      sy: 6.15
+      syaw: -2.8233
+    - gx: -0.6
+      gy: 9.45
+      kind: exit
+      sx: -3.225
+      sy: 7.0
+      syaw: 1.7836
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1069:
+    cylinders: 251
+    legs:
+    - gx: -2.175
+      gy: 8.05
+      kind: enter
+      sx: -0.15
+      sy: 12.5
+      syaw: -1.9422
+    - gx: -1.5
+      gy: 11.3
+      kind: exit
+      sx: -2.175
+      sy: 8.05
+      syaw: 1.4957
+    - gx: -2.025
+      gy: 5.95
+      kind: enter
+      sx: -2.3
+      sy: 3.1
+      syaw: 1.5694
+    - gx: -1.6
+      gy: 3.4
+      kind: exit
+      sx: -2.025
+      sy: 5.95
+      syaw: 1.9567
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1070:
+    cylinders: 258
+    legs:
+    - gx: -1.425
+      gy: 7.25
+      kind: enter
+      sx: -3.3
+      sy: 3.3
+      syaw: 1.1587
+    - gx: -3.0
+      gy: 7.4
+      kind: exit
+      sx: -1.425
+      sy: 7.25
+      syaw: -1.9445
+    - gx: -3.5
+      gy: 6.675
+      kind: enter
+      sx: -3.35
+      sy: 10.35
+      syaw: -1.7932
+    - gx: -1.5
+      gy: 9.6
+      kind: exit
+      sx: -3.5
+      sy: 6.675
+      syaw: 0.047
+    - gx: -2.775
+      gy: 8.8
+      kind: enter
+      sx: -0.8
+      sy: 6.15
+      syaw: 2.0304
+    - gx: -4.3
+      gy: 12.55
+      kind: exit
+      sx: -2.775
+      sy: 8.8
+      syaw: 2.2234
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1071:
+    cylinders: 238
+    legs:
+    - gx: -2.775
+      gy: 7.25
+      kind: enter
+      sx: -3.95
+      sy: 9.55
+      syaw: -1.1678
+    - gx: -3.45
+      gy: 8.25
+      kind: exit
+      sx: -2.775
+      sy: 7.25
+      syaw: -2.3455
+    - gx: -1.125
+      gy: 7.1
+      kind: enter
+      sx: -2.8
+      sy: 4.2
+      syaw: 0.7488
+    - gx: -2.4
+      gy: 10.0
+      kind: exit
+      sx: -1.125
+      sy: 7.1
+      syaw: -2.0418
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout
+  1072:
+    cylinders: 236
+    legs:
+    - gx: -2.95
+      gy: 7.275
+      kind: enter
+      sx: -0.9
+      sy: 10.65
+      syaw: -2.2718
+    - gx: -2.8
+      gy: 11.3
+      kind: exit
+      sx: -2.95
+      sy: 7.275
+      syaw: -2.49
+    - gx: -0.95
+      gy: 7.575
+      kind: enter
+      sx: -0.6
+      sy: 3.4
+      syaw: 1.5931
+    - gx: -1.8
+      gy: 10.4
+      kind: exit
+      sx: -0.95
+      sy: 7.575
+      syaw: 0.0854
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1073:
+    cylinders: 230
+    legs:
+    - gx: -3.375
+      gy: 7.4
+      kind: enter
+      sx: -3.35
+      sy: 9.65
+      syaw: -0.162
+    - gx: -3.0
+      gy: 3.05
+      kind: exit
+      sx: -3.375
+      sy: 7.4
+      syaw: -1.7799
+    - gx: -3.5
+      gy: 8.925
+      kind: enter
+      sx: -3.0
+      sy: 4.75
+      syaw: 1.5166
+    - gx: -3.85
+      gy: 11.45
+      kind: exit
+      sx: -3.5
+      sy: 8.925
+      syaw: -0.2845
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1074:
+    cylinders: 220
+    legs:
+    - gx: -1.0
+      gy: 6.675
+      kind: enter
+      sx: -1.15
+      sy: 9.25
+      syaw: -2.5883
+    - gx: -2.95
+      gy: 2.85
+      kind: exit
+      sx: -1.0
+      sy: 6.675
+      syaw: -2.7959
+    - gx: -1.4
+      gy: 8.025
+      kind: enter
+      sx: -0.8
+      sy: 11.3
+      syaw: -1.5004
+    - gx: -3.0
+      gy: 8.15
+      kind: exit
+      sx: -1.4
+      sy: 8.025
+      syaw: 0.0943
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1075:
+    cylinders: 236
+    legs:
+    - gx: -3.5
+      gy: 8.475
+      kind: enter
+      sx: -5.0
+      sy: 7.9
+      syaw: 1.4408
+    - gx: -0.8
+      gy: 10.4
+      kind: exit
+      sx: -3.5
+      sy: 8.475
+      syaw: -0.1405
+    - gx: -1.575
+      gy: 6.5
+      kind: enter
+      sx: -3.6
+      sy: 4.25
+      syaw: 0.9132
+    - gx: -1.95
+      gy: 10.3
+      kind: exit
+      sx: -1.575
+      sy: 6.5
+      syaw: -1.961
+    - gx: -1.275
+      gy: 8.8
+      kind: enter
+      sx: -4.1
+      sy: 12.35
+      syaw: -0.785
+    - gx: -2.95
+      gy: 6.6
+      kind: exit
+      sx: -1.275
+      sy: 8.8
+      syaw: 1.8164
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1076:
+    cylinders: 243
+    legs:
+    - gx: -1.55
+      gy: 7.575
+      kind: enter
+      sx: -1.35
+      sy: 2.6
+      syaw: 1.5379
+    - gx: -4.15
+      gy: 10.4
+      kind: exit
+      sx: -1.55
+      sy: 7.575
+      syaw: 0.0858
+    - gx: -3.225
+      gy: 7.7
+      kind: enter
+      sx: -0.95
+      sy: 4.15
+      syaw: 2.2256
+    - gx: -2.05
+      gy: 4.9
+      kind: exit
+      sx: -3.225
+      sy: 7.7
+      syaw: -1.8627
+    - gx: -1.4
+      gy: 5.775
+      kind: enter
+      sx: -3.15
+      sy: 2.95
+      syaw: 0.7554
+    - gx: -2.65
+      gy: 5.65
+      kind: exit
+      sx: -1.4
+      sy: 5.775
+      syaw: 0.0566
+    mouth_gap_m: 0.3
+    pockets: 3
+    seed: 20260803
+    split: train
+  1077:
+    cylinders: 215
+    legs:
+    - gx: -2.45
+      gy: 7.575
+      kind: enter
+      sx: -3.4
+      sy: 9.55
+      syaw: -0.4615
+    - gx: -2.65
+      gy: 2.7
+      kind: exit
+      sx: -2.45
+      sy: 7.575
+      syaw: -0.0921
+    - gx: -3.1
+      gy: 6.075
+      kind: enter
+      sx: -2.1
+      sy: 2.3
+      syaw: 1.6872
+    - gx: -3.15
+      gy: 3.85
+      kind: exit
+      sx: -3.1
+      sy: 6.075
+      syaw: -3.0579
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1078:
+    cylinders: 214
+    legs:
+    - gx: -2.325
+      gy: 6.65
+      kind: enter
+      sx: -4.05
+      sy: 8.0
+      syaw: -0.8382
+    - gx: -0.8
+      gy: 2.6
+      kind: exit
+      sx: -2.325
+      sy: 6.65
+      syaw: -1.874
+    - gx: -2.175
+      gy: 8.5
+      kind: enter
+      sx: -4.4
+      sy: 11.3
+      syaw: -0.7116
+    - gx: -2.15
+      gy: 11.55
+      kind: exit
+      sx: -2.175
+      sy: 8.5
+      syaw: 1.685
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: train
+  1079:
+    cylinders: 227
+    legs:
+    - gx: -0.975
+      gy: 8.15
+      kind: enter
+      sx: -3.15
+      sy: 3.8
+      syaw: 1.4124
+    - gx: -2.75
+      gy: 5.8
+      kind: exit
+      sx: -0.975
+      sy: 8.15
+      syaw: -2.1112
+    - gx: -1.75
+      gy: 6.075
+      kind: enter
+      sx: -0.65
+      sy: 1.45
+      syaw: 1.5802
+    - gx: -2.85
+      gy: 2.7
+      kind: exit
+      sx: -1.75
+      sy: 6.075
+      syaw: -2.6062
+    mouth_gap_m: 0.3
+    pockets: 2
+    seed: 20260803
+    split: holdout

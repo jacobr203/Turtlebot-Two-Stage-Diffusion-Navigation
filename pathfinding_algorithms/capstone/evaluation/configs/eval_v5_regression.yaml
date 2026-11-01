@@ -1,0 +1,11 @@
+# Regression check: two_stage_v5 on a 10-world holdout subset at 4 Hz, to compare
+# with two_stage_v4 on the same worlds.
+# Run with TWO_STAGE_CKPT=diffusion/runs/two_stage_v5/best.pt
+# 1 model x 10 worlds x 6 trials = 60 trials.
+run_id: v5_regression
+models: [two_stage]
+worlds: [18, 22, 23, 25, 26, 35, 51, 54, 66, 82]
+hz_list: [4.0]
+trials: 6
+denoiser: ddpm
+timeout_sim_s: 240.0

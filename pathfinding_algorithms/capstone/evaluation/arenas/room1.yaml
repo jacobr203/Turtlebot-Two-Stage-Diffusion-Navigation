@@ -1,0 +1,57 @@
+name: room1
+id: 9101
+map: room1_map.yaml
+pole_diameter_m: 0.04445
+# target height; detector distances scale with it
+target_height_m: 0.0915
+# each colour run names one; colour bands only hold under their own light
+lighting:
+  day:
+    # daylight through the window
+    profile: real
+    camera_params:
+      auto_exposure: 1
+      backlight_compensation: 0
+      white_balance_automatic: false
+      white_balance_temperature: 4600
+      exposure_time_absolute: 330
+      gain: 60
+  night:
+    # room lamps, blinds closed
+    profile: real_night
+    camera_params:
+      auto_exposure: 1
+      backlight_compensation: 0
+      white_balance_automatic: false
+      white_balance_temperature: 3200
+      exposure_time_absolute: 330
+      gain: 130
+# extracted from the map
+poles:
+  - [-0.11, 1.06]  # p00  (unknown cells only: weaker evidence)
+  - [0.47, 1.18]  # p01  (unknown cells only: weaker evidence)
+  - [0.49, -0.59]  # p02  (unknown cells only: weaker evidence)
+  - [0.88, -0.35]  # p03
+  - [1.12, 1.18]  # p04
+  - [1.58, -0.57]  # p05  (unknown cells only: weaker evidence)
+  - [1.70, 0.03]  # p06  (unknown cells only: weaker evidence)
+  - [2.10, 1.03]  # p07
+  - [2.28, 1.12]  # p08  (unknown cells only: weaker evidence)
+  - [2.33, -0.02]  # p09  (unknown cells only: weaker evidence)
+  - [2.62, 0.62]  # p10  (unknown cells only: weaker evidence)
+  - [2.99, 1.31]  # p11  located from sky_blue detections
+placements:
+  # one list per arrangement; x, y in m from the start mark, facing_deg 0 = +x
+  P1:
+    - {color: sky_blue, x: 1.14, y: 1.17, facing_deg: -20, mount: pole, pole: p04}
+    - {color: lime_green, x: 0.22, y: -0.94, facing_deg: 91, mount: wall}
+  P2:
+    # positions from clustered close detections; facing_deg is approximate
+    - {color: sky_blue, x: 2.32, y: 1.14, facing_deg: -25, mount: pole, pole: p08}
+    - {color: lime_green, x: -0.07, y: 1.00, facing_deg: -56, mount: pole, pole: p00}
+  P3:
+    # positions from clustered close detections; facing_deg is approximate
+    - {color: lime_green, x: 1.69, y: 0.03, facing_deg: 165, mount: pole, pole: p06}
+    - {color: sky_blue, x: 2.97, y: 1.30, facing_deg: -146, mount: pole, pole: p11}
+  # - {color: purple, x: 2.10, y: -0.80, facing_deg: 90, mount: wall}
+  # - {color: orange, x: 1.20, y: 0.37, facing_deg: 180, mount: pole, pole: p03}

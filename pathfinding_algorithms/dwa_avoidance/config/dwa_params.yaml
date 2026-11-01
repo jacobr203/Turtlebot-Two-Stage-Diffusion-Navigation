@@ -1,0 +1,37 @@
+dwa_node:
+  ros__parameters:
+
+    # TurtleBot3 Burger limits, from the ROBOTIS e-Manual and Nav2's burger.yaml
+    max_speed: 0.22       # m/s
+
+    # Small reverse for tight recovery; keep small to avoid confusing the
+    # Cartographer scan-matcher. Nav2 DWB allows none.
+    min_speed: -0.05      # m/s
+
+    # Hardware ceiling; Nav2 DWB caps this at 1.0 rad/s as a software limit.
+    max_yaw_rate: 2.84    # rad/s
+
+    max_accel: 2.5        # m/s²
+    max_delta_yaw_rate: 3.2   # rad/s²
+
+    # Sampling resolution: finer grids find better trajectories but cost CPU.
+    v_resolution:        0.01   # m/s
+    yaw_rate_resolution: 0.10   # rad/s
+
+    # Prediction horizon
+    dt:           0.10    # s per simulation step
+    predict_time: 1.50    # s total lookahead
+
+    # robot_radius + obstacle_margin = 0.20 m clearance between scan hits and the
+    # robot body (real radius ~0.1 m), covering LiDAR noise and odometry drift.
+    robot_radius:    0.15   # m
+    obstacle_margin: 0.05   # m
+
+    # Cost weights, after Fox et al. 1997: clearance is highest so safety is
+    # never traded for speed.
+    w_heading:   0.20
+    w_clearance: 1.00
+    w_speed:     0.50
+
+    goal_tolerance:   0.25   # m
+    wander_lookahead: 2.00   # m, unused: no node declares it

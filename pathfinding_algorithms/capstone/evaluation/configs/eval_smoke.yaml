@@ -1,0 +1,8 @@
+# Development smoke: every model once on 3 holdout worlds at 4 Hz.
+run_id: smoke_v1
+models: [dwa, single_stage, two_stage]
+worlds: [18, 22, 51]
+hz_list: [4.0]
+trials: 1
+denoiser: ddpm
+timeout_sim_s: 240.0

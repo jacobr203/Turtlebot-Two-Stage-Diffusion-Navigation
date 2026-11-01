@@ -1,0 +1,24 @@
+# Two-stage policy on dataset v2: conditioned on the subgoal (1.2 m along the live A* path)
+# and the final goal (9 vec features).
+run_name: two_stage_v2
+data_dir: expert/data/v2
+conditioning: subgoal_goal
+
+horizon: 8            # predicted waypoints (0.25 s spacing -> 2 s reach)
+obs_stack: 2
+goal_clip: 3.0        # [m] distance feature saturation
+T: 35                 # DDPM denoising steps
+
+channels: [64, 128, 256]
+batch_size: 256
+lr: 1.0e-4
+weight_decay: 1.0e-6
+ema_decay: 0.999
+epochs: 60
+eval_every: 5
+val_episode: 3        # episode 3 of every world held out for offline metrics
+
+seed: 7
+device: cpu
+threads: 12
+num_workers: 4

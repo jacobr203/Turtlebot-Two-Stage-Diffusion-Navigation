@@ -1,0 +1,40 @@
+# HSV detection bands for the colour scavenger test.
+# OpenCV ranges: H 0-179, S 0-255, V 0-255.
+#
+# `sim` is tight around the exact Gazebo material colours. `real` is wider to
+# absorb BRIO white balance and indoor lighting; tune it against the actual
+# targets with dev_tools/color_mask_viz.py.
+sim:
+  # Gazebo renders #90EE90 at H 61-65 with a tail above 65; shaded faces dip
+  # to V ~150
+  light_green: {h: [50, 72],  s: [60, 170],  v: [140, 255]}
+  # Gazebo renders #800080 at H ~141
+  purple:      {h: [133, 160], s: [140, 255], v: [50, 220]}
+  orange:      {h: [8, 22],   s: [180, 255], v: [180, 255]}
+  # #32CD32 has light_green's hue (H ~60); only saturation separates them
+  # (lime S ~193, light green S ~100), so the s bands stay disjoint
+  lime_green:  {h: [50, 72],  s: [175, 255], v: [110, 255]}
+  # #6CA6CD: H ~102, S ~121, V ~205
+  sky_blue:    {h: [92, 112], s: [70, 200],  v: [110, 255]}
+real:
+  light_green: {h: [45, 75],  s: [60, 255],  v: [80, 255]}
+  purple:      {h: [128, 165], s: [70, 255],  v: [50, 255]}
+  # light_green's band overlaps lime_green here, so do not enable both in one
+  # run. A lime sticky note reads H 38-49, S 68-136, V 118-216 under the locked
+  # camera settings (33 ms, gain 60, WB 4600 K); it is yellower than #32CD32.
+  lime_green:  {h: [33, 53],  s: [55, 255], v: [90, 255]}
+  # S floor 125 rejects window glare on glossy black furniture (H 96, S 60-95);
+  # the 3" note reads S 177-205 under the locked camera settings
+  sky_blue:    {h: [88, 104], s: [125, 255], v: [110, 255]}
+  # S floor high: wood and skin tones share the hue but are desaturated
+  orange:      {h: [5, 25],   s: [170, 255], v: [120, 255]}
+
+# Real BRIO under room lamps with the blinds closed (night camera lock: WB
+# 3200 K, 33 ms, gain 130). Only these two colours are calibrated under this
+# light; the detector refuses any other.
+real_night:
+  # note reads H 95-98, S 105-196, V 142-196
+  sky_blue:    {h: [89, 106], s: [110, 255], v: [110, 255]}
+  # note reads H 29-33, S 79-161 (the lamps shift it from H ~40); the hue and
+  # V floors exclude cardboard (H 19-24, V ~79)
+  lime_green:  {h: [26, 42],  s: [90, 255],  v: [110, 255]}

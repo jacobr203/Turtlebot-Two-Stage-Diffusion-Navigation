@@ -1,0 +1,31 @@
+# Corridor top-up for v3: re-opens the original BARN, stress and fork pool so corridor worlds
+# get the same episode scheme. Same dataset_id and manifests as collect_v3.yaml, so it merges
+# by resuming.
+# 12 episodes/world: 0-5 run the full course (3 = offline validation split, 4-5 noisy);
+# 6-11 are multi-start short routes (10-11 noisy), which training cuts into 1.5 m segments.
+
+dataset_id: v3
+seed: 11
+include_fork_worlds: true
+generated_pool_only: false
+
+episodes_per_world: 12
+multi_start_from_episode: 6
+# multi-start route length band [m]
+route_len_range: [1.2, 2.0]
+# multipath worlds (400+) start in empty space inside the clutter, not at the canonical start
+fork_all_multi_start: true
+perturb_episodes: [4, 5, 10, 11]
+perturb_every: 2.5
+perturb_dur: 0.45
+perturb_w: 1.2
+perturb_min_clear: 0.35
+
+inflate_radius: 0.21
+start_jitter_xy: 0.15
+start_jitter_yaw: 0.15
+goal_jitter_xy: 0.30
+subgoal_dist: 1.2
+rate_hz: 4.0
+tracker_rate_hz: 20.0
+timeout_sim_s: 240.0

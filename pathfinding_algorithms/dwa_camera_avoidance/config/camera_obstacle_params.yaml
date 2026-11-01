@@ -1,0 +1,55 @@
+camera_obstacle_node:
+  ros__parameters:
+
+    # Logitech BRIO mount on the Burger; measure these for your own mounting.
+    # Height and tilt are a joint fit of floor back-projection to matched LiDAR
+    # ranges. Intrinsics (fx=fy=464.7) are auto-loaded by v4l2_camera from
+    # ~/.ros/camera_info/logitech_brio.yaml on the robot.
+    camera_height:    0.1693   # m, floor to optical centre
+    camera_tilt_deg:  0.86     # positive = nose down; read at startup only, restart to apply
+    camera_x_offset:  0.05     # m forward of the LiDAR, which is at robot centre
+    camera_y_offset:  0.0      # m, positive = left
+
+    # Images are resized to this before any processing.
+    process_width:   640
+    process_height:  480
+
+    # Virtual scan geometry
+    virtual_scan_fov_deg:              69.0   # deg, BRIO horizontal FOV at 640x480
+    virtual_scan_angle_increment_deg:   1.0   # deg
+    virtual_scan_range_min:  0.05             # m
+    virtual_scan_range_max:  3.0              # m
+
+    # Floor obstacles: Canny edges in the bottom of the image, back-projected to the floor.
+    floor_zone_fraction:  0.60     # bottom fraction of the image
+    # Obstacle-floor boundaries are high contrast and floor texture is not; lower
+    # thresholds fill the scan with texture phantoms.
+    floor_canny_low:      80
+    floor_canny_high:     200
+    floor_min_height:     0.01     # m, ignore bumps shorter than this
+    floor_max_height:     0.14     # m, below the LiDAR plane (~0.17 m)
+
+    # Overhead obstacles: horizontal-emphasis Sobel + Canny for table and shelf edges.
+    overhead_zone_top_fraction:    0.05    # zone start, from image top
+    overhead_zone_bottom_fraction: 0.32    # zone end, from image top
+    overhead_canny_low:    25
+    overhead_canny_high:   80
+    # Ray-plane intersection height; 0.55 m is a conservative lower bound that
+    # catches ~0.7 m tables before the robot is underneath.
+    overhead_assume_height: 0.55   # m
+    overhead_min_height:    0.20   # m, just above the LiDAR plane
+    overhead_max_height:    1.30   # m
+
+    # A solid uniform obstacle shows one clean base edge per column, so a higher
+    # density rejects real obstacles.
+    min_edge_density:     2      # min edge pixels per column
+    min_obstacle_columns: 4      # consecutive columns an obstacle must span
+    floor_min_range:      0.30   # m, closer floor hits are texture
+    publish_debug:        false  # publish /camera_obstacles_debug
+
+    # Vertical-continuity filter: a floor candidate needs edge pixels spanning this
+    # physical height above its base, which texture streaks lack.
+    floor_support_min_height: 0.03   # m
+    # 0 = off: solid uniform obstacles have no edges above the base, and on a low-texture
+    # floor the Canny thresholds and blur already remove phantoms.
+    floor_support_min_edges:  0      # edge px required within that span

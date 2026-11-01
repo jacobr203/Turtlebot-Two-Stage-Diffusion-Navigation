@@ -1,0 +1,12 @@
+# Full matrix on the V2 policies (default trial.py CKPTS), same design as full_v2.
+# Pin each worker to its own 5 cores so sampling stays inside the 250 ms budget
+# at 4 Hz, with threads: 4 sizing torch to that share:
+#   worker k:  taskset -c $((5*k))-$((5*k+4))  (core 15 left for OS/DDS)
+run_id: full_v3
+models: [dwa, single_stage, two_stage]
+worlds: holdout
+hz_list: [2.0, 3.0, 4.0]
+trials: 4
+denoiser: ddpm
+timeout_sim_s: 240.0
+threads: 4
