@@ -8,6 +8,13 @@ robot follows. Inference runs on a desktop CPU over a wired tether.
 The system was compared with a single-stage version of the same network (no
 planner) and with a Dynamic Window Approach (DWA) baseline.
 
+**Public repository:**
+<https://github.com/jacobr203/Turtlebot-Two-Stage-Diffusion-Navigation>
+
+Trained checkpoints, rosbags and raw results (camera images removed for
+privacy) are in the
+[data-v1 release](https://github.com/jacobr203/Turtlebot-Two-Stage-Diffusion-Navigation/releases/tag/data-v1).
+
 ## Results
 
 **Simulation:** 40 unseen BARN worlds, 160 trials per model at each rate.
